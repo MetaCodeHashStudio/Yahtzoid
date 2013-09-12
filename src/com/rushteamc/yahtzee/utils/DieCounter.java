@@ -5,7 +5,7 @@ public class DieCounter
 
 	public static int[] countValues(int Dice[])
 	{
-		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize(); // No need to use this method here.
+		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
 		int[] Values = new int[Dice.length];
 		for
 		(
@@ -17,7 +17,7 @@ public class DieCounter
 			for
 			(
 				int j = 1;
-					j <= DieSize; // For every possible dice face.
+					j < DieSize+1; // For every possible dice face.
 					j++
 			)
 			{
@@ -39,7 +39,7 @@ public class DieCounter
 		for
 		(
 			int i = 0;
-				i < Numbers.length;
+				i < Numbers.length-1;
 				i++
 		)
 		{
