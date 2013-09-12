@@ -6,8 +6,8 @@ public class RollDie
 {
 	public static int[] castDie() // rolls the die and returns the array.
 	{
-		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
-		int HowManyDice = com.rushteamc.yahtzee.utils.Configurables.getDieNumber();
+		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();		// How many faces on the rolled die?
+		int HowManyDice = com.rushteamc.yahtzee.utils.Configurables.getDieNumber();	// How many dice to roll?
 		Random Dice = new Random();
 		int[] CastDie = new int[HowManyDice];
 		for

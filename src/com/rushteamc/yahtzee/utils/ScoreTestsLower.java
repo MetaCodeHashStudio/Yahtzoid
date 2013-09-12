@@ -68,6 +68,11 @@ public class ScoreTestsLower
 	}
 	public static int checkForSmallStraight(boolean Numbers[])
 	{
+		/*	This method should be deprecated or rewritten. Does not support configurable die sizes.
+		 * 
+		 * 
+		 * 
+		 */
 		int Score = 0;
 		if
 		(
@@ -104,6 +109,11 @@ public class ScoreTestsLower
 	}
 	public static int checkForLargeStraight(boolean[] Numbers)
 	{
+		/*	This method should be deprecated or rewritten. Does not support configurable die sizes.
+		 * 
+		 * 
+		 * 
+		 */
 		int Score = 0;
 		if
 		(

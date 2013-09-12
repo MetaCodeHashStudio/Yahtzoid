@@ -7,7 +7,7 @@ public class Configurables
 	
 	{	
 		
-		int DieSize = 6;
+		int DieSize = 6;				// Specify the amount of faces on the die.
 		return DieSize;
 		
 	}
@@ -16,14 +16,14 @@ public class Configurables
 	
 	{
 		
-		int NumberOfDice = 5;
+		int NumberOfDice = 5;			// Specify how many dice are active each turn.
 		return NumberOfDice;
 		
 	}
 	
 	public static int minScoreForBonus()
 	{
-		int ScoreForBonus = 63;
+		int ScoreForBonus = 63;			// Specify how many points in the Upper Section are required for Bonus.
 		return ScoreForBonus;
 	}
 }
