@@ -4,6 +4,7 @@ public class Configurables
 {
 	
 	public static int getDieSize()
+	
 	{	
 		
 		int DieSize = 6;
@@ -12,10 +13,17 @@ public class Configurables
 	}
 	
 	public static int getDieNumber()
+	
 	{
 		
 		int NumberOfDice = 5;
 		return NumberOfDice;
 		
+	}
+	
+	public static int minScoreForBonus()
+	{
+		int ScoreForBonus = 63;
+		return ScoreForBonus;
 	}
 }
