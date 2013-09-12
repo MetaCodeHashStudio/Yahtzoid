@@ -7,7 +7,8 @@ public class PlayerTurnCheck {
     public static int NrPlyrs = 4; //Set how many Players thats will play.
     public static String[] Players = new String[NrPlyrs];
     
-    public static String Curplayer = ""; //Will Display
+    public static String Curplayer = ""; // Will Output Current Player on round
+    public static String TotalPlayers = ""; // Will Output Total Players 
     public static int Turn = 1;
     public static int Round = 1;
     
@@ -34,7 +35,8 @@ public class PlayerTurnCheck {
      public static void TotalPlayingPlayers()
              
     {
-        System.out.println("There are: "+Players.length+ " players");   
+        TotalPlayers = "There are: "+Players.length+ " players";
+        System.out.println(TotalPlayers);   
     }
     
      public static void NextTurn()
