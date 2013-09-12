@@ -2,14 +2,10 @@ package com.rushteamc.yahtzee.utils;
 
 public class DieCounter
 {
-	public static int getDieSize()
-	{
-		int DieSize = 6;
-		return DieSize;
-	}
+
 	public static int[] countValues(int Die[])
 	{
-		int DieSize = getDieSize();
+		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
 		int[] Values = new int[6];
 		for
 		(
@@ -38,7 +34,7 @@ public class DieCounter
 	}
 	public static boolean[] truthValues(int Values[])
 	{
-		int DieSize = getDieSize();
+		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
 		boolean[] Numbers = new boolean[DieSize]; // Boolean array. Returns true if the values array contains a number value.
 		for
 		(

@@ -6,8 +6,10 @@ public class RollDie
 {
 	public static int[] castDie() // rolls the die and returns the array.
 	{
+		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
+		int HowManyDice = com.rushteamc.yahtzee.utils.Configurables.getDieNumber();
 		Random Dice = new Random();
-		int[] CastDie = new int[5];
+		int[] CastDie = new int[HowManyDice];
 		for
 		(
 			int i = 0;
@@ -15,7 +17,7 @@ public class RollDie
 				i++
 		)
 		{
-			CastDie[i] = (Dice.nextInt(6)+1);
+			CastDie[i] = (Dice.nextInt(DieSize)+1);
 			System.out.println("Dice number " +  (i + 1) + " has been cast and returned " + CastDie[i]);
 		}
 		return CastDie;
