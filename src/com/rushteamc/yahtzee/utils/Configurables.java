@@ -7,7 +7,7 @@ public class Configurables
 	
 	{	
 		
-		int DieSize = 10;				// Specify the amount of faces on the die.
+		int DieSize = 6;				// Specify the amount of faces on the die.
 		return DieSize;
 		
 	}
