@@ -51,7 +51,7 @@ public class Start
 		}
 		System.out.println();
 		System.out.println("The values array now looks like: ");
-		for (int i = 1; i <= Values.length; i++)
+		for (int i = 1; i <= com.rushteamc.yahtzee.utils.Configurables.getDieSize(); i++)
 		{
 			System.out.print(i+"\t");
 		}
