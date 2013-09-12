@@ -3,14 +3,14 @@ package com.rushteamc.yahtzee.utils;
 public class DieCounter
 {
 
-	public static int[] countValues(int Die[])
+	public static int[] countValues(int Dice[])
 	{
 		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
-		int[] Values = new int[6];
+		int[] Values = new int[Dice.length];
 		for
 		(
 			int i = 0;
-				i < Die.length; // For every value in the array.
+				i < Dice.length; // For every value in the array.
 				i++
 		)
 		{
@@ -23,7 +23,7 @@ public class DieCounter
 			{
 				if
 				(
-				Die[i] == j
+				Dice[i] == j
 				)
 				{
 					Values[(j-1)] += 1;
