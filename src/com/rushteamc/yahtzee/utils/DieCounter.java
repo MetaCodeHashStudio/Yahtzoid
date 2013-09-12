@@ -6,7 +6,7 @@ public class DieCounter
 	public static int[] countValues(int Dice[])
 	{
 		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
-		int[] Values = new int[Dice.length+1];
+		int[] Values = new int[DieSize];
 		for
 		(
 			int i = 0;

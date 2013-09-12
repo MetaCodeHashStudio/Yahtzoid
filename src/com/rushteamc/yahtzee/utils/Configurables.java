@@ -7,7 +7,7 @@ public class Configurables
 	
 	{	
 		
-		int DieSize = 20;				// Specify the amount of faces on the die.
+		int DieSize = 10;				// Specify the amount of faces on the die.
 		return DieSize;
 		
 	}
@@ -16,7 +16,7 @@ public class Configurables
 	
 	{
 		
-		int NumberOfDice = 6;			// Specify how many dice are active each turn.
+		int NumberOfDice = 5;			// Specify how many dice are active each turn.
 		return NumberOfDice;
 		
 	}

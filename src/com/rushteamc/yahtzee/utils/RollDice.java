@@ -18,7 +18,7 @@ public class RollDice
 		)
 		{
 			Dice[i] = (Die.nextInt(DieSize)+1);
-			System.out.println("Dice number " +  (i + 1) + " has been cast and returned " + Dice[i]);
+			System.out.println("Die number " +  (i + 1) + " has been cast and returned " + Dice[i]);
 		}
 		return Dice;
 	}
