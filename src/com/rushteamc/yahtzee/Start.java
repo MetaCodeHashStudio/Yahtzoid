@@ -1,10 +1,14 @@
 package com.rushteamc.yahtzee;
 
+import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
+
 public class Start
 {
 
 	public static void main(String[] args)
 	{
+              //PlayerTurnCheck.CheckForPlayerTurn(); // Jumps to next Player in turn on current round. If the round is done it Restarts turns and adds one to round.
+              //PlayerTurnCheck.PrintPlayerTurn();// Just Prints Curent Players Turn and Wich Round
 		int[] Die = com.rushteamc.yahtzee.utils.RollDie.castDie();
 		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Die);
 		boolean[] Numbers = com.rushteamc.yahtzee.utils.DieCounter.truthValues(Values);
