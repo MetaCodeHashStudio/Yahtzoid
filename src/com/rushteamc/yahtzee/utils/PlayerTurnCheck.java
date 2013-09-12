@@ -13,7 +13,11 @@ public class PlayerTurnCheck {
     
     public static void CheckForPlayerTurn()
     {   
-        Turn++; //Adds 1 to Current Turn
+        
+        for(int MaxTurns = NrPlyrs; Turn < MaxTurns;)
+        {
+            PrintPlayerTurn();
+        }
         
         
         
@@ -47,6 +51,12 @@ public class PlayerTurnCheck {
     {
         Curplayer = "Its Player " + Turn + "'s Turn"+" on round: " + Round;
         System.out.println(Curplayer);   
+        
+    }
+    
+     public static void NextTurn()
+    {
+        Turn++; //Adds 1 to Current Turn
         
     }
 
