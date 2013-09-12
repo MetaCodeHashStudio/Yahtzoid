@@ -11,8 +11,8 @@ public class Start
                 PlayerTurnCheck.PrintPlayerTurn();// Just Prints Curent Players Turn and game Round
                 PlayerTurnCheck.NextTurn();// Next Players Turn :D
                 
-		int[] Die = com.rushteamc.yahtzee.utils.RollDice.castDie();
-		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Die);
+		int[] Dice = com.rushteamc.yahtzee.utils.RollDice.castDice();
+		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Dice);
 		boolean[] Numbers = com.rushteamc.yahtzee.utils.DieCounter.truthValues(Values);
 		int Score = 0;
 		int ScoreUpper = 0;
@@ -23,7 +23,7 @@ public class Start
 				i++
 		)
 		{
-			ScoreUpper += com.rushteamc.yahtzee.utils.ScoreTestsUpper.checkUpper(Die, i);
+			ScoreUpper += com.rushteamc.yahtzee.utils.ScoreTestsUpper.checkUpper(Dice, i);
 		}
 		Score += ScoreUpper;
 		Score += com.rushteamc.yahtzee.utils.ScoreTestsUpper.checkForBonus(ScoreUpper);
@@ -33,7 +33,7 @@ public class Start
 		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForSmallStraight(Numbers);
 		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForLargeStraight(Numbers);
 		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForChance(Values);
-		debugDie(Die, Values);
+		debugDie(Dice, Values);
 		
 		System.out.println("Total score: " + Score);
 	}
