@@ -19,7 +19,7 @@ public class Start
 		for
 		(
 			int i =1;
-				i <= 6;
+				i <= com.rushteamc.yahtzee.utils.Configurables.getDieSize();
 				i++
 		)
 		{
