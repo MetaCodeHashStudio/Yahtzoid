@@ -11,7 +11,7 @@ public class Start
                 PlayerTurnCheck.PrintPlayerTurn();// Just Prints Curent Players Turn and game Round
                 PlayerTurnCheck.NextTurn();// Next Players Turn :D
                 
-		int[] Die = com.rushteamc.yahtzee.utils.RollDie.castDie();
+		int[] Die = com.rushteamc.yahtzee.utils.RollDice.castDie();
 		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Die);
 		boolean[] Numbers = com.rushteamc.yahtzee.utils.DieCounter.truthValues(Values);
 		int Score = 0;
