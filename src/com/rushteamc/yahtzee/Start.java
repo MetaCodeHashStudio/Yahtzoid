@@ -14,10 +14,10 @@ public class Start
                 Players.CreatePlayers();
                 PlayerTurnCheck.TotalPlayingPlayers();	// Will Output Total Players
                 Players.GetAllPlayerNames();
-
                 PlayerTurnCheck.PrintPlayerTurn();		// Just Prints Curent Players Turn and game Round
                 PlayerTurnCheck.NextTurn();				// Next Players Turn :D
-                
+                Players.DeleteAllPlayerNames();         //Deletes all names in the list.
+
                 
 		int[] Dice = com.rushteamc.yahtzee.utils.RollDice.castDice(); 						// Init and populate Dice array with random numbers.
 		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Dice); 			// Turn the useless dice array into useful values.
