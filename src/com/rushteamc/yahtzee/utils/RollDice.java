@@ -8,7 +8,7 @@ public class RollDice
 	{
 		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();		// How many faces on the rolled die?
 		int HowManyDice = com.rushteamc.yahtzee.utils.Configurables.getDieNumber();	// How many dice to roll?
-		Random Die = new Random();
+		Random Die = new Random();													// The die is a random value. :p
 		int[] Dice = new int[HowManyDice];
 		for
 		(
