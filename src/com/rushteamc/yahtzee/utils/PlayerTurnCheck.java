@@ -5,7 +5,7 @@ package com.rushteamc.yahtzee.utils;
 public class PlayerTurnCheck {
     
     public static int NrPlyrs = 4; //Set how many Players thats will play.
-    public static String[] Players = new String[NrPlyrs];
+    public static String[] Playersstring = new String[NrPlyrs];
     
     public static String Curplayer; // Will Output Current Player on round
     public static String TotalPlayers; // Will Output Total Players 
@@ -28,14 +28,15 @@ public class PlayerTurnCheck {
     
     public static void PrintPlayerTurn()
     {
-        Curplayer = "Its Player " + Turn + "'s Turn"+" on round: " + Round;
+        String Pname = (String) Players.PlayerNames.get(Turn-1);
+        Curplayer = "Its "+Pname + "'s Turn"+" on round: " + Round;
         System.out.println(Curplayer); 
     }
     
      public static void TotalPlayingPlayers()
              
     {
-        TotalPlayers = "There are: "+Players.length+ " players";
+        TotalPlayers = "There are: "+Playersstring.length+ " players";
         System.out.println(TotalPlayers);   
     }
     
