@@ -1,49 +1,58 @@
 package com.rushteamc.yahtzee.utils;
+
+import static com.rushteamc.yahtzee.utils.Variables.PlayerNames;
+
 /**
  * @author Runnetty
  */
 public class PlayerTurnCheck {
     
-    public static int NrPlyrs = 4; //Set how many Players thats will play.
-    public static String[] Playersstring = new String[NrPlyrs];
-    
-    public static String Curplayer; // Will Output Current Player on round
-    public static String TotalPlayers; // Will Output Total Players 
-    public static int Turn = 1;
-    public static int Round = 1;
-    
-    public static void CheckForPlayerTurn()
+        public static int NrPlyrs = Variables.PlayerNames.size(); //Set how many Players that will play. cannot be moved!
+        public static String[] Playersstring = new String[NrPlyrs]; //cannot be moved!
+        
+    public static void CheckForRoundEnd()
     {   
         
-        /*Checks Curent Turn is greater than the number of players*/
+        /*Checks if Curent Turn is greater than the number of players*/
         /////////////////////////////////////////////////////////////
-            for(int MaxTurns = NrPlyrs; Turn > MaxTurns;)
+            for(int MaxTurns = NrPlyrs; Variables.Turn > MaxTurns;)
         {
             System.out.println("The current round is finished");
-            Round++;
-            Turn=1;
+            Variables.Round++;
+            Variables.Turn=1;
         }
         /////////////////////////////////////////////////////////////
     }
     
     public static void PrintPlayerTurn()
     {
-        String Pname = (String) Players.PlayerNames.get(Turn-1);
-        Curplayer = "Its "+Pname + "'s Turn"+" on round: " + Round;
-        System.out.println(Curplayer); 
+        if(!Variables.PlayerNames.isEmpty())
+        {
+            String Pname = (String) Variables.PlayerNames.get(Variables.Turn-1);
+            Variables.Curplayer = "Its "+Pname + "'s Turn"+" on round: " + Variables.Round;
+            System.out.println(Variables.Curplayer); 
+        
+        }else{
+            System.out.println(); 
+            System.out.println("////////////W A R N I N G ////////////"); //BTW this cant be "System.err..."
+            System.out.println("Theres no player names in the list!");
+            System.out.println("//////////////////////////////////////");
+            System.out.println();  
+        }
     }
     
      public static void TotalPlayingPlayers()
              
     {
-        TotalPlayers = "There are: "+Playersstring.length+ " players";
-        System.out.println(TotalPlayers);   
+        Variables.TotalPlayers = "There are: "+Playersstring.length+ " players";
+        System.out.println(Variables.TotalPlayers);   
+        
     }
     
      public static void NextTurn()
     {
-        Turn++; //Adds 1 to Current Turn 
-        CheckForPlayerTurn();
+        Variables.Turn++; //Adds 1 to Current Turn 
+        CheckForRoundEnd();
         PrintPlayerTurn();
     }
 
