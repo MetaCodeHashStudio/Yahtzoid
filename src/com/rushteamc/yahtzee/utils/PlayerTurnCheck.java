@@ -1,13 +1,13 @@
 package com.rushteamc.yahtzee.utils;
 
-import static com.rushteamc.yahtzee.utils.Variables.PlayerNames;
+import static com.rushteamc.yahtzee.utils.Variables.playerNames;
 
 /**
  * @author Runnetty
  */
 public class PlayerTurnCheck {
     
-        public static int NrPlyrs = Variables.PlayerNames.size(); //Set how many Players that will play. cannot be moved!
+        public static int NrPlyrs = Variables.playerNames.size(); //Set how many Players that will play. cannot be moved!
         public static String[] Playersstring = new String[NrPlyrs]; //cannot be moved!
         
     public static void CheckForRoundEnd()
@@ -15,22 +15,22 @@ public class PlayerTurnCheck {
         
         /*Checks if Curent Turn is greater than the number of players*/
         /////////////////////////////////////////////////////////////
-            for(int MaxTurns = NrPlyrs; Variables.Turn > MaxTurns;)
+            for(int MaxTurns = NrPlyrs; Variables.turnNumber > MaxTurns;)
         {
             System.out.println("The current round is finished");
-            Variables.Round++;
-            Variables.Turn=1;
+            Variables.roundNumber++;
+            Variables.turnNumber=1;
         }
         /////////////////////////////////////////////////////////////
     }
     
     public static void PrintPlayerTurn()
     {
-        if(!Variables.PlayerNames.isEmpty())
+        if(!Variables.playerNames.isEmpty())
         {
-            String Pname = (String) Variables.PlayerNames.get(Variables.Turn-1);
-            Variables.Curplayer = "Its "+Pname + "'s Turn"+" on round: " + Variables.Round;
-            System.out.println(Variables.Curplayer); 
+            String Pname = (String) Variables.playerNames.get(Variables.turnNumber-1);
+            Variables.curPlayer = "Its "+Pname + "'s Turn"+" on round: " + Variables.roundNumber;
+            System.out.println(Variables.curPlayer); 
         
         }else{
             System.out.println(); 
@@ -44,14 +44,14 @@ public class PlayerTurnCheck {
      public static void TotalPlayingPlayers()
              
     {
-        Variables.TotalPlayers = "There are: "+Playersstring.length+ " players";
-        System.out.println(Variables.TotalPlayers);   
+        Variables.totalPlayers = "There are: "+Playersstring.length+ " players";
+        System.out.println(Variables.totalPlayers);   
         
     }
     
      public static void NextTurn()
     {
-        Variables.Turn++; //Adds 1 to Current Turn 
+        Variables.turnNumber++; //Adds 1 to Current Turn 
         CheckForRoundEnd();
         PrintPlayerTurn();
     }
