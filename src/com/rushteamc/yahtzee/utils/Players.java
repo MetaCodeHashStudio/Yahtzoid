@@ -16,10 +16,10 @@ public class Players {
     public static void createPlayers(){ //Adds names to the list.
         
         /*Test adds*/
-        Variables.PlayerNames.add("Runnetty");
-        Variables.PlayerNames.add("Allistar");
-        Variables.PlayerNames.add("Eivind");
-        Variables.PlayerNames.add("Anamorphic");
+        Variables.playerNames.add("Runnetty");
+        Variables.playerNames.add("Allistar");
+        Variables.playerNames.add("Eivind");
+        Variables.playerNames.add("Anamorphic");
         /*Test adds*/
         
         /*Needs to get string from GUI input field*/
@@ -27,13 +27,13 @@ public class Players {
     
     public static void getAllPlayerNames() //Gets all names and puts in string called AllPlayers.
     { 
-        int Nrplayrs = Variables.PlayerNames.size();
+        int Nrplayrs = Variables.playerNames.size();
         
         for(int a = 0; a <= Nrplayrs-1; a++)
         { 
             int b = a;
-            Variables.AllPlayers = (String) Variables.PlayerNames.get(b);
-            System.out.print(Variables.AllPlayers+ ", "); 
+            Variables.allPlayers = (String) Variables.playerNames.get(b);
+            System.out.print(Variables.allPlayers+ ", "); 
         }
         
         System.out.println();
@@ -42,9 +42,9 @@ public class Players {
     
     public static void deleteAllPlayerNames() //Self Explainatory.
     {
-        Variables.PlayerNames.removeAll(Variables.PlayerNames.subList(0, Variables.PlayerNames.size()));
+        Variables.playerNames.removeAll(Variables.playerNames.subList(0, Variables.playerNames.size()));
         
-        if(!Variables.PlayerNames.isEmpty()) //Checks if the list is empty, if true print error.
+        if(!Variables.playerNames.isEmpty()) //Checks if the list is empty, if true print error.
         {
             System.out.println("Theres no player names in the list to delete");
         }
