@@ -23,6 +23,7 @@ public class PlayerNumbers extends JFrame {
 	public static JButton nextButton;
 	public static JButton quitButton;
 	public static JRadioButton[] rdNumPlayers;
+	public static ButtonGroup numPlayersGroup;
 
 
 	/**
@@ -85,7 +86,7 @@ public class PlayerNumbers extends JFrame {
 	{
 		JRadioButton[] rdNumPlayers = new JRadioButton[Variables.MAX_SUPPORTED_PLAYERS];
 		GridBagConstraints[] gbc_rdNumPlayers = new GridBagConstraints[Variables.MAX_SUPPORTED_PLAYERS];
-		ButtonGroup numPlayersGroup = new ButtonGroup();
+		numPlayersGroup = new ButtonGroup();
 		for (int i = 0 ; i < Variables.MAX_SUPPORTED_PLAYERS ; i++)
 		{
 			gbc_rdNumPlayers[i] = new GridBagConstraints(); // Pre-init

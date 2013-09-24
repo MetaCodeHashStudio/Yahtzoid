@@ -7,6 +7,7 @@ import java.util.List;
 public class Variables {
     
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
+				public static boolean[] radioIsSelected = new boolean[MAX_SUPPORTED_PLAYERS];
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
