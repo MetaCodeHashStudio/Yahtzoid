@@ -55,7 +55,9 @@ public class PlayerTurnCheck {
         Variables.turnNumber++; //Adds 1 to Current Turn 
         CheckForRoundEnd();
         PrintPlayerTurn();
-        TimerHandler.TurnTime90();
+        //TimerHandler.TurnTime90();
+        
+        
     }
 
 }

@@ -10,9 +10,12 @@ import com.rushteamc.yahtzee.utils.Players;
 public class TestHandlerStart {
     public static void main(String[] args) throws InterruptedException
 	{
-           Players.createPlayers();
-            //Players.getAllPlayerNames();
-            //TimerHandler.TurnTime90();
+            Players.createPlayers();
+            Players.getAllPlayerNames();
+            PlayerTurnCheck.PrintPlayerTurn();
+            TimerHandler.TurnTime90();
+            
+            
             
         }
 }
