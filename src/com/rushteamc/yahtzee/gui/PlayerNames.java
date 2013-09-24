@@ -2,17 +2,26 @@ package com.rushteamc.yahtzee.gui;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 
 public class PlayerNames extends JFrame {
 
+	private static final long serialVersionUID = 15465431564647L;
 	private JPanel contentPane;
+	public static JPanel buttonPane;
+	public static JButton nextButton;
+	public static JButton quitButton;
+	public static JLabel[] nameLabels;
 	
 	
-	public PlayerNumbers()
+	public PlayerNames()
 	{
 		setTitle("Project Yahtzoid version -1");
 		setResizable(false);
@@ -33,6 +42,7 @@ public class PlayerNames extends JFrame {
 	public void setComponent()
 	{
 		createButtonPane();
+		createLabels();
 		createInputs();
 		createNextButton();
 		createQuitButton();
