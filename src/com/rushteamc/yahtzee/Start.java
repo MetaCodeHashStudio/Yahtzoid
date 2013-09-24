@@ -1,58 +1,34 @@
 package com.rushteamc.yahtzee;
 
-import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
-import com.rushteamc.yahtzee.utils.Players;
+import java.awt.EventQueue;
 
 public class Start
 {
 
-	public static void main(String[] args) throws InterruptedException
+	public static void main(String[] args)
 	{
-		/*
-		 * Dummy main method for debugging until we start implementing functions!
-		 */
-                Players.CreatePlayers();
-                PlayerTurnCheck.TotalPlayingPlayers();	// Will Output Total Players
-                Players.GetAllPlayerNames();
-                PlayerTurnCheck.PrintPlayerTurn();		// Just Prints Curent Players Turn and game Round
-                PlayerTurnCheck.NextTurn();             // Next Players Turn :D	
-                System.out.println();
-                
-                Players.DeleteAllPlayerNames();         //Deletes all names in the list.
-                PlayerTurnCheck.PrintPlayerTurn();      //Now Check Curent Players Turn and game Round, or isnt there any players?  
- 
-                
-		int[] Dice = com.rushteamc.yahtzee.utils.RollDice.castDice(); 						// Init and populate Dice array with random numbers.
-		int[] Values = com.rushteamc.yahtzee.utils.DieCounter.countValues(Dice); 			// Turn the useless dice array into useful values.
-		boolean[] Numbers = com.rushteamc.yahtzee.utils.DieCounter.truthValues(Values);		// Create booleans for whether or not a number is present.
-		int Score = 0;		// Preinit.
-		int ScoreUpper = 0;	// Preinit.
-		for
+		EventQueue.invokeLater
 		(
-			int i =1;
-				i <= com.rushteamc.yahtzee.utils.Configurables.getDieSize();				// For every face on the dice:
-				i++
-		)
-		{
-			ScoreUpper += com.rushteamc.yahtzee.utils.ScoreTestsUpper.checkUpper(Dice, i);	// Multiply values with amounts and get points! :D
-		}
-		Score += ScoreUpper;	// Add ScoreUpper to total score.
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsUpper.checkForBonus(ScoreUpper);		// Check if ScoreUpper qualifies for bonus points!
-		/* 
-		 * Self explanatory below.
-		 */
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForThreeOfAKind(Values);
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForFourOfAKind(Values);
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForFullHouse(Values);
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForSmallStraight(Numbers);
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForLargeStraight(Numbers);
-		Score += com.rushteamc.yahtzee.utils.ScoreTestsLower.checkForChance(Values);
-		/*
-		 *  End self-explanatory. Start debug.
-		 */
-		debugDie(Dice, Values);
-		
-		System.out.println("Total score: " + Score);
+			new Runnable() 
+			{
+				public void run()
+				{
+					try
+					{
+						com.rushteamc.yahtzee.gui.PlayerNumbers PlayerNumberFrame = new com.rushteamc.yahtzee.gui.PlayerNumbers();
+						PlayerNumberFrame.setVisible(true);
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}
+		);
+	}
+	public static void setPlayerNumHandler()
+	{
+		com.rushteamc.yahtzee.gui.handlers.PlayerNumbersHandlers.generateNumbers();
 	}
 	public static void debugDie(int[] Die, int[] Values)
 	{

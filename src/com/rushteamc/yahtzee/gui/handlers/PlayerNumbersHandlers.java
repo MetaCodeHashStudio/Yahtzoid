@@ -1,14 +1,16 @@
 package com.rushteamc.yahtzee.gui.handlers;
 
+import com.rushteamc.yahtzee.gui.PlayerNumbers;
 import com.rushteamc.yahtzee.utils.Variables;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class PlayerNumbersHandlers
 {
+//	public static JRadioButton[] rdNumPlayers = com.rushteamc.yahtzee.gui.PlayerNumbers.rdNumPlayers;
 	public static void generateNumbers()
 	{
-		com.rushteamc.yahtzee.gui.PlayerNumbers.okButton.addActionListener
+		PlayerNumbers.nextButton.addActionListener
 		(
 				new ActionListener()
 				{
@@ -17,9 +19,10 @@ public class PlayerNumbersHandlers
 					{
 						for (int i = 0 ; i < Variables.MAX_SUPPORTED_PLAYERS ; i++)
 						{
-							if(com.rushteamc.yahtzee.gui.PlayerNumbers.rdNumPlayers[i].isSelected())
+							if(PlayerNumbers.rdNumPlayers[i].isSelected())
 							{
 								Variables.selectedNumPlayers = i+1;
+//								com.rushteamc.yahtzee.gui.PlayerNumbers.WHATDOIDISPOSE???.dispose();
 								com.rushteamc.yahtzee.gui.PlayerNames.main();
 							}
 						}
