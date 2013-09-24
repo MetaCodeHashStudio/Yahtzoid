@@ -4,6 +4,8 @@ import java.awt.EventQueue;
 
 public class Start
 {
+	public static com.rushteamc.yahtzee.gui.PlayerNumbers PlayerNumberFrame;
+	public static com.rushteamc.yahtzee.gui.PlayerNames PlayerNamesFrame;
 
 	public static void main(String[] args)
 	{
@@ -15,7 +17,7 @@ public class Start
 				{
 					try
 					{
-						com.rushteamc.yahtzee.gui.PlayerNumbers PlayerNumberFrame = new com.rushteamc.yahtzee.gui.PlayerNumbers();
+						PlayerNumberFrame = new com.rushteamc.yahtzee.gui.PlayerNumbers();
 						PlayerNumberFrame.setVisible(true);
 					}
 					catch (Exception e)
@@ -25,6 +27,28 @@ public class Start
 				}
 			}
 		);
+	}
+	public static void continueToNames()
+	{
+		EventQueue.invokeLater
+		(
+			new Runnable() 
+			{
+				public void run()
+				{
+					try
+					{
+						PlayerNamesFrame = new com.rushteamc.yahtzee.gui.PlayerNames();
+						PlayerNamesFrame.setVisible(true);
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}
+		);
+		
 	}
 	public static void setPlayerNumHandler()
 	{
