@@ -1,5 +1,6 @@
 package com.rushteamc.yahtzee;
 
+import com.rushteamc.yahtzee.utils.Players;
 import java.awt.EventQueue;
 
 public class Start
@@ -9,6 +10,7 @@ public class Start
 
 	public static void main(String[] args)
 	{
+            Players.createPlayers();
 		EventQueue.invokeLater
 		(
 			new Runnable() 

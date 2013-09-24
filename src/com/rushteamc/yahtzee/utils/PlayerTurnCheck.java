@@ -1,5 +1,6 @@
 package com.rushteamc.yahtzee.utils;
 
+import com.rushteamc.yahtzee.gui.handlers.TimerHandler;
 import static com.rushteamc.yahtzee.utils.Variables.playerNames;
 
 /**
@@ -49,11 +50,12 @@ public class PlayerTurnCheck {
         
     }
     
-     public static void NextTurn()
+     public static void NextTurn() throws InterruptedException
     {
         Variables.turnNumber++; //Adds 1 to Current Turn 
         CheckForRoundEnd();
         PrintPlayerTurn();
+        TimerHandler.TurnTime90();
     }
 
 }
