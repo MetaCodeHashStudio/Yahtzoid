@@ -97,11 +97,13 @@ public class GUI extends JFrame {
 		gbc_rightPanel.gridheight = 6;
 		contentPane.add(rightPanel, gbc_rightPanel);
 		
+		int labelsXPos = 0;
+		
 		lblScoreSheet = new JLabel("Score sheet");
 		GridBagConstraints gbc_lblScoreSheet = new GridBagConstraints();
 		gbc_lblScoreSheet.gridwidth = 8;
 		gbc_lblScoreSheet.insets = new Insets(0, 0, 5, 0);
-		gbc_lblScoreSheet.gridx = 0;
+		gbc_lblScoreSheet.gridx = labelsXPos;
 		gbc_lblScoreSheet.gridy = 0;
 		leftPanel.add(lblScoreSheet, gbc_lblScoreSheet);
 		
@@ -110,7 +112,7 @@ public class GUI extends JFrame {
 		gbc_lblAces.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblAces.gridwidth = 2;
 		gbc_lblAces.insets = new Insets(0, 15, 5, 5);
-		gbc_lblAces.gridx = 0;
+		gbc_lblAces.gridx = labelsXPos;
 		gbc_lblAces.gridy = 2;
 		leftPanel.add(lblAces, gbc_lblAces);
 		
@@ -118,7 +120,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblTwos = new GridBagConstraints();
 		gbc_lblTwos.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblTwos.insets = new Insets(0, 15, 5, 5);
-		gbc_lblTwos.gridx = 0;
+		gbc_lblTwos.gridx = labelsXPos;
 		gbc_lblTwos.gridy = 3;
 		leftPanel.add(lblTwos, gbc_lblTwos);
 		
@@ -126,7 +128,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblThrees = new GridBagConstraints();
 		gbc_lblThrees.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblThrees.insets = new Insets(0, 15, 5, 5);
-		gbc_lblThrees.gridx = 0;
+		gbc_lblThrees.gridx = labelsXPos;
 		gbc_lblThrees.gridy = 4;
 		leftPanel.add(lblThrees, gbc_lblThrees);
 		
@@ -134,7 +136,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblFours = new GridBagConstraints();
 		gbc_lblFours.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblFours.insets = new Insets(0, 15, 5, 5);
-		gbc_lblFours.gridx = 0;
+		gbc_lblFours.gridx = labelsXPos;
 		gbc_lblFours.gridy = 5;
 		leftPanel.add(lblFours, gbc_lblFours);
 		
@@ -142,7 +144,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblFives = new GridBagConstraints();
 		gbc_lblFives.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblFives.insets = new Insets(0, 15, 5, 5);
-		gbc_lblFives.gridx = 0;
+		gbc_lblFives.gridx = labelsXPos;
 		gbc_lblFives.gridy = 6;
 		leftPanel.add(lblFives, gbc_lblFives);
 		
@@ -150,7 +152,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblSixes = new GridBagConstraints();
 		gbc_lblSixes.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblSixes.insets = new Insets(0, 15, 5, 5);
-		gbc_lblSixes.gridx = 0;
+		gbc_lblSixes.gridx = labelsXPos;
 		gbc_lblSixes.gridy = 7;
 		leftPanel.add(lblSixes, gbc_lblSixes);
 		
@@ -158,7 +160,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblUpperTotal = new GridBagConstraints();
 		gbc_lblUpperTotal.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblUpperTotal.insets = new Insets(0, 15, 5, 5);
-		gbc_lblUpperTotal.gridx = 0;
+		gbc_lblUpperTotal.gridx = labelsXPos;
 		gbc_lblUpperTotal.gridy = 8;
 		leftPanel.add(lblUpperTotal, gbc_lblUpperTotal);
 		
@@ -166,7 +168,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblBonus = new GridBagConstraints();
 		gbc_lblBonus.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblBonus.insets = new Insets(0, 15, 5, 5);
-		gbc_lblBonus.gridx = 0;
+		gbc_lblBonus.gridx = labelsXPos;
 		gbc_lblBonus.gridy = 9;
 		leftPanel.add(lblBonus, gbc_lblBonus);
 		
@@ -174,7 +176,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblUpperTotalWithBonus = new GridBagConstraints();
 		gbc_lblUpperTotalWithBonus.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblUpperTotalWithBonus.insets = new Insets(0, 15, 5, 5);
-		gbc_lblUpperTotalWithBonus.gridx = 0;
+		gbc_lblUpperTotalWithBonus.gridx = labelsXPos;
 		gbc_lblUpperTotalWithBonus.gridy = 10;
 		leftPanel.add(lblUpperTotalWithBonus, gbc_lblUpperTotalWithBonus);
 		
@@ -182,7 +184,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_ScoreSheetSeparator = new GridBagConstraints();
 		gbc_ScoreSheetSeparator.fill = GridBagConstraints.HORIZONTAL;
 		gbc_ScoreSheetSeparator.insets = new Insets(5, 10, 5, 10);
-		gbc_ScoreSheetSeparator.gridx = 0;
+		gbc_ScoreSheetSeparator.gridx = labelsXPos;
 		gbc_ScoreSheetSeparator.gridy = 11;
 		gbc_ScoreSheetSeparator.gridwidth = 8;
 		leftPanel.add(ScoreSheetSeparator, gbc_ScoreSheetSeparator);
@@ -191,7 +193,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblThreeOAK = new GridBagConstraints();
 		gbc_lblThreeOAK.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblThreeOAK.insets = new Insets(0, 15, 5, 5);
-		gbc_lblThreeOAK.gridx = 0;
+		gbc_lblThreeOAK.gridx = labelsXPos;
 		gbc_lblThreeOAK.gridy = 12;
 		leftPanel.add(lblThreeOAK, gbc_lblThreeOAK);
 		
@@ -199,7 +201,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblFourOAK = new GridBagConstraints();
 		gbc_lblFourOAK.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblFourOAK.insets = new Insets(0, 15, 5, 5);
-		gbc_lblFourOAK.gridx = 0;
+		gbc_lblFourOAK.gridx = labelsXPos;
 		gbc_lblFourOAK.gridy = 13;
 		leftPanel.add(lblFourOAK, gbc_lblFourOAK);
 		
@@ -207,7 +209,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblFullHouse = new GridBagConstraints();
 		gbc_lblFullHouse.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblFullHouse.insets = new Insets(0, 15, 5, 5);
-		gbc_lblFullHouse.gridx = 0;
+		gbc_lblFullHouse.gridx = labelsXPos;
 		gbc_lblFullHouse.gridy = 14;
 		leftPanel.add(lblFullHouse, gbc_lblFullHouse);
 		
@@ -215,7 +217,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblSmallStraight = new GridBagConstraints();
 		gbc_lblSmallStraight.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblSmallStraight.insets = new Insets(0, 15, 5, 5);
-		gbc_lblSmallStraight.gridx = 0;
+		gbc_lblSmallStraight.gridx = labelsXPos;
 		gbc_lblSmallStraight.gridy = 15;
 		leftPanel.add(lblSmallStraight, gbc_lblSmallStraight);
 		
@@ -223,7 +225,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblLargeStraight = new GridBagConstraints();
 		gbc_lblLargeStraight.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblLargeStraight.insets = new Insets(0, 15, 5, 5);
-		gbc_lblLargeStraight.gridx = 0;
+		gbc_lblLargeStraight.gridx = labelsXPos;
 		gbc_lblLargeStraight.gridy = 16;
 		leftPanel.add(lblLargeStraight, gbc_lblLargeStraight);
 		
@@ -231,7 +233,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblYahtzee = new GridBagConstraints();
 		gbc_lblYahtzee.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblYahtzee.insets = new Insets(0, 15, 5, 5);
-		gbc_lblYahtzee.gridx = 0;
+		gbc_lblYahtzee.gridx = labelsXPos;
 		gbc_lblYahtzee.gridy = 17;
 		leftPanel.add(lblYahtzee, gbc_lblYahtzee);
 		
@@ -239,7 +241,7 @@ public class GUI extends JFrame {
 		GridBagConstraints gbc_lblChance = new GridBagConstraints();
 		gbc_lblChance.fill = GridBagConstraints.HORIZONTAL;
 		gbc_lblChance.insets = new Insets(0, 15, 5, 5);
-		gbc_lblChance.gridx = 0;
+		gbc_lblChance.gridx = labelsXPos;
 		gbc_lblChance.gridy = 18;
 		leftPanel.add(lblChance, gbc_lblChance);
 		
