@@ -25,5 +25,14 @@ public class PlayerNumbersHandlers
 					}
 				}
 		);
+                PlayerNumbers.quitButton.addActionListener
+                        (new ActionListener()
+                            {
+                                public void actionPerformed(ActionEvent e)
+                                { 
+                                    System.exit(0);
+                                } 
+                            } 
+                        );
 	}
 }
