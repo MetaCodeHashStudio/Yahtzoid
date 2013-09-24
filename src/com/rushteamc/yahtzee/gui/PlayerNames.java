@@ -10,6 +10,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JTextField;
+import com.rushteamc.yahtzee.utils.Variables;
 
 public class PlayerNames extends JFrame {
 
@@ -34,7 +36,7 @@ public class PlayerNames extends JFrame {
 		setContentPane(contentPane);
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{90,90,90,90,90,90};
-		gbl_contentPane.rowHeights = new int[]{60,60,60,60,60};
+		gbl_contentPane.rowHeights = new int[]{40,40,40,40,40,40};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
 //		com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
@@ -56,7 +58,7 @@ public class PlayerNames extends JFrame {
 		GridBagConstraints gbc_buttonPane = new GridBagConstraints();
 		gbc_buttonPane.fill = GridBagConstraints.BOTH;
 		gbc_buttonPane.gridx = 0;
-		gbc_buttonPane.gridy = 3;
+		gbc_buttonPane.gridy = 5;
 		gbc_buttonPane.gridwidth = 6;
 		buttonPane.setLayout(gbl_buttonPane);
 		contentPane.add(buttonPane, gbc_buttonPane);
@@ -76,11 +78,33 @@ public class PlayerNames extends JFrame {
 	}
 	static void createLabels()
 	{
+		int arraySize = Variables.selectedNumPlayers;
+		JLabel[] lblPlayerNames = new JLabel[arraySize];
+		GridBagConstraints[] gbc_lblPlayerNames = new GridBagConstraints[arraySize];
+		for (int i = 0 ; i < arraySize ; i++)
+		{
+			gbc_lblPlayerNames[i] = new GridBagConstraints();
+			gbc_lblPlayerNames[i].gridx = 1;
+			gbc_lblPlayerNames[i].gridy = i;
+			lblPlayerNames[i] = new JLabel("Name of player " + (i+1) + ":");
+			contentPane.add(lblPlayerNames[i] , gbc_lblPlayerNames[i]);
+		}
 		
 	}
 	static void createInputs()
 	{
-		
+		int arraySize = Variables.selectedNumPlayers;
+		JTextField[] txtPlayerNames = new JTextField[arraySize];
+		GridBagConstraints[] gbc_txtPlayerNames = new GridBagConstraints[arraySize];
+		for (int i = 0 ; i < arraySize ; i++)
+		{
+			gbc_txtPlayerNames[i] = new GridBagConstraints();
+			gbc_txtPlayerNames[i].gridx = 2;
+			gbc_txtPlayerNames[i].gridy = i;
+			gbc_txtPlayerNames[i].fill = GridBagConstraints.HORIZONTAL;
+			txtPlayerNames[i] = new JTextField();
+			contentPane.add(txtPlayerNames[i] , gbc_txtPlayerNames[i]);
+		}
 	}
 
 }
