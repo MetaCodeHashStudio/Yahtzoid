@@ -54,6 +54,10 @@ public class Start
 	{
 		com.rushteamc.yahtzee.gui.handlers.PlayerNumbersHandlers.generateNumbers();
 	}
+	public static void setPlayerNameHandler()
+	{
+		com.rushteamc.yahtzee.gui.handlers.PlayerNamesHandlers.generateNames();
+	}
 	public static void debugDie(int[] Die, int[] Values)
 	{
 		System.out.println("Die array looks like: ");

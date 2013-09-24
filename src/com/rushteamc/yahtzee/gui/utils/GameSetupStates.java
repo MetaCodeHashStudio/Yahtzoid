@@ -21,6 +21,14 @@ public class GameSetupStates
 			}
 			return null;
 		}
+		public static String[] getSelectedStringText(int numPlayers)
+		{
+			String[] playerNames = new String[numPlayers];
+			
+			
+			
+			return playerNames;
+		}
 
 
 	
