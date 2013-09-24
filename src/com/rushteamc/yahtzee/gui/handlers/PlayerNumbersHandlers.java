@@ -20,6 +20,7 @@ public class PlayerNumbersHandlers
 							if(com.rushteamc.yahtzee.gui.PlayerNumbers.rdNumPlayers[i].isSelected())
 							{
 								Variables.selectedNumPlayers = i+1;
+								com.rushteamc.yahtzee.gui.PlayerNames.main();
 							}
 						}
 						if(Variables.selectedNumPlayers < 0)
