@@ -15,7 +15,7 @@ public class PlayerNumbersHandlers
 			new ActionListener()
 			{
 				@Override
-				public void actionPerformed(ActionEvent arg0)
+				public void actionPerformed(ActionEvent e)
 				{
 					String numPlayers = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedButtonText(PlayerNumbers.numPlayersGroup);
 					Variables.selectedNumPlayers = numPlayers.charAt(0) - 48; // Why the hell do I need to subtract 48?!
