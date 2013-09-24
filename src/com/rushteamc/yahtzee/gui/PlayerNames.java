@@ -14,7 +14,7 @@ import javax.swing.JLabel;
 public class PlayerNames extends JFrame {
 
 	private static final long serialVersionUID = 15465431564647L;
-	private JPanel contentPane;
+	private static JPanel contentPane;
 	public static JPanel buttonPane;
 	public static JButton nextButton;
 	public static JButton quitButton;
@@ -37,7 +37,7 @@ public class PlayerNames extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{60,60,60,60,60};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
-		com.rushteamc.yahtzee.Start.setPlayerNameHandler();
+//		com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
 	}
 	public void setComponent()
 	{
@@ -74,6 +74,13 @@ public class PlayerNames extends JFrame {
 		quitButton = new JButton("Quit");
 		buttonPane.add(quitButton);
 	}
-	static void createNameInputs;
+	static void createLabels()
+	{
+		
+	}
+	static void createInputs()
+	{
+		
+	}
 
 }
