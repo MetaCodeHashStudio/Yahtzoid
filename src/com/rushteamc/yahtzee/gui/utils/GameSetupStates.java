@@ -1,25 +1,32 @@
 package com.rushteamc.yahtzee.gui.utils;
 
+import java.util.Enumeration;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import java.util.Enumeration;
+
 import com.rushteamc.yahtzee.gui.PlayerNumbers;
 import com.rushteamc.yahtzee.utils.Variables;
 
 public class GameSetupStates
 {
 	
-	public static int rdPlayerButtonsSelected()
-	{
-		int maxPlayers = Variables.MAX_SUPPORTED_PLAYERS;
-		int curPlayers = 0;
-		
-		for (int i = 0 ; i < maxPlayers ; i++)
+		public static String getSelectedButtonText(ButtonGroup numPlayersGroup)
 		{
-			if((PlayerNumbers.rdNumPlayers[i]).equals(true))
+			for(Enumeration<AbstractButton> buttons = numPlayersGroup.getElements() ; buttons.hasMoreElements();)
 			{
-				curPlayers = i;
-				Variables.selectedNumPlayers = i;
+				AbstractButton button = buttons.nextElement();
+					
+				if (button.isSelected())
+				{
+					System.out.println(button.getText());
+					return button.getText();
+				}
 			}
+			return null;
 		}
-		return curPlayers;
-	}
+
+
 	
 }

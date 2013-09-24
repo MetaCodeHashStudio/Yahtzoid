@@ -17,7 +17,7 @@ public class PlayerNumbersHandlers
 					@Override
 					public void actionPerformed(ActionEvent arg0)
 					{
-						com.rushteamc.yahtzee.gui.utils.GameSetupStates.rdPlayerButtonsSelected();
+						com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedButtonText(PlayerNumbers.numPlayersGroup);
 						
 							
 						
