@@ -4,10 +4,6 @@ import java.util.Enumeration;
 
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
-import java.util.Enumeration;
-
-import com.rushteamc.yahtzee.gui.PlayerNumbers;
-import com.rushteamc.yahtzee.utils.Variables;
 
 public class GameSetupStates
 {
@@ -20,7 +16,6 @@ public class GameSetupStates
 					
 				if (button.isSelected())
 				{
-					System.out.println(button.getText());
 					return button.getText();
 				}
 			}
