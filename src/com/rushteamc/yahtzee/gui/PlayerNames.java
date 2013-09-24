@@ -20,7 +20,7 @@ public class PlayerNames extends JFrame {
 	public static JPanel buttonPane;
 	public static JButton nextButton;
 	public static JButton quitButton;
-	public static JLabel[] nameLabels;
+	public static JTextField[] txtPlayerNames;
 	
 	
 	public PlayerNames()
@@ -39,7 +39,7 @@ public class PlayerNames extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40,40,40,40,40,40};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
-//		com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
+		com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
 	}
 	public void setComponent()
 	{
