@@ -22,6 +22,10 @@ public class PlayerNumbersHandlers
 								Variables.selectedNumPlayers = i+1;
 							}
 						}
+						if(Variables.selectedNumPlayers < 0)
+						{
+							com.rushteamc.yahtzee.gui.PlayerNumbers.notifyNoSelection();
+						}
 					}
 				}
 		);

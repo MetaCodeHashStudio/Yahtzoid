@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JOptionPane;
 
 public class PlayerNumbers extends JDialog {
 
@@ -78,5 +79,9 @@ public class PlayerNumbers extends JDialog {
 			numPlayersGroup.add(rdNumPlayers[i]);			// Add to button group
 			contentPanel.add(rdNumPlayers[i], gbc_rdNumPlayers[i]);
 		}
+	}
+	public static void notifyNoSelection()
+	{
+		JOptionPane.showMessageDialog(null, "No players selected.");
 	}
 }

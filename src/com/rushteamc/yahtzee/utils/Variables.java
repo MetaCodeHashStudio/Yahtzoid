@@ -7,7 +7,7 @@ import java.util.List;
 public class Variables {
     
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
-				public static int selectedNumPlayers;
+				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
                 public static int turnNumber = 1; 	// Pre-init
