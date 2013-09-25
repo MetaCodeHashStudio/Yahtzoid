@@ -8,7 +8,7 @@ public class Start
 	public static com.rushteamc.yahtzee.gui.PlayerNumbers PlayerNumberFrame;
 	public static com.rushteamc.yahtzee.gui.PlayerNames PlayerNamesFrame;
 
-	public static void main(String[] args)
+	public static void main(String[] args) // Start script begins with launching PlayerNumbers check.
 	{
 		EventQueue.invokeLater
 		(
@@ -29,7 +29,7 @@ public class Start
 			}
 		);
 	}
-	public static void continueToNames()
+	public static void continueToNames() // Called by the event handler of PlayerNumbers. Starts PlayerNames check.
 	{
 		EventQueue.invokeLater
 		(
@@ -51,7 +51,7 @@ public class Start
 		);
 		
 	}
-	public static void startGame()
+	public static void startGame() // Actual GUI starter.
 	{
 		EventQueue.invokeLater
 		(
@@ -72,6 +72,9 @@ public class Start
 			}
 		);
 	}
+	/*
+	 * Begin event handlers.
+	 */
 	public static void setPlayerNumHandler()
 	{
 		com.rushteamc.yahtzee.gui.handlers.PlayerNumbersHandlers.generateNumbers();
@@ -80,6 +83,10 @@ public class Start
 	{
 		com.rushteamc.yahtzee.gui.handlers.PlayerNamesHandlers.generateNames();
 	}
+	/*
+	 * End begin event handlers.
+	 * Begin debug methods.
+	 */
 	public static void debugDie(int[] Die, int[] Values)
 	{
 		System.out.println("Die array looks like: ");
