@@ -1,7 +1,6 @@
 package com.rushteamc.yahtzee.gui;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
+
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 
@@ -20,7 +19,7 @@ public class PlayerNames extends JFrame {
 	public static JPanel buttonPane;
 	public static JButton nextButton;
 	public static JButton quitButton;
-	public static JTextField[] txtPlayerNames;
+	public static JTextField[] txtPlayerNames = new JTextField[Variables.selectedNumPlayers];
 	
 	
 	public PlayerNames()
@@ -94,7 +93,7 @@ public class PlayerNames extends JFrame {
 	static void createInputs()
 	{
 		int arraySize = Variables.selectedNumPlayers;
-		JTextField[] txtPlayerNames = new JTextField[arraySize];
+//		JTextField[] txtPlayerNames = new JTextField[arraySize];
 		GridBagConstraints[] gbc_txtPlayerNames = new GridBagConstraints[arraySize];
 		for (int i = 0 ; i < arraySize ; i++)
 		{

@@ -5,6 +5,8 @@ import java.util.Enumeration;
 import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 
+import com.rushteamc.yahtzee.gui.PlayerNames;
+
 public class GameSetupStates
 {
 	
@@ -25,7 +27,10 @@ public class GameSetupStates
 		{
 			String[] playerNames = new String[numPlayers];
 			
-			
+			for(int i = 0 ; i < numPlayers ; i++)
+			{
+				playerNames[i] = (PlayerNames.txtPlayerNames[i]).getText();
+			}
 			
 			return playerNames;
 		}

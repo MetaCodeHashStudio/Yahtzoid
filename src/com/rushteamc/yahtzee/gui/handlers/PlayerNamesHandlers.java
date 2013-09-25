@@ -20,6 +20,11 @@ public class PlayerNamesHandlers
 				{
 					int numPlayers = Variables.selectedNumPlayers;
 					String[] playerNames = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedStringText(numPlayers);
+					
+					for(int i = 0 ; i < numPlayers ; i++)
+					{
+						
+					}
 
 				}
 			}

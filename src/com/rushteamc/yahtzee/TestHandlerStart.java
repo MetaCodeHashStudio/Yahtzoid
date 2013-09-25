@@ -7,15 +7,15 @@ import com.rushteamc.yahtzee.utils.Players;
 /*
  * @author Runnetty
  */
-public class TestHandlerStart {
-    public static void main(String[] args) throws InterruptedException
+public class TestHandlerStart
+{
+	
+	public static void main(String[] args) throws InterruptedException
 	{
             Players.createPlayers();
             Players.getAllPlayerNames();
             PlayerTurnCheck.PrintPlayerTurn();
             TimerHandler.TurnTime90();
-            
-            
-            
-        }
+	}       
+                
 }
