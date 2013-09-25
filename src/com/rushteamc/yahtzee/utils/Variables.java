@@ -2,12 +2,13 @@
 package com.rushteamc.yahtzee.utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class Variables {
     
+				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
+				
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
                 public static int turnNumber = 1; 	// Pre-init
@@ -24,7 +25,7 @@ public class Variables {
         
         /////////// - A R R A Y S - ////////////
             /*Players.class*/    
-                public static List playerNames = new ArrayList<>(); //Creates a player list array.
+                public static ArrayList<String> playerNames = new ArrayList<>(); //Creates a player list array.
         
 
 }

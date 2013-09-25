@@ -1,6 +1,5 @@
 package com.rushteamc.yahtzee.gui;
 
-import java.awt.EventQueue;
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
@@ -12,6 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+import com.rushteamc.yahtzee.utils.Variables;
 
 public class GUI extends JFrame {
 
@@ -39,27 +39,12 @@ public class GUI extends JFrame {
 	private JLabel lblChance;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					GUI frame = new GUI();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 */
 	public GUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 768);
+		setTitle(Variables.APPLICATION_TITLE);
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = new int[]{480, 480};

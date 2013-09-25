@@ -31,7 +31,7 @@ public class PlayerNumbers extends JFrame {
 	 */
 	public PlayerNumbers()
 	{
-		setTitle("Project Yahtzoid version -1");
+		setTitle(Variables.APPLICATION_TITLE);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 540, 300);

@@ -10,7 +10,6 @@ public class Start
 
 	public static void main(String[] args)
 	{
-            Players.createPlayers();
 		EventQueue.invokeLater
 		(
 			new Runnable() 
@@ -51,6 +50,27 @@ public class Start
 			}
 		);
 		
+	}
+	public static void startGame()
+	{
+		EventQueue.invokeLater
+		(
+			new Runnable()
+			{
+				public void run()
+				{
+					try 
+					{
+						com.rushteamc.yahtzee.gui.GUI GUI = new com.rushteamc.yahtzee.gui.GUI();
+						GUI.setVisible(true);	
+					}
+					catch (Exception e)
+					{
+						e.printStackTrace();
+					}
+				}
+			}
+		);
 	}
 	public static void setPlayerNumHandler()
 	{
