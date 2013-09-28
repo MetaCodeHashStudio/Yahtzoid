@@ -96,6 +96,7 @@ public class PlayerNumbers extends JFrame {
 			numPlayersGroup.add(rdNumPlayers[i]);			// Add to button group
 			contentPane.add(rdNumPlayers[i], gbc_rdNumPlayers[i]);
 		}
+		rdNumPlayers[0].setSelected(true);
 	}
 	public static void notifyNoSelection()
 	{
