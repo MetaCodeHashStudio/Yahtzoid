@@ -84,7 +84,7 @@ public class PlayerNumbers extends JFrame {
 	}
 	static void createRadios()
 	{
-		JRadioButton[] rdNumPlayers = new JRadioButton[Variables.MAX_SUPPORTED_PLAYERS];
+		rdNumPlayers = new JRadioButton[Variables.MAX_SUPPORTED_PLAYERS];
 		GridBagConstraints[] gbc_rdNumPlayers = new GridBagConstraints[Variables.MAX_SUPPORTED_PLAYERS];
 		numPlayersGroup = new ButtonGroup();
 		for (int i = 0 ; i < Variables.MAX_SUPPORTED_PLAYERS ; i++)
