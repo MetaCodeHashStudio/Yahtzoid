@@ -18,10 +18,6 @@ public class PlayerNumbersHandlers
 				public void actionPerformed(ActionEvent e)
 				{
 					Variables.selectedNumPlayers = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedNumbersOfPlayers();
-					/*
-					String numPlayers = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedButtonText(PlayerNumbers.numPlayersGroup);
-					Variables.selectedNumPlayers = numPlayers.charAt(0) - 48; // Why the hell do I need to subtract 48?!
-					*/
 					com.rushteamc.yahtzee.Start.PlayerNumberFrame.setVisible(false);
 					com.rushteamc.yahtzee.Start.continueToNames();
 				}
