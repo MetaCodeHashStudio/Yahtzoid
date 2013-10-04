@@ -8,6 +8,26 @@ public class Variables {
 				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
+				public static final String scoreTypes[] =
+					{
+						"Aces",
+						"Twos",
+						"Threes",
+						"Fours",
+						"Fives",
+						"Sixes",
+						"Upper Total",
+						"Bonus",
+						"Three of a Kind",
+						"Four of a Kind",
+						"Small Straight",
+						"Large Straight",
+						"Full House",
+						"Chance",
+						"Yahtzee",
+						"Lower Total",
+						"Grand Total"
+					};
 				
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
