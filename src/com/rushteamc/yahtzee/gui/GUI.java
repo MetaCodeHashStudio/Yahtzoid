@@ -20,7 +20,8 @@ public class GUI extends JFrame {
 	private JPanel leftPanel;
 	private JLabel lblScoreSheet;
 	
-	public static JLabel[][] lblGraphicalScores = new JLabel[Variables.selectedNumPlayers][Variables.scoreTypes.length];
+	public static JLabel[][] lblGraphicalScores;
+	public static JLabel[] lblPlayerNames;
 	public static JLabel[] lblScoreTypes;
 
 	/**
@@ -82,14 +83,36 @@ public class GUI extends JFrame {
 		
 		lblScoreTypes = new JLabel[Variables.scoreTypes.length];
 		GridBagConstraints[] gbc_lblScoreTypes = new GridBagConstraints[Variables.scoreTypes.length];
+		
 		for(int i = 0 ; i < Variables.scoreTypes.length; i++)
 		{
 			gbc_lblScoreTypes[i] = new GridBagConstraints(); 				// Pre-init
 			gbc_lblScoreTypes[i].gridx = labelsXPos;
 			gbc_lblScoreTypes[i].gridy = labelsYStart+i;
-			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]); 			// Pre-init
+			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]);
 			leftPanel.add(lblScoreTypes[i], gbc_lblScoreTypes[i]);
-			
+		}
+		
+		lblGraphicalScores = new JLabel[Variables.selectedNumPlayers][Variables.scoreTypes.length];
+		lblPlayerNames = new JLabel[Variables.selectedNumPlayers];
+		GridBagConstraints[] gbc_lblPlayerNames = new GridBagConstraints[Variables.selectedNumPlayers];
+		GridBagConstraints[][] gbc_lblGraphicalScores = new GridBagConstraints[Variables.selectedNumPlayers][Variables.scoreTypes.length];
+
+		for(int i = 0 ; i < Variables.selectedNumPlayers ; i++)
+		{
+			gbc_lblPlayerNames[i] = new GridBagConstraints();
+			gbc_lblPlayerNames[i].gridx = labelsXPos+1+i;
+			gbc_lblPlayerNames[i].gridy = labelsYStart-1;
+			lblPlayerNames[i] = new JLabel(Variables.playerNames.get(i));
+			leftPanel.add(lblPlayerNames[i], gbc_lblPlayerNames[i]);
+			for(int j = 0 ; j < Variables.scoreTypes.length ; j++)
+			{
+			gbc_lblGraphicalScores[i][j] = new GridBagConstraints(); 				// Pre-init
+			gbc_lblGraphicalScores[i][j].gridx = labelsXPos+1+i;
+			gbc_lblGraphicalScores[i][j].gridy = labelsYStart+j;
+			lblGraphicalScores[i][j] = new JLabel("0"); 							// Pre-init
+			leftPanel.add(lblGraphicalScores[i][j], gbc_lblGraphicalScores[i][j]);
+			}
 		}
 		
 		
