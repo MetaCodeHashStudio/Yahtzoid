@@ -11,7 +11,9 @@ import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
+
 import com.rushteamc.yahtzee.utils.Variables;
+import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
 public class GUI extends JFrame {
 
@@ -27,13 +29,15 @@ public class GUI extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public GUI() {
+	public GUI()
+	{
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1024, 768);
 		setTitle(Variables.APPLICATION_TITLE);
+
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		gbl_contentPane.columnWidths = new int[]{480, 480};
+		gbl_contentPane.columnWidths = GUIVariables.CONTENT_PANE_X_DIMENSIONS;
 		gbl_contentPane.rowHeights = new int[]{128, 128, 128, 128, 128, 128};
 		
 		contentPane = new JPanel();
