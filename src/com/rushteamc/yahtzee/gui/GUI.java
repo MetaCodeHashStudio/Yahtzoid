@@ -105,6 +105,7 @@ public class GUI extends JFrame {
 			gbc_lblPlayerNames[i].gridy = labelsYStart-1;
 			lblPlayerNames[i] = new JLabel(Variables.playerNames.get(i));
 			leftPanel.add(lblPlayerNames[i], gbc_lblPlayerNames[i]);
+			
 			for(int j = 0 ; j < Variables.scoreTypes.length ; j++)
 			{
 			gbc_lblGraphicalScores[i][j] = new GridBagConstraints(); 				// Pre-init
