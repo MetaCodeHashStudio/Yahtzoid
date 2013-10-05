@@ -10,13 +10,13 @@ public class GUIVariables
 	private static final int CONTENT_PANE_ROWS = 6;
 	private static final int CONTENT_PANE_ROW_HEIGHT = CONTENT_PANE_HEIGHT / CONTENT_PANE_ROWS;
 	public static int[] contentPaneXDimensions = new int[]{buildLeftPaneWidth(), CONTENT_PANE_RIGHT_WIDTH};
-	private static final int LEFT_PANE_GRID_WIDTH = 80;
+	private static final int LEFT_PANE_COLUMN_WIDTH = 80;
 	
 	public static int contentPaneWidth;
 	
 	public static int buildLeftPaneWidth()
 	{
-		contentPaneLeftWidth = (Variables.selectedNumPlayers+2) * LEFT_PANE_GRID_WIDTH;
+		contentPaneLeftWidth = (Variables.selectedNumPlayers+2) * LEFT_PANE_COLUMN_WIDTH;
 		return contentPaneLeftWidth;
 	}
 	
@@ -25,7 +25,7 @@ public class GUIVariables
 		int[] leftPaneXDimensions = new int[Variables.selectedNumPlayers+2];
 		for(int i = 0 ; i < leftPaneXDimensions.length ; i++)
 		{
-			leftPaneXDimensions[i] = LEFT_PANE_GRID_WIDTH;
+			leftPaneXDimensions[i] = LEFT_PANE_COLUMN_WIDTH;
 		}
 		return leftPaneXDimensions;
 	}
