@@ -9,7 +9,7 @@ public class GUIVariables
 	public static final int CONTENT_PANE_HEIGHT = 768;
 	private static final int CONTENT_PANE_ROWS = 6;
 	private static final int CONTENT_PANE_ROW_HEIGHT = CONTENT_PANE_HEIGHT / CONTENT_PANE_ROWS;
-	public static int[] contentPaneXDimensions = new int[]{contentPaneLeftWidth, CONTENT_PANE_RIGHT_WIDTH};
+	public static int[] contentPaneXDimensions = new int[]{buildLeftPaneWidth(), CONTENT_PANE_RIGHT_WIDTH};
 	private static final int LEFT_PANE_GRID_WIDTH = 80;
 	
 	public static int contentPaneWidth;

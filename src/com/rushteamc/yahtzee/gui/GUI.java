@@ -40,7 +40,7 @@ public class GUI extends JFrame {
 		
 		GridBagLayout gbl_contentPane = new GridBagLayout();
 		gbl_contentPane.columnWidths = GUIVariables.contentPaneXDimensions;
-		gbl_contentPane.rowHeights = new int[]{128, 128, 128, 128, 128, 128};
+		gbl_contentPane.rowHeights = GUIVariables.buildContentPaneYDimensions();
 		
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
