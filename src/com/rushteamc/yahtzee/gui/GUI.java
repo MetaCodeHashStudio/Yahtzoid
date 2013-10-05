@@ -34,7 +34,7 @@ public class GUI extends JFrame {
 //		buildPanels();
 //		setPanels();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 1024, 768);
+		setBounds(100, 100, GUIVariables.buildContentPaneWidth(), GUIVariables.CONTENT_PANE_HEIGHT);
 		setTitle(Variables.APPLICATION_TITLE);
 
 		
