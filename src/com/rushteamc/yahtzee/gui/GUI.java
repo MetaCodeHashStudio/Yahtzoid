@@ -9,6 +9,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
+import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.border.LineBorder;
 
@@ -25,6 +26,7 @@ public class GUI extends JFrame {
 	public static JLabel[][] lblGraphicalScores;
 	public static JLabel[] lblPlayerNames;
 	public static JLabel[] lblScoreTypes;
+	public static JButton[] btnHoldDie;
 
 	/**
 	 * Create the frame.
@@ -64,7 +66,7 @@ public class GUI extends JFrame {
 				
 		rightPanel = new JPanel();
 		GridBagLayout gbl_rightPanel = new GridBagLayout();
-		gbl_rightPanel.columnWidths = new int[]{60, 60, 60, 60, 60, 60, 60, 60};
+		gbl_rightPanel.columnWidths = new int[]{50, 50, 50, 50, 50, 50, 50, 50, 50};
 		gbl_rightPanel.rowHeights = new int[]{48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48, 48};
 		rightPanel.setLayout(gbl_rightPanel);
 		GridBagConstraints gbc_rightPanel = new GridBagConstraints();
@@ -121,6 +123,20 @@ public class GUI extends JFrame {
 			leftPanel.add(lblGraphicalScores[i][j], gbc_lblGraphicalScores[i][j]);
 			}
 		}
+		btnHoldDie = new JButton[6];
+		GridBagConstraints[] gbc_btnHoldDie = new GridBagConstraints[btnHoldDie.length];
+		for(int i = 0 ; i < btnHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
+		{
+			// Build dice pictures
+			// Build hold buttons:
+			gbc_btnHoldDie[i] = new GridBagConstraints();
+			gbc_btnHoldDie[i].gridx = i+1;
+			gbc_btnHoldDie[i].gridy = 2;
+			btnHoldDie[i] = new JButton("Hold");
+			rightPanel.add(btnHoldDie[i],gbc_btnHoldDie[i]);
+		}
+		btnHoldDie[btnHoldDie.length-1].setVisible(false);
+		// Build roll button
 		
 	}
 }
