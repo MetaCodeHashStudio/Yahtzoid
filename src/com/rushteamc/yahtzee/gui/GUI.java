@@ -52,7 +52,7 @@ public class GUI extends JFrame {
 		leftPanel.setBackground(Color.WHITE);
 		GridBagLayout gbl_leftPanel = new GridBagLayout();
 		gbl_leftPanel.columnWidths = GUIVariables.buildLeftPaneXDimensions(); // Should return 6*80 for 4 players, 3*80 for 1 player.
-		gbl_leftPanel.rowHeights = new int[]{24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24, 24};
+		gbl_leftPanel.rowHeights = GUIVariables.buildLeftPaneYDimensions();
 		leftPanel.setLayout(gbl_leftPanel);
 		GridBagConstraints gbc_leftPanel = new GridBagConstraints();
 		gbc_leftPanel.fill = GridBagConstraints.BOTH;
