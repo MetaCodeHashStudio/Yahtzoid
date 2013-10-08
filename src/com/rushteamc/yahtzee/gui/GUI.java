@@ -2,19 +2,28 @@ package com.rushteamc.yahtzee.gui;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.Image;
 import java.awt.Insets;
+import java.awt.Graphics;
+import java.awt.image.BufferedImage;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.JButton;
+
 import java.awt.Color;
+
 import javax.swing.border.LineBorder;
+import javax.imageio.ImageIO;
 
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
+
+import java.awt.Toolkit;
 
 public class GUI extends JFrame {
 
@@ -27,6 +36,8 @@ public class GUI extends JFrame {
 	public static JLabel[] lblPlayerNames;
 	public static JLabel[] lblScoreTypes;
 	public static JButton[] btnHoldDie;
+	public static ImageIcon[] dieIcon;
+	public static Image[] dieImages;
 
 	/**
 	 * Create the frame.
@@ -108,6 +119,7 @@ public class GUI extends JFrame {
 
 		for(int i = 0 ; i < Variables.selectedNumPlayers ; i++)
 		{
+			
 			gbc_lblPlayerNames[i] = new GridBagConstraints();
 			gbc_lblPlayerNames[i].gridx = labelsXPos+2+i;
 			gbc_lblPlayerNames[i].gridy = labelsYStart-1;
@@ -124,11 +136,20 @@ public class GUI extends JFrame {
 			}
 		}
 		btnHoldDie = new JButton[6];
+		dieImages = new Image[6];
+		dieIcon = new ImageIcon[6];
 		GridBagConstraints[] gbc_btnHoldDie = new GridBagConstraints[btnHoldDie.length];
+		GridBagConstraints[] gbc_dieIcon = new GridBagConstraints[dieIcon.length];
 		for(int i = 0 ; i < btnHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
 		{
+			gbc_dieIcon[i] = new GridBagConstraints();
+			gbc_dieIcon[i].gridx = i+1;
+			gbc_dieIcon[i].gridy = 1;
+			dieImages[i] = Toolkit.getDefaultToolkit().getImage("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			dieIcon[i] = new ImageIcon(dieImages[i]);
+//			rightPanel.add(dieImages[i], gbc_dieIcon[i]);
+			
 			// Build dice pictures
-			// Build hold buttons:
 			gbc_btnHoldDie[i] = new GridBagConstraints();
 			gbc_btnHoldDie[i].gridx = i+1;
 			gbc_btnHoldDie[i].gridy = 2;
@@ -136,6 +157,7 @@ public class GUI extends JFrame {
 			rightPanel.add(btnHoldDie[i],gbc_btnHoldDie[i]);
 		}
 		btnHoldDie[btnHoldDie.length-1].setVisible(false);
+		//dieIcon[dieIcon.length-1].setVisible(false);
 		// Build roll button
 		
 	}
