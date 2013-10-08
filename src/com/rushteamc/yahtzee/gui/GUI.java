@@ -178,6 +178,7 @@ public class GUI extends JFrame {
 		for(int i = 0 ; i < imgFile.length ; i++)
 		{
 			imgFile[i] = new File("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			System.out.println();
 		}
 	}
 	public static void setHandler() throws IOException
