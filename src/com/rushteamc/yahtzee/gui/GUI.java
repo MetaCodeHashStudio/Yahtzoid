@@ -4,32 +4,28 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Insets;
-import java.awt.Graphics;
 import java.awt.image.BufferedImage;
+import java.awt.Color;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-import javax.swing.JSeparator;
 import javax.swing.JButton;
-
-import java.awt.Color;
 
 import javax.swing.border.LineBorder;
 import javax.imageio.ImageIO;
 
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
-import com.rushteamc.yahtzee.gui.img.*;
 
-import java.awt.Toolkit;
 import java.io.File;
 import java.io.IOException;
 
 public class GUI extends JFrame {
 
+	private static final long serialVersionUID = 435423427892374L;
 	private JPanel contentPane;
 	private JPanel rightPanel;
 	private JPanel leftPanel;
@@ -39,9 +35,10 @@ public class GUI extends JFrame {
 	public static JLabel[] lblPlayerNames;
 	public static JLabel[] lblScoreTypes;
 	public static JLabel[] lblHoldDie;
-	public static JButton[] dieIcon;
+	public static JButton[] btnDieIcon;
 	public static Image[] dieImages;
 	public static File[] imgFile;
+	public static JButton btnRollDice;
 
 	/**
 	 * Create the frame.
@@ -142,17 +139,17 @@ public class GUI extends JFrame {
 		}
 		lblHoldDie = new JLabel[6];
 		dieImages = new BufferedImage[6];
-		dieIcon = new JButton[6];
+		btnDieIcon = new JButton[6];
 		GridBagConstraints[] gbc_lblHoldDie = new GridBagConstraints[lblHoldDie.length];
-		GridBagConstraints[] gbc_dieIcon = new GridBagConstraints[dieIcon.length];
+		GridBagConstraints[] gbc_btnDieIcon = new GridBagConstraints[btnDieIcon.length];
 		for(int i = 0 ; i < lblHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
 		{
-			gbc_dieIcon[i] = new GridBagConstraints();
-			gbc_dieIcon[i].gridx = i+1;
-			gbc_dieIcon[i].gridy = 1;
+			gbc_btnDieIcon[i] = new GridBagConstraints();
+			gbc_btnDieIcon[i].gridx = i+1;
+			gbc_btnDieIcon[i].gridy = 1;
 			dieImages[i] = ImageIO.read(imgFile[i]);
-			dieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
-			rightPanel.add(dieIcon[i], gbc_dieIcon[i]);
+			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
+			rightPanel.add(btnDieIcon[i], gbc_btnDieIcon[i]);
 			
 			// Build dice pictures
 			gbc_lblHoldDie[i] = new GridBagConstraints();
@@ -162,8 +159,15 @@ public class GUI extends JFrame {
 			rightPanel.add(lblHoldDie[i],gbc_lblHoldDie[i]);
 		}
 		lblHoldDie[lblHoldDie.length-1].setVisible(false);
-		//dieIcon[dieIcon.length-1].setVisible(false);
-		// Build roll button
+		btnDieIcon[lblHoldDie.length-1].setVisible(false);
+
+		GridBagConstraints gbc_btnRollDice = new GridBagConstraints();
+		gbc_btnRollDice.fill = GridBagConstraints.BOTH;
+		gbc_btnRollDice.gridx = 1;
+		gbc_btnRollDice.gridy = 4;
+		gbc_btnRollDice.gridwidth = 5;
+		btnRollDice = new JButton("Roll Dice");
+		rightPanel.add(btnRollDice, gbc_btnRollDice);
 		
 	}
 	private static void populateImages()
