@@ -22,6 +22,7 @@ public class RollDice
 			Dice[i] = (Die.nextInt(DieSize)+1);
 			System.out.println("Die number " +  (i + 1) + " has been cast and returned " + Dice[i]);
 		}
+		Variables.diceArray = Dice;
 		return Dice;
 	}
 }

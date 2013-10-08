@@ -149,6 +149,7 @@ public class GUI extends JFrame {
 			gbc_btnDieIcon[i].gridy = 1;
 			dieImages[i] = ImageIO.read(imgFile[i]);
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
+			btnDieIcon[i].setActionCommand("holdButton"+i);
 			rightPanel.add(btnDieIcon[i], gbc_btnDieIcon[i]);
 			
 			// Build dice pictures
