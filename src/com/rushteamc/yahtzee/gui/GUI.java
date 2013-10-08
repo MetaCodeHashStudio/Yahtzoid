@@ -22,8 +22,11 @@ import javax.imageio.ImageIO;
 
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
+import com.rushteamc.yahtzee.gui.img.*;
 
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.IOException;
 
 public class GUI extends JFrame {
 
@@ -35,17 +38,19 @@ public class GUI extends JFrame {
 	public static JLabel[][] lblGraphicalScores;
 	public static JLabel[] lblPlayerNames;
 	public static JLabel[] lblScoreTypes;
-	public static JButton[] btnHoldDie;
-	public static ImageIcon[] dieIcon;
+	public static JLabel[] lblHoldDie;
+	public static JButton[] dieIcon;
 	public static Image[] dieImages;
+	public static File[] imgFile;
 
 	/**
 	 * Create the frame.
 	 */
-	public GUI()
+	public GUI() throws IOException
 	{
 //		buildPanels();
 //		setPanels();
+		populateImages();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, GUIVariables.buildContentPaneWidth(), GUIVariables.CONTENT_PANE_HEIGHT);
 		setTitle(Variables.APPLICATION_TITLE);
@@ -135,30 +140,38 @@ public class GUI extends JFrame {
 			leftPanel.add(lblGraphicalScores[i][j], gbc_lblGraphicalScores[i][j]);
 			}
 		}
-		btnHoldDie = new JButton[6];
-		dieImages = new Image[6];
-		dieIcon = new ImageIcon[6];
-		GridBagConstraints[] gbc_btnHoldDie = new GridBagConstraints[btnHoldDie.length];
+		lblHoldDie = new JLabel[6];
+		dieImages = new BufferedImage[6];
+		dieIcon = new JButton[6];
+		GridBagConstraints[] gbc_lblHoldDie = new GridBagConstraints[lblHoldDie.length];
 		GridBagConstraints[] gbc_dieIcon = new GridBagConstraints[dieIcon.length];
-		for(int i = 0 ; i < btnHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
+		for(int i = 0 ; i < lblHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
 		{
 			gbc_dieIcon[i] = new GridBagConstraints();
 			gbc_dieIcon[i].gridx = i+1;
 			gbc_dieIcon[i].gridy = 1;
-			dieImages[i] = Toolkit.getDefaultToolkit().getImage("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-			dieIcon[i] = new ImageIcon(dieImages[i]);
-//			rightPanel.add(dieImages[i], gbc_dieIcon[i]);
+			dieImages[i] = ImageIO.read(imgFile[i]);
+			dieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
+			rightPanel.add(dieIcon[i], gbc_dieIcon[i]);
 			
 			// Build dice pictures
-			gbc_btnHoldDie[i] = new GridBagConstraints();
-			gbc_btnHoldDie[i].gridx = i+1;
-			gbc_btnHoldDie[i].gridy = 2;
-			btnHoldDie[i] = new JButton("Hold");
-			rightPanel.add(btnHoldDie[i],gbc_btnHoldDie[i]);
+			gbc_lblHoldDie[i] = new GridBagConstraints();
+			gbc_lblHoldDie[i].gridx = i+1;
+			gbc_lblHoldDie[i].gridy = 2;
+			lblHoldDie[i] = new JLabel("Hold");
+			rightPanel.add(lblHoldDie[i],gbc_lblHoldDie[i]);
 		}
-		btnHoldDie[btnHoldDie.length-1].setVisible(false);
+		lblHoldDie[lblHoldDie.length-1].setVisible(false);
 		//dieIcon[dieIcon.length-1].setVisible(false);
 		// Build roll button
 		
+	}
+	private static void populateImages()
+	{
+		imgFile = new File[6];
+		for(int i = 0 ; i < imgFile.length ; i++)
+		{
+			imgFile[i] = new File("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+		}
 	}
 }
