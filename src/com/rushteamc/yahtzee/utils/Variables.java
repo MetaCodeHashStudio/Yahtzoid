@@ -7,6 +7,8 @@ public class Variables {
     
 				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
+				public static final int STANDARD_MAX_REROLLS = 2;
+				public static int currentUsedRerolls = -1; //pre-init
 				public static int standardDieSize = 6;
 				public static int standardNumberOfDice = 5;
 				public static int[] diceArray;
@@ -22,6 +24,8 @@ public class Variables {
 						"Sixes",
 						"Upper Total",
 						"Bonus",
+						"Pair",
+						"Two Pairs",
 						"Three of a Kind",
 						"Four of a Kind",
 						"Small Straight",

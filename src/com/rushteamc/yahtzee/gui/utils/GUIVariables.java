@@ -39,13 +39,13 @@ public class GUIVariables
 	
 	public static int buildLeftPaneWidth()
 	{
-		contentPaneLeftWidth = (Variables.selectedNumPlayers+2) * CONTENT_PANE_LEFT_COLUMN_WIDTH;
+		contentPaneLeftWidth = (Variables.selectedNumPlayers+3) * CONTENT_PANE_LEFT_COLUMN_WIDTH;
 		return contentPaneLeftWidth;
 	}
 	
 	public static int[] buildLeftPaneXDimensions()
 	{
-		int[] leftPaneXDimensions = new int[Variables.selectedNumPlayers+2];
+		int[] leftPaneXDimensions = new int[Variables.selectedNumPlayers+3];
 		for(int i = 0 ; i < leftPaneXDimensions.length ; i++)
 		{
 			leftPaneXDimensions[i] = CONTENT_PANE_LEFT_COLUMN_WIDTH;

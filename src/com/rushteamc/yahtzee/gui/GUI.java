@@ -13,7 +13,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JButton;
-
+import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import javax.imageio.ImageIO;
 
@@ -184,5 +184,13 @@ public class GUI extends JFrame {
 	{
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
+	}
+	public static void holdError()
+	{
+		JOptionPane.showMessageDialog(null,"You cannot hold dice before rolling.");
+	}
+	public static void noMoreRerollsError()
+	{
+		JOptionPane.showMessageDialog(null,"You have spent all your rerolls this turn.");	
 	}
 }
