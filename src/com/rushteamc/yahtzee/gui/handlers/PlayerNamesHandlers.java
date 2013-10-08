@@ -1,12 +1,14 @@
 package com.rushteamc.yahtzee.gui.handlers;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import com.rushteamc.yahtzee.Start;
 import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.PlayerNames;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+
 
 public class PlayerNamesHandlers
 {

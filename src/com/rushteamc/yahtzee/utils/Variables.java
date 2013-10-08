@@ -7,6 +7,8 @@ public class Variables {
     
 				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
+				public static int standardDieSize = 6;
+				public static int standardNumberOfDice = 5;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
 				public static final String scoreTypes[] =
 					{
@@ -28,6 +30,9 @@ public class Variables {
 						"Lower Total",
 						"Grand Total"
 					};
+				
+				// SCORE VARIABLES //
+				public static int ScoreForBonus = 63;
 				
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/

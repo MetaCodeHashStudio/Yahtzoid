@@ -2,12 +2,14 @@ package com.rushteamc.yahtzee.utils;
 
 import java.util.Random;
 
+import com.rushteamc.yahtzee.utils.Variables;
+
 public class RollDice
 {
 	public static int[] castDice() // rolls the die and returns the array.
 	{
-		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();		// How many faces on the rolled die?
-		int HowManyDice = com.rushteamc.yahtzee.utils.Configurables.getDieNumber();	// How many dice to roll?
+		int DieSize = Variables.standardDieSize;		// How many faces on the rolled die?
+		int HowManyDice = Variables.standardNumberOfDice;	// How many dice to roll?
 		Random Die = new Random();													// The die is a random value. :p
 		int[] Dice = new int[HowManyDice];
 		for

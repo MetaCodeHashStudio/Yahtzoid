@@ -27,7 +27,7 @@ public class GUI extends JFrame {
 
 	private static final long serialVersionUID = 435423427892374L;
 	private JPanel contentPane;
-	private JPanel rightPanel;
+	public static JPanel rightPanel;
 	private JPanel leftPanel;
 	private JLabel lblScoreSheet;
 	
@@ -168,6 +168,7 @@ public class GUI extends JFrame {
 		gbc_btnRollDice.gridwidth = 5;
 		btnRollDice = new JButton("Roll Dice");
 		rightPanel.add(btnRollDice, gbc_btnRollDice);
+		setHandler();
 		
 	}
 	private static void populateImages()
@@ -177,5 +178,10 @@ public class GUI extends JFrame {
 		{
 			imgFile[i] = new File("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 		}
+	}
+	public static void setHandler() throws IOException
+	{
+		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
+		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
 	}
 }
