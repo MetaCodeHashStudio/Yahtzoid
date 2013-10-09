@@ -16,14 +16,14 @@ import javax.swing.JOptionPane;
 public class PlayerNumbers extends JFrame {
 
 	private static final long serialVersionUID = 15465431564646L;
-	public static JPanel contentPane;
+	private static JPanel contentPane;
 //	public static JPanel mainPane;
 //	public static PlayerNumbers dialog;
-	public static JPanel buttonPane;
+	private static JPanel buttonPane;
 	public static JButton nextButton;
 	public static JButton quitButton;
 	public static JRadioButton[] rdNumPlayers;
-	public static ButtonGroup numPlayersGroup;
+	private static ButtonGroup numPlayersGroup;
 
 
 	/**
@@ -47,7 +47,7 @@ public class PlayerNumbers extends JFrame {
 		setComponent();
 		com.rushteamc.yahtzee.Start.setPlayerNumHandler();
 	}
-	public void setComponent()
+	private void setComponent()
 	{
 		createButtonPane();
 		createRadios();
