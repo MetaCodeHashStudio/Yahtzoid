@@ -1,21 +1,18 @@
 package com.rushteamc.yahtzee.gui.handlers;
 
-import com.rushteamc.yahtzee.gui.GUI;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
-import javax.swing.JButton;
 
 import com.rushteamc.yahtzee.utils.RollDice;
 import com.rushteamc.yahtzee.utils.Variables;
+import com.rushteamc.yahtzee.gui.GUI;
 
 public class GUIHandlers
 {
@@ -91,8 +88,8 @@ public class GUIHandlers
 	{
 		for(int i = 0 ; i < GUI.btnDieIcon.length ; i++)
 		{
-		GUI.btnDieIcon[i].addActionListener
-		(
+			GUI.btnDieIcon[i].addActionListener
+			(
 				new ActionListener()
 				{
 					@Override
@@ -118,11 +115,9 @@ public class GUIHandlers
 							GUI.lblHoldDie[buttonNumber].setText("Hold");
 							Variables.dieHeld[buttonNumber] = false;
 						}
-
-						
 					}
 				}
-		);
+			);
 		}
 	}
 }

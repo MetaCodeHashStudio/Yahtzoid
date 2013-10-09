@@ -15,15 +15,17 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
-import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
+
+
 import java.net.MalformedURLException;
 import java.net.URL;
 
