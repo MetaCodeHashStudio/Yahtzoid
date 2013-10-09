@@ -40,6 +40,7 @@ public class GUI extends JFrame {
 	public static JLabel[] lblScoreTypes;
 	public static JLabel[] lblHoldDie;
 	public static JButton[] btnDieIcon;
+	public static JButton[] btnSetScore;
 	public static Image[] dieImages;
 	public static File[] imgFile;
 	public static JButton btnRollDice;
@@ -117,6 +118,10 @@ public class GUI extends JFrame {
 			gbc_lblScoreTypes[i] = new GridBagConstraints(); 				// Pre-init
 			gbc_lblScoreTypes[i].gridx = labelsXPos;
 			gbc_lblScoreTypes[i].gridy = labelsYStart+i;
+			gbc_lblScoreTypes[i].gridwidth = 2;
+			gbc_lblScoreTypes[i].anchor = GridBagConstraints.WEST;
+			gbc_lblScoreTypes[i].fill = GridBagConstraints.HORIZONTAL;
+			gbc_lblScoreTypes[i].insets = new Insets(0, 15, 0, 0);
 			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]);
 			leftPanel.add(lblScoreTypes[i], gbc_lblScoreTypes[i]);
 		}
@@ -138,6 +143,7 @@ public class GUI extends JFrame {
 			for(int j = 0 ; j < Variables.scoreTypes.length ; j++)
 			{
 			gbc_lblGraphicalScores[i][j] = new GridBagConstraints(); 				// Pre-init
+			gbc_lblGraphicalScores[i][j].fill = GridBagConstraints.BOTH;
 			gbc_lblGraphicalScores[i][j].gridx = labelsXPos+2+i;
 			gbc_lblGraphicalScores[i][j].gridy = labelsYStart+j;
 			lblGraphicalScores[i][j] = new JLabel("0"); 							// Pre-init
@@ -177,6 +183,22 @@ public class GUI extends JFrame {
 		gbc_btnRollDice.gridwidth = 5;
 		btnRollDice = new JButton("Roll Dice");
 		rightPanel.add(btnRollDice, gbc_btnRollDice);
+		
+		btnSetScore = new JButton[Variables.scoreTypes.length];
+		GridBagConstraints[] gbc_btnSetScore = new GridBagConstraints[btnSetScore.length];
+		for(int i = 0 ; i < btnSetScore.length ; i++)
+		{
+			gbc_btnSetScore[i] = new GridBagConstraints();
+			gbc_btnSetScore[i].gridx = 6+labelsXPos;
+			gbc_btnSetScore[i].gridy = labelsYStart+i;
+			gbc_btnSetScore[i].insets = new Insets(5,5,5,5);
+			
+			btnSetScore[i] = new JButton("Add score");
+			leftPanel.add(btnSetScore[i], gbc_btnSetScore[i]);
+		}
+		
+		
+		
 		setHandler();
 		
 	}
