@@ -2,17 +2,19 @@ package com.rushteamc.yahtzee.utils;
 
 public class ScoreTestsUpper
 {
-	public static int checkUpper(int[] Die, int CheckFor)
+	public static int checkUpper(int CheckFor)
 	{
 		int Score = 0;
+		CheckFor++;
+		int[] dice = Variables.diceArray;
 		for
 		(
 				int i = 0;
-					i < Die.length;
+					i < dice.length;
 					i++
 		)
 		{
-			if(Die[i] == CheckFor)
+			if(dice[i] == CheckFor)
 			{
 				Score += CheckFor;
 			}

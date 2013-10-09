@@ -36,6 +36,15 @@ public class Variables {
 						"Lower Total",
 						"Grand Total"
 					};
+				public static final String upperTypes[] =
+					{
+						scoreTypes[0],
+						scoreTypes[1],
+						scoreTypes[2],
+						scoreTypes[3],
+						scoreTypes[4],
+						scoreTypes[5]
+					};
 				
 				// SCORE VARIABLES //
 				public static int ScoreForBonus = 63;

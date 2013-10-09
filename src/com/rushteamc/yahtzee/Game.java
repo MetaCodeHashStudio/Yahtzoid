@@ -9,6 +9,8 @@ package com.rushteamc.yahtzee;
   		/*GUIMETHOD */
         /*          */
 import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
+import com.rushteamc.yahtzee.utils.ScoreTestsUpper;
+import com.rushteamc.yahtzee.utils.Variables;
 public class Game
 {
 	public static void startGame()
@@ -19,7 +21,21 @@ public class Game
 	}
 	public static int checkForScore(int index, int[] dice)
 	{
-		int scoreToInsert = 50;
+		String scoreToCheck = Variables.scoreTypes[index];
+		System.out.println("Checking score for " + scoreToCheck);
+		boolean continueChecking = true;
+		int n = 0;
+		int scoreToInsert = 0;
+		while(continueChecking || n < 6)
+		{
+			if(scoreToCheck == Variables.upperTypes[n])
+			{
+				continueChecking = false;
+				scoreToInsert = ScoreTestsUpper.checkUpper(n);
+			}
+			
+			n++;
+		}
 		/*
 		 * Game logic for score checking. index points to which check, dice are the active dice values.
 		 */

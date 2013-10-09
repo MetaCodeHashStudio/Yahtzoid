@@ -100,7 +100,7 @@ public class GUIHandlers
 						System.out.println(buttonNumber);
 						if(!diceRolled)
 						{
-							GUI.holdError();
+							GUI.beforeRollingError();
 						}
 						if(Variables.currentUsedRerolls == Variables.STANDARD_MAX_REROLLS) // MUST BE MADE DYNAMIC BEFORE CARD IMPLEMENT'
 						{
@@ -133,10 +133,17 @@ public class GUIHandlers
 					@Override
 					public void actionPerformed(ActionEvent e)
 					{
-						int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
-						System.out.println(buttonNumber);
-						int scoreToAdd = Game.checkForScore(buttonNumber, Variables.diceArray);
-						GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
+						if(diceRolled)
+						{
+							int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
+							System.out.println(buttonNumber);
+							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.diceArray);
+							GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
+						}
+						else
+						{
+							GUI.beforeRollingError();
+						}
 					}
 				}
 			);

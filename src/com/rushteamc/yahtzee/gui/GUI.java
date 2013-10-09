@@ -227,9 +227,9 @@ public class GUI extends JFrame {
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.addScoreHandler();
 	}
-	public static void holdError()
+	public static void beforeRollingError()
 	{
-		JOptionPane.showMessageDialog(null,"You cannot hold dice before rolling.");
+		JOptionPane.showMessageDialog(null,"You cannot do this before rolling.");
 	}
 	public static void noMoreRerollsError()
 	{
