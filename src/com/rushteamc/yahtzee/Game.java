@@ -31,12 +31,9 @@ public class Game
 		 * This method should be called to end the current player's turn after inputting his points.
 		 */
 	}
-	public static void endRound()
-	{
-		/*
-		 * This method should be called to end the current round after all players finished their turns
-		 */
-	}
+        
+        //EndRound Handeled allready by PlayerTurnCheck
+        
 	public static void endGame()
 	{
 		/*
