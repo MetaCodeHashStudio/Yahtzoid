@@ -46,6 +46,7 @@ public class GUI extends JFrame {
 	public static JButton btnRollDice;
 	public static ImageInputStream[] imageStream;
 	public static InputStream[] inputStream;
+	public static URL[] imageUrl;
 
 	/**
 	 * Create the frame.
@@ -207,10 +208,11 @@ public class GUI extends JFrame {
 //		imgFile = new File[6];
 		imageStream = new ImageInputStream[6];
 		inputStream = new InputStream[6];
+		imageUrl = new URL[6];
 		for(int i = 0 ; i < inputStream.length ; i++)
 		{
-			URL imageUrl = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-			inputStream[i] = new URL(imageUrl.toString()).openStream();
+			imageUrl[i] = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			inputStream[i] = new URL(imageUrl[i].toString()).openStream();
 //			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
 //			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			System.out.println(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");

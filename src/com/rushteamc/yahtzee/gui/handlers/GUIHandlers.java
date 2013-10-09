@@ -57,11 +57,10 @@ public class GUIHandlers
 								}
 								try
 								{
-									URL imageUrl = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (dice[i]) + ".png");
+									URL imageUrl = GUI.imageUrl[dice[i]-1];
 									InputStream streamToInsert = new URL(imageUrl.toString()).openStream();
-									System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
+//									System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
 									BufferedImage imageToInsert = ImageIO.read(streamToInsert);
-//									System.out.println("Attempting to update dice number " + i);
 									GUI.btnDieIcon[i].setIcon(new ImageIcon(imageToInsert));
 								}
 								catch(IOException error)
