@@ -50,7 +50,7 @@ public class Variables {
 
         /////////// - S T R I N G - ////////////
             /*PlayerTurnCheck.class*/
-                public static int currentPlayer; // Will Output Current Player on round
+                public static String currentPlayer; // Will Output Current Player on round
                 public static String totalPlayers; // Will Output Total Players 
                 public static String allPlayers;
         /////////// - B O O L E A N - ////////////

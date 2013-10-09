@@ -30,8 +30,8 @@ public class PlayerTurnCheck {
         if(!Variables.playerNames.isEmpty())
         {
             String Pname = (String) Variables.playerNames.get(Variables.turnNumber-1);
-            Variables.curPlayer = "Its "+Pname + "'s Turn"+" on round: " + Variables.roundNumber;
-            System.out.println(Variables.curPlayer); 
+            Variables.currentPlayer = "Its "+Pname + "'s Turn"+" on round: " + Variables.roundNumber;
+            System.out.println(Variables.currentPlayer); 
         
         }else{
             System.out.println(); 
