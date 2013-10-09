@@ -26,9 +26,18 @@ public class FileHandling
 		}
 		*/
 		String tempPath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
-		if(!Variables.isCompiled)
+		boolean isCompiled;
+		if(tempPath.endsWith(".jar"))
+		{
+			isCompiled = true;
+		}
+		else
+		{
+			isCompiled = false;
+		}
+		if(!isCompiled)
 			Variables.internalFilePath = "file:" + tempPath+"/";
-		if(Variables.isCompiled)
+		if(isCompiled)
 			Variables.internalFilePath = "file:" + tempPath + "!"; 
 	}
 	
