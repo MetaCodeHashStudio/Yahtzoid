@@ -1,12 +1,10 @@
 
 package com.rushteamc.yahtzee;
-
+/*
 import com.rushteamc.yahtzee.gui.handlers.TimerHandler;
 import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
 import com.rushteamc.yahtzee.utils.Players;
-/*
- * @author Runnetty
- */
+*/
 public class TestHandlerStart
 {
 	/*
