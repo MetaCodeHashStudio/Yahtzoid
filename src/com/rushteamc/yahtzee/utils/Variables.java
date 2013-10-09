@@ -43,7 +43,7 @@ public class Variables {
 				
 				// FILE HANDLING //
 				public static String internalFilePath;
-				public static boolean isCompiled = false;
+				public static boolean isCompiled = true;
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
                 public static int turnNumber = 1; 	// Pre-init

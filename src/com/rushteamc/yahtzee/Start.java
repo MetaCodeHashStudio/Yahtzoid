@@ -1,5 +1,6 @@
 package com.rushteamc.yahtzee;
 import java.awt.EventQueue;
+import java.net.URISyntaxException;
 
 import com.rushteamc.yahtzee.utils.Variables;
 
@@ -8,7 +9,7 @@ public class Start
 	public static com.rushteamc.yahtzee.gui.PlayerNumbers PlayerNumberFrame;
 	public static com.rushteamc.yahtzee.gui.PlayerNames PlayerNamesFrame;
 
-	public static void main(String[] args) // Start script begins with launching PlayerNumbers check.
+	public static void main(String[] args) throws URISyntaxException // Start script begins with launching PlayerNumbers check.
 	{
 		com.rushteamc.yahtzee.utils.FileHandling.setWorkingPaths();
 		System.out.println(Variables.internalFilePath);

@@ -16,12 +16,16 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 import javax.imageio.ImageIO;
+import javax.imageio.stream.ImageInputStream;
 
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class GUI extends JFrame {
 
@@ -39,6 +43,8 @@ public class GUI extends JFrame {
 	public static Image[] dieImages;
 	public static File[] imgFile;
 	public static JButton btnRollDice;
+	public static ImageInputStream[] imageStream;
+	public static InputStream[] inputStream;
 
 	/**
 	 * Create the frame.
@@ -148,7 +154,8 @@ public class GUI extends JFrame {
 			gbc_btnDieIcon[i] = new GridBagConstraints();
 			gbc_btnDieIcon[i].gridx = i+1;
 			gbc_btnDieIcon[i].gridy = 1;
-			dieImages[i] = ImageIO.read(imgFile[i]);
+			dieImages[i] = ImageIO.read(inputStream[i]);
+					//read(imgFile[i]);
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
 			btnDieIcon[i].setActionCommand("holdButton"+i);
 			rightPanel.add(btnDieIcon[i], gbc_btnDieIcon[i]);
@@ -173,13 +180,18 @@ public class GUI extends JFrame {
 		setHandler();
 		
 	}
-	private static void populateImages()
+	private static void populateImages() throws MalformedURLException, IOException
 	{
 		imgFile = new File[6];
+		imageStream = new ImageInputStream[6];
+		inputStream = new InputStream[6];
 		for(int i = 0 ; i < imgFile.length ; i++)
 		{
-			imgFile[i] = new File(Variables.internalFilePath + "gui/img/Die_" + (i+1) + ".png");
-			System.out.println(Variables.internalFilePath + "gui/img/Die_" + (i+1) + ".png");
+			URL imageUrl = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			inputStream[i] = new URL(imageUrl.toString()).openStream();
+			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
+			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			System.out.println(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 		}
 	}
 	private static void setHandler() throws IOException

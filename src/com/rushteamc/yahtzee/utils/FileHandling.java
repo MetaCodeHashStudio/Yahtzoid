@@ -1,8 +1,11 @@
 package com.rushteamc.yahtzee.utils;
 
+import java.io.File;
+import java.net.URISyntaxException;
+
 public class FileHandling
 {
-	public static void setWorkingPaths()
+	public static void setWorkingPaths() throws URISyntaxException
 	{/*
 		URL main = Start.class.getResource("Start.class");
 		if (!"file".equalsIgnoreCase(main.getProtocol()))
@@ -12,15 +15,21 @@ public class FileHandling
 		path = path.replace("Start.class", "");
 		Variables.diceImagesPath = path + "gui/img/";
 	 */
+		/*
 		if(Variables.isCompiled)
 		{
-			Variables.internalFilePath = "com/rushteamc/yahtzee/";
+			Variables.internalFilePath = "./com/rushteamc/yahtzee/";
 		}
 		else
 		{
 			Variables.internalFilePath = "src/com/rushteamc/yahtzee/";
 		}
-			
+		*/
+		String tempPath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
+		if(!Variables.isCompiled)
+			Variables.internalFilePath = "file:" + tempPath+"/";
+		if(Variables.isCompiled)
+			Variables.internalFilePath = "file:" + tempPath + "!"; 
 	}
 	
 	
