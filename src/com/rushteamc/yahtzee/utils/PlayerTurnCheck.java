@@ -14,11 +14,11 @@ public class PlayerTurnCheck {
         
         /*Checks if Curent Turn is greater than the number of players*/
         /////////////////////////////////////////////////////////////
-            for(int MaxTurns = NrPlyrs; Variables.turnNumber > MaxTurns;)
+            for(int MaxTurns = NrPlyrs; Variables.turnNumber > MaxTurns-1;)
         {
             System.out.println("The current round is finished");
             Variables.roundNumber++;
-            Variables.turnNumber=1;
+            Variables.turnNumber=0;
         }
         /////////////////////////////////////////////////////////////
     }

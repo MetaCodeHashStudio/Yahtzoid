@@ -45,7 +45,7 @@ public class Variables {
 				public static String internalFilePath;
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
-                public static int turnNumber = 1; 	// Pre-init
+                public static int turnNumber = 0; 	// Pre-init
                 public static int roundNumber = 1;	// Pre-init
 
         /////////// - S T R I N G - ////////////

@@ -19,7 +19,7 @@ public class Game
 	}
 	public static int checkForScore(int index, int[] dice)
 	{
-		int scoreToInsert = 0;
+		int scoreToInsert = 50;
 		/*
 		 * Game logic for score checking. index points to which check, dice are the active dice values.
 		 */

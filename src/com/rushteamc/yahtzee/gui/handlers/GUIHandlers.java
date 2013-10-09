@@ -136,7 +136,7 @@ public class GUIHandlers
 						int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
 						System.out.println(buttonNumber);
 						int scoreToAdd = Game.checkForScore(buttonNumber, Variables.diceArray);
-//						GUI.lblGraphicalScores[PlayerNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
+						GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
 					}
 				}
 			);
