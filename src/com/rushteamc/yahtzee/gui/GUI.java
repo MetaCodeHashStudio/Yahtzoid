@@ -42,7 +42,7 @@ public class GUI extends JFrame {
 	public static JButton[] btnDieIcon;
 	public static JButton[] btnSetScore;
 	public static Image[] dieImages;
-	public static File[] imgFile;
+//	public static File[] imgFile;
 	public static JButton btnRollDice;
 	public static ImageInputStream[] imageStream;
 	public static InputStream[] inputStream;
@@ -204,15 +204,15 @@ public class GUI extends JFrame {
 	}
 	private static void populateImages() throws MalformedURLException, IOException
 	{
-		imgFile = new File[6];
+//		imgFile = new File[6];
 		imageStream = new ImageInputStream[6];
 		inputStream = new InputStream[6];
-		for(int i = 0 ; i < imgFile.length ; i++)
+		for(int i = 0 ; i < inputStream.length ; i++)
 		{
 			URL imageUrl = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			inputStream[i] = new URL(imageUrl.toString()).openStream();
-			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
-			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+//			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
+//			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			System.out.println(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 		}
 	}

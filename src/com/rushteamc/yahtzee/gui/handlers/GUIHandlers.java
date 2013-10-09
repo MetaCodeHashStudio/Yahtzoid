@@ -7,6 +7,8 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
@@ -53,11 +55,12 @@ public class GUIHandlers
 									dice[i] = heldDice[i];
 									System.out.println();
 								}
-								File fileToInsert = new File("src/com/rushteamc/yahtzee/gui/img/Die_" + (dice[i]) + ".png");
 								try
 								{
+									URL imageUrl = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (dice[i]) + ".png");
+									InputStream streamToInsert = new URL(imageUrl.toString()).openStream();
 									System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
-									BufferedImage imageToInsert = ImageIO.read(fileToInsert);
+									BufferedImage imageToInsert = ImageIO.read(streamToInsert);
 //									System.out.println("Attempting to update dice number " + i);
 									GUI.btnDieIcon[i].setIcon(new ImageIcon(imageToInsert));
 								}
