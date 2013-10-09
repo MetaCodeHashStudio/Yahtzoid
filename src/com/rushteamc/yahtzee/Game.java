@@ -8,7 +8,7 @@ package com.rushteamc.yahtzee;
  		/*          */
   		/*GUIMETHOD */
         /*          */
-
+import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
 public class Game
 {
 	public static void startGame()
@@ -25,11 +25,13 @@ public class Game
 		 */
 		return scoreToInsert;
 	}
-	public static void endTurn()
+	public static void endTurn() throws InterruptedException
 	{
 		/*
 		 * This method should be called to end the current player's turn after inputting his points.
 		 */
+            PlayerTurnCheck.NextTurn();
+            
 	}
         
         //EndRound Handeled allready by PlayerTurnCheck
