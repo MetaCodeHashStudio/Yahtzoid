@@ -197,6 +197,7 @@ public class GUI extends JFrame {
 			gbc_btnSetScore[i].insets = new Insets(5,5,5,5);
 			
 			btnSetScore[i] = new JButton("Add score");
+			btnSetScore[i].setActionCommand("scoreButton"+i);
 			leftPanel.add(btnSetScore[i], gbc_btnSetScore[i]);
 		}
 		
@@ -224,6 +225,7 @@ public class GUI extends JFrame {
 	{
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
+		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.addScoreHandler();
 	}
 	public static void holdError()
 	{

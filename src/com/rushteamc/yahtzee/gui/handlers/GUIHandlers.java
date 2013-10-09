@@ -10,6 +10,7 @@ import java.net.URL;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
+import com.rushteamc.yahtzee.Game;
 import com.rushteamc.yahtzee.utils.RollDice;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.GUI;
@@ -115,6 +116,26 @@ public class GUIHandlers
 							GUI.lblHoldDie[buttonNumber].setText("Hold");
 							Variables.dieHeld[buttonNumber] = false;
 						}
+					}
+				}
+			);
+		}
+	}
+	
+	public static void addScoreHandler()
+	{
+		for(int i = 0 ; i < GUI.btnSetScore.length; i++)
+		{
+			GUI.btnSetScore[i].addActionListener
+			(
+				new ActionListener()
+				{
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
+						System.out.println(buttonNumber);
+						Game.checkForScore(buttonNumber, Variables.diceArray);
 					}
 				}
 			);

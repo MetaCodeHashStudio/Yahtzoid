@@ -17,6 +17,14 @@ public class Game
 		 * This method should be called to start all game logic -after- every GUI element has been built.
 		 */
 	}
+	public static int checkForScore(int index, int[] dice)
+	{
+		int scoreToInsert = 0;
+		/*
+		 * Game logic for score checking. index points to which check, dice are the active dice values.
+		 */
+		return scoreToInsert;
+	}
 	public static void endTurn()
 	{
 		/*
