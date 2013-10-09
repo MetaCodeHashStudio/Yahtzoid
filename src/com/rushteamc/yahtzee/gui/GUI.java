@@ -42,6 +42,7 @@ public class GUI extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws URISyntaxException 
 	 */
 	public GUI() throws IOException
 	{
@@ -177,11 +178,11 @@ public class GUI extends JFrame {
 		imgFile = new File[6];
 		for(int i = 0 ; i < imgFile.length ; i++)
 		{
-			imgFile[i] = new File("src/com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-			System.out.println();
+			imgFile[i] = new File(Variables.internalFilePath + "gui/img/Die_" + (i+1) + ".png");
+			System.out.println(Variables.internalFilePath + "gui/img/Die_" + (i+1) + ".png");
 		}
 	}
-	public static void setHandler() throws IOException
+	private static void setHandler() throws IOException
 	{
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();

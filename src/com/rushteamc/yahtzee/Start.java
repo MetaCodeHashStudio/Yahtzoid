@@ -1,7 +1,7 @@
 package com.rushteamc.yahtzee;
-
-import com.rushteamc.yahtzee.utils.Players;
 import java.awt.EventQueue;
+
+import com.rushteamc.yahtzee.utils.Variables;
 
 public class Start
 {
@@ -10,6 +10,8 @@ public class Start
 
 	public static void main(String[] args) // Start script begins with launching PlayerNumbers check.
 	{
+		com.rushteamc.yahtzee.utils.FileHandling.setWorkingPaths();
+		System.out.println(Variables.internalFilePath);
 		EventQueue.invokeLater
 		(
 			new Runnable() 

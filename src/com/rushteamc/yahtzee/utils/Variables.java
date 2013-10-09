@@ -40,6 +40,10 @@ public class Variables {
 				// SCORE VARIABLES //
 				public static int ScoreForBonus = 63;
 				
+				
+				// FILE HANDLING //
+				public static String internalFilePath;
+				public static boolean isCompiled = false;
         /////////// - I N T - ////////////
             /*PlayerTurnCheck.class*/
                 public static int turnNumber = 1; 	// Pre-init
