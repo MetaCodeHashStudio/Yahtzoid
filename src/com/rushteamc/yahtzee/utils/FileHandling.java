@@ -10,14 +10,15 @@ public class FileHandling
 {
 	public static void setWorkingPaths() throws URISyntaxException
 	{
+		String separator = System.getProperty("file.separator");
 		String tempPath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
 		if(tempPath.endsWith(".jar"))
 		{
-			Variables.internalFilePath = "jar:file:" + tempPath + "!/"; 
+			Variables.internalFilePath = "jar:file:" + tempPath + "!" + separator; 
 		}
 		else
 		{
-			Variables.internalFilePath = "file:" + tempPath + "/";
+			Variables.internalFilePath = "file:" + tempPath + separator;
 		}
 	}
         public static void SaveGameState()
