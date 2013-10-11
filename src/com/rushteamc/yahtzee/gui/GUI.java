@@ -17,6 +17,7 @@ import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 import com.rushteamc.yahtzee.Game;
+import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
@@ -27,6 +28,7 @@ import javax.imageio.ImageIO;
 import javax.imageio.stream.ImageInputStream;
 
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 
 public class GUI extends JFrame {
@@ -54,7 +56,7 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 * @throws URISyntaxException 
 	 */
-	public GUI() throws IOException
+	public GUI() throws IOException, URISyntaxException
 	{
 //		buildPanels();
 //		setPanels();
@@ -206,7 +208,7 @@ public class GUI extends JFrame {
 		setHandler();
 		Game.startGame();
 	}
-	private static void populateImages() throws MalformedURLException, IOException
+	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
 	{
 //		imgFile = new File[6];
 		imageStream = new ImageInputStream[6];
@@ -214,11 +216,11 @@ public class GUI extends JFrame {
 		imageUrl = new URL[6];
 		for(int i = 0 ; i < inputStream.length ; i++)
 		{
-			imageUrl[i] = new URL(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			imageUrl[i] = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			inputStream[i] = new URL(imageUrl[i].toString()).openStream();
 //			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
 //			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-			System.out.println(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+			System.out.println(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 		}
 	}
 	private static void setHandler() throws IOException

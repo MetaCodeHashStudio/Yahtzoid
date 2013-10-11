@@ -11,8 +11,7 @@ public class Start
 
 	public static void main(String[] args) throws URISyntaxException // Start script begins with launching PlayerNumbers check.
 	{         
-		com.rushteamc.yahtzee.utils.FileHandling.setWorkingPaths();
-		System.out.println(Variables.internalFilePath);
+		System.out.println(com.rushteamc.yahtzee.utils.FileHandling.getWorkingPaths());
 		EventQueue.invokeLater
 		(
 			new Runnable() 

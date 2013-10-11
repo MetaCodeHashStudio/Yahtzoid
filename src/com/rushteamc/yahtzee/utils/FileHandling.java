@@ -8,17 +8,19 @@ import java.net.URISyntaxException;
 
 public class FileHandling
 {
-	public static void setWorkingPaths() throws URISyntaxException
+	public static String getWorkingPaths() throws URISyntaxException
 	{
 		String separator = System.getProperty("file.separator");
-		String tempPath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
-		if(tempPath.endsWith(".jar"))
+		String filePath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
+		if(filePath.endsWith(".jar"))
 		{
-			Variables.internalFilePath = "jar:file:" + tempPath + "!" + separator; 
+			filePath = "jar:file:" + filePath + "!" + separator; 
+			return filePath;
 		}
 		else
 		{
-			Variables.internalFilePath = "file:" + tempPath + separator;
+			filePath = "file:" + filePath + separator;
+			return filePath;
 		}
 	}
         public static void SaveGameState()
