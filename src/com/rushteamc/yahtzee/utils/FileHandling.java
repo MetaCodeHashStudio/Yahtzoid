@@ -11,19 +11,14 @@ public class FileHandling
 	public static void setWorkingPaths() throws URISyntaxException
 	{
 		String tempPath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
-		boolean isCompiled;
 		if(tempPath.endsWith(".jar"))
 		{
-			isCompiled = true;
+			Variables.internalFilePath = "jar:file:" + tempPath + "!/"; 
 		}
 		else
 		{
-			isCompiled = false;
-		}
-		if(!isCompiled)
 			Variables.internalFilePath = "file:" + tempPath + "/";
-		if(isCompiled)
-			Variables.internalFilePath = "jar:file:" + tempPath + "!/"; 
+		}
 	}
         public static void SaveGameState()
         {
