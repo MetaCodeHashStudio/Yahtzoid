@@ -24,17 +24,15 @@ public class FileHandling
         {
             PrintStream out = null;
             boolean success;
-            
-            String Name = System.getProperty("user.name"); 
-            success = (new File("C:\\Users\\" + Name + "\\AppData\\Roaming\\.yahtzoid\\aaa")).mkdirs();
+            String path = System.getProperty("user.home") + "/.yahtzoid/";
+            success = (new File(System.getProperty("user.home") + "/.yahtzoid/save")).mkdirs();
             if (!success) {
                 System.out.println("Shit! couldnt create folders!");
             }
         
             try
             {
-                File newTextFile = new File("C:\\Users\\" + Name + "\\AppData\\"
-                        + "Roaming\\.yahtzoid\\aaa\\gameSave.sav");
+                File newTextFile = new File(path + "/save/gameSave.sav");
                 
                 FileWriter fw = new FileWriter(newTextFile);
                 
