@@ -11,6 +11,8 @@ public class Start
 
 	public static void main(String[] args) throws URISyntaxException // Start script begins with launching PlayerNumbers check.
 	{
+        String homePath = System.getProperty("user.home");
+        System.out.println(homePath);
                 String sysOs = System.getProperty("os.name");
                 String sysArch = System.getProperty("os.arch");
                 String sysName = System.getProperty("user.name");

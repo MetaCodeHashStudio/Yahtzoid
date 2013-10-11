@@ -22,17 +22,18 @@ public class FileHandling
 	}
         public static void SaveGameState()
         {
+        	String separator = System.getProperty("file.separator");
             PrintStream out = null;
             boolean success;
-            String path = System.getProperty("user.home") + "/.yahtzoid/";
-            success = (new File(System.getProperty("user.home") + "/.yahtzoid/save")).mkdirs();
+            String path = System.getProperty("user.home") + separator + ".yahtzoid" + separator;
+            success = (new File(path + "save")).mkdirs();
             if (!success) {
                 System.out.println("Shit! couldnt create folders!");
             }
         
             try
             {
-                File newTextFile = new File(path + "/save/gameSave.sav");
+                File newTextFile = new File(path + separator + "save" + separator +"gameSave.sav");
                 
                 FileWriter fw = new FileWriter(newTextFile);
                 
