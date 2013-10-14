@@ -1,51 +1,65 @@
 package com.rushteamc.yahtzee.dice;
 
+import java.util.Random;
+
 public class Dice implements IDice
 {
+	private int dieSize;
+	private int dieValue;
+	private boolean isDieHeld;
+	
 		public int getDieSize()
 		{
-			int dieSize = 0;
-			
 			return dieSize;
 		}
-		public boolean dieHeld()
-		{
-			boolean isDieHeld = false;
-			
+		public boolean isDieHeld()
+		{	
 			return isDieHeld;
 		}
 		
 		public int roll()
 		{
-			int value = 0;
-			
-			return value;
+			isDieHeld = false;
+			Random R = new Random();
+			dieValue = (R.nextInt(dieSize)+1);
+			return dieValue;
 		}
 		public boolean holdDie()
 		{
-			boolean holdSuccess = false;
 			
-			return holdSuccess;
+			if(!isDieHeld)
+				isDieHeld = true;
+			if(isDieHeld)
+				isDieHeld = false;
+			
+			return isDieHeld;
 		}
 		public boolean setDieSize(int howLarge)
 		{
-			boolean setSuccess = false;
-			
-			int dieSize = 0;
+			dieSize = howLarge;
 			if(dieSize == howLarge)
-				setSuccess = true;
-			return setSuccess;
+			{
+				return true;	
+			}
+			else
+			{
+				return false;
+			}
+			
 		}
 		
 		public boolean setDieFace(int newValue)
 		{
-			boolean setSuccess = false;
-			int dieValue = 0;
+			
+			dieValue = newValue;
 			if(dieValue == newValue)
-				setSuccess = true;
-			/*
-			 * Method should change the value of the die to the int newValue.
-			 */
-			return setSuccess;
+			{
+				return true;
+			}
+			else
+			{
+			return false;
+			}
+			
 		}
 }

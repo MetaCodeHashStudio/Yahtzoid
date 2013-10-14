@@ -8,7 +8,7 @@ public interface IDice
 	
 	public boolean holdDie();
 	
-	public boolean dieHeld();
+	public boolean isDieHeld();
 	
 	public int roll();
 
