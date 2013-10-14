@@ -11,6 +11,16 @@ public interface IDice
 	public boolean isDieHeld();
 	
 	public int roll();
+	
+	public int reRoll();
+	
+	public boolean getActive();
+	
+	public boolean setActive();
+	
+	public boolean setInactive();
+	
+	public boolean toggleActive();
 
 	public boolean setDieFace(int newValue);
 	
