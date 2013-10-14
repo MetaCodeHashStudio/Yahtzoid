@@ -18,8 +18,6 @@ public interface IDice
 	
 	public boolean setActive();
 	
-	public boolean setInactive();
-	
 	public boolean toggleActive();
 
 	public boolean setDieFace(int newValue);

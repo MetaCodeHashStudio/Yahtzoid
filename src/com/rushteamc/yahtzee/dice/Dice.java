@@ -18,15 +18,10 @@ public class Dice implements IDice
 		{	
 			return isDieHeld;
 		}
-		public boolean setActive()
+		public boolean setActive(boolean newState)
 		{
-			isActive = true;
+			isActive = newState;
 			return isActive;
-		}
-		public boolean setInactive()
-		{
-			isActive = false;
-			return !isActive;
 		}
 		public boolean toggleActive()
 		{
@@ -63,6 +58,7 @@ public class Dice implements IDice
 					Random R = new Random();
 					dieValue = (R.nextInt(dieSize)+1);
 				}
+			isDieHeld = false;
 			return dieValue;
 		}
 		public boolean holdDie()
@@ -77,7 +73,10 @@ public class Dice implements IDice
 		}
 		public boolean setDieSize(int howLarge)
 		{
-			dieSize = howLarge;
+			if(isActive)
+			{
+				dieValue = howLarge;
+			}
 			if(dieSize == howLarge)
 			{
 				return true;	
@@ -92,7 +91,10 @@ public class Dice implements IDice
 		public boolean setDieFace(int newValue)
 		{
 			
-			dieValue = newValue;
+			if(isActive)
+			{
+				dieValue = newValue;
+			}
 			if(dieValue == newValue)
 			{
 				return true;
