@@ -9,12 +9,17 @@ public class Dice implements IDice
 	private boolean isActive;
 	private boolean isDieHeld;
 	
-		public int getDieSize()
+		public int getSize()
 		{
 			return dieSize;
 		}
-		
-		public boolean isDieHeld()
+		public int getValue()
+		{
+			if(isActive)
+			return dieValue;
+			else return 0;
+		}
+		public boolean isHeld()
 		{	
 			return isDieHeld;
 		}
@@ -71,7 +76,7 @@ public class Dice implements IDice
 			
 			return isDieHeld;
 		}
-		public boolean setDieSize(int howLarge)
+		public boolean setSize(int howLarge)
 		{
 			if(isActive)
 			{
@@ -88,7 +93,7 @@ public class Dice implements IDice
 			
 		}
 		
-		public boolean setDieFace(int newValue)
+		public boolean setTo(int newValue)
 		{
 			
 			if(isActive)

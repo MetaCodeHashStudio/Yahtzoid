@@ -2,13 +2,15 @@ package com.rushteamc.yahtzee.dice;
 
 public interface IDice
 {
-	public boolean setDieSize(int size);
+	public boolean setSize(int size);
 	
-	public int getDieSize();
+	public int getSize();
+	
+	public int getValue();
 	
 	public boolean holdDie();
 	
-	public boolean isDieHeld();
+	public boolean isHeld();
 	
 	public int roll();
 	
@@ -16,11 +18,11 @@ public interface IDice
 	
 	public boolean getActive();
 	
-	public boolean setActive();
+	public boolean setActive(boolean newState);
 	
 	public boolean toggleActive();
 
-	public boolean setDieFace(int newValue);
+	public boolean setTo(int newValue);
 	
 	
 }
