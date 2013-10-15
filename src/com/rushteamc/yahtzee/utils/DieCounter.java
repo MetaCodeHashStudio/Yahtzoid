@@ -26,19 +26,19 @@ public class DieCounter
 			{
 				if
 				(
-				dice[i].getValue() == j      // If dice number i is equal to the value of j.
+				dice[i].getValue(j)       // If dice number i is equal to the value of j.
 				)
 				{
-					Values[(j-1)] += 1;		// Add 1 to the value of the die face.
+					Values[(j-1)]++;		// Add 1 to the value of the die face.
 				}
 			}
 		}
 		return Values;
 	}
-	public static boolean[] truthValues(int Values[])		// Used for the Straight checks.
+	public static boolean[] truthValues(int[] Values, int howLarge)		// Used for the Straight checks.
 	{
-		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize(); // Configures size of the array.
-		boolean[] Numbers = new boolean[DieSize]; // Boolean array. Returns true if the values array contains a number value.
+//		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize(); // Configures size of the array.
+		boolean[] Numbers = new boolean[howLarge]; // Boolean array. Returns true if the values array contains a number value.
 		for
 		(
 			int i = 0;
