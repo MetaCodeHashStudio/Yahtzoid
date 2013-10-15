@@ -3,6 +3,8 @@ package com.rushteamc.yahtzee.utils;
 
 import java.util.ArrayList;
 
+import com.rushteamc.yahtzee.dice.Dice;
+
 public class Variables {
     
 				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
@@ -11,7 +13,7 @@ public class Variables {
 				public static int currentUsedRerolls = -1; //pre-init
 				public static final int STANDARD_DIE_SIZE = 6;
 				public static final int STANDARD_NUMBER_OF_DICE = 5;
-				public static int[] diceArray;
+				public static Dice[] dice;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
 				public static final String scoreTypes[] =
 					{

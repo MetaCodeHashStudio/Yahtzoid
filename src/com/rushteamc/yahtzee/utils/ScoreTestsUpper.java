@@ -1,12 +1,14 @@
 package com.rushteamc.yahtzee.utils;
 
+import com.rushteamc.yahtzee.dice.Dice;
+
 public class ScoreTestsUpper
 {
 	public static int checkUpper(int CheckFor)
 	{
 		int Score = 0;
 		CheckFor++;
-		int[] dice = Variables.diceArray;
+		Dice[] dice = Variables.dice;
 		for
 		(
 				int i = 0;
@@ -14,7 +16,7 @@ public class ScoreTestsUpper
 					i++
 		)
 		{
-			if(dice[i] == CheckFor)
+			if(dice[i].getValue() == CheckFor)
 			{
 				Score += CheckFor;
 			}

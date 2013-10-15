@@ -10,25 +10,25 @@ public class Dice implements IDice
 	private int dieSize;
 	private int dieValue;
 	private boolean isActive;
-	private boolean isDieHeld;
+	private boolean isDieHeld = false;
 	
 	public Dice(int size)
 	{
 		
-		setActive(true);
-		setSize(size);
-		holdDie(false);
-		roll();
+		this.setActive(true);
+		this.setSize(size);
+		this.holdDie(false);
+		this.roll();
 	
 	}
 	
 	public Dice()
 	{
 		
-		setActive(true);
-		setSize(6);
-		holdDie(false);
-		roll();
+		this.setActive(true);
+		this.setSize(6);
+		this.holdDie(false);
+		this.roll();
 	
 	}
 	
@@ -127,8 +127,8 @@ public class Dice implements IDice
 					this.dieValue = (R.nextInt(this.dieSize)+1);
 					this.isDieHeld = false;
 					return this.dieValue;
-				
 				}
+			this.isDieHeld = false;
 			return 0;
 		
 		}

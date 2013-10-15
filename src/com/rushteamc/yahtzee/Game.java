@@ -16,9 +16,22 @@ public class Game
 {
 	public static void startGame()
 	{
+		Dice[] dice = new Dice[7];
 		
+		for(int i = 0 ; i < 5 ; i++)
+		{
+			dice[i] = new Dice(6);
+		}
+		dice[5] = new Dice(6);
+		dice[5].setActive(false);
+		dice[6] = new Dice(8);
+		dice[6].setActive(false);
+		
+		System.out.println(dice[0].getValue());
+		System.out.println(dice[0].getSize());
+		Variables.dice = dice;
 	}
-	public static int checkForScore(int index, int[] dice)
+	public static int checkForScore(int index, Dice[] dice)
 	{
 		String scoreToCheck = Variables.scoreTypes[index];
 		System.out.println("Checking score for " + scoreToCheck);

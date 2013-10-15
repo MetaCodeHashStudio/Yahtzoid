@@ -31,48 +31,34 @@ public class GUIHandlers
 					{	
 						if(Variables.currentUsedRerolls != Variables.STANDARD_MAX_REROLLS)
 						{
-							if(diceRolled)
+
+							for(int i = 0 ; i < Variables.dice.length ; i++)
 							{
-								for(int i = 0 ; i < dice.length ; i++)
+								if(Variables.dice[i].isHeld())
 								{
-									if(Variables.dieHeld[i])
+									System.out.println("Die number " + (i+1) + " is held and has value " + Variables.dice[i].getValue());
+								}
+								Variables.dice[i].reRoll();
+								if(Variables.dice[i].getActive())
+									try
 									{
-										heldDice[i] = dice[i];
-										System.out.println("Die number " + (i+1) + " is held and has value " + heldDice[i]);
+										URL imageUrl = GUI.imageUrl[(Variables.dice[i].getValue())-1];
+										InputStream streamToInsert = new URL(imageUrl.toString()).openStream();
+//										System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
+										BufferedImage imageToInsert = ImageIO.read(streamToInsert);
+										GUI.btnDieIcon[i].setIcon(new ImageIcon(imageToInsert));
+										GUI.lblHoldDie[i].setText("Hold");
 									}
-								}
+									catch(IOException error)
+									{
+										error.printStackTrace();
+									}
 							}
-							dice = RollDice.castDice();
-
-							for(int i = 0 ; i < dice.length ; i++)
+							for(int j = 0 ; j < Variables.dice.length ; j++)
 							{
-								if(Variables.dieHeld[i])
-								{
-									dice[i] = heldDice[i];
-									System.out.println();
-								}
-								try
-								{
-									URL imageUrl = GUI.imageUrl[dice[i]-1];
-									InputStream streamToInsert = new URL(imageUrl.toString()).openStream();
-//									System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
-									BufferedImage imageToInsert = ImageIO.read(streamToInsert);
-									GUI.btnDieIcon[i].setIcon(new ImageIcon(imageToInsert));
-								}
-								catch(IOException error)
-								{
-									error.printStackTrace();
-								}
-
-							Variables.dieHeld[i] = false;
-							GUI.lblHoldDie[i].setText("Hold");
-							}
-							for(int j = 0 ; j < dice.length ; j++)
-							{
-								System.out.println("Die " + (j+1) + " has the value " + dice[j]) ;
+								System.out.println("Die " + (j+1) + " has the value " + Variables.dice[j].getValue()) ;
 							}
 							diceRolled = true;
-							Variables.diceArray = dice;
 							Variables.currentUsedRerolls++;
 						}
 						else
@@ -104,15 +90,15 @@ public class GUIHandlers
 						{
 							GUI.noMoreRerollsError();
 						}
-						if(!Variables.dieHeld[buttonNumber] && diceRolled)
+						if(!Variables.dice[buttonNumber].isHeld() && diceRolled)
 						{
 							GUI.lblHoldDie[buttonNumber].setText("Release");
-							Variables.dieHeld[buttonNumber] = true;
+							Variables.dice[buttonNumber].holdDie(true);
 						}
 						else
 						{
 							GUI.lblHoldDie[buttonNumber].setText("Hold");
-							Variables.dieHeld[buttonNumber] = false;
+							Variables.dice[buttonNumber].holdDie(false);
 						}
 					}
 				}
@@ -135,7 +121,7 @@ public class GUIHandlers
 						{
 							int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
 							System.out.println(buttonNumber);
-							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.diceArray);
+							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.dice);
 							GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
 						}
 						else

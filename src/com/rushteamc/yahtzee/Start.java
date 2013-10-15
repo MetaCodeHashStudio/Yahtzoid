@@ -12,7 +12,8 @@ public class Start
 	public static com.rushteamc.yahtzee.gui.PlayerNames PlayerNamesFrame;
 
 	public static void main(String[] args) throws URISyntaxException // Start script begins with launching PlayerNumbers check.
-	{
+	{	
+		System.out.println(com.rushteamc.yahtzee.utils.FileHandling.getWorkingPaths());
 		EventQueue.invokeLater
 		(
 			new Runnable() 
