@@ -14,6 +14,8 @@ public class Variables {
 				public static final int STANDARD_DIE_SIZE = 6;
 				public static final int STANDARD_NUMBER_OF_DICE = 5;
 				public static Dice[] dice;
+				public static final int BONUS_DIE_NUMBER = STANDARD_NUMBER_OF_DICE+1;
+				public static final int DIE_OF_DESTINY_NUMBER = 7;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
 				public static final String scoreTypes[] =
 					{

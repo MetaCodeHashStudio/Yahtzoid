@@ -9,6 +9,7 @@ package com.rushteamc.yahtzee;
   		/*GUIMETHOD */
         /*          */
 import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
+import com.rushteamc.yahtzee.utils.ScoreTestsLower;
 import com.rushteamc.yahtzee.utils.ScoreTestsUpper;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.dice.Dice;
@@ -45,21 +46,36 @@ public class Game
 				continueChecking = false;
 				scoreToInsert = ScoreTestsUpper.checkUpper(n);
 			}
-			
 			n++;
 		}
+		if(continueChecking)
+			for(int i = 6; i < Variables.scoreTypes.length ; i++)
+			{
+				if(scoreToCheck == "Pair")
+					scoreToInsert = ScoreTestsLower.checkForPair(dice);
+				if(scoreToCheck == "Two Pairs")
+					scoreToInsert = ScoreTestsLower.checkForTwoPairs(dice);
+				if(scoreToCheck == "Three of a Kind")
+					scoreToInsert = ScoreTestsLower.checkForXOfAKind(3, dice);
+			}
 		/*
 		 * Game logic for score checking. index points to which check, dice are the active dice values.
 		 */
 		return scoreToInsert;
 	}
-	public static void endTurn() throws InterruptedException
+	public static void endTurn()
 	{
 		/*
 		 * This method should be called to end the current player's turn after inputting his points.
 		 */
+		try
+		{
             PlayerTurnCheck.NextTurn();
-            
+		}
+		catch(InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 	}
         
         //EndRound Handeled allready by PlayerTurnCheck
