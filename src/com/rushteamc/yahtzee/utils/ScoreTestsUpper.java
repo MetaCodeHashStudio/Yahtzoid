@@ -25,7 +25,7 @@ public class ScoreTestsUpper
 	public static int checkForBonus(int ScoreUpper)
 	{
 		int Score = 0;
-		int ScoreRequired = com.rushteamc.yahtzee.utils.Configurables.minScoreForBonus();
+		int ScoreRequired = 63;
 		if(ScoreUpper >= ScoreRequired)
 		{
 			Score = 35;

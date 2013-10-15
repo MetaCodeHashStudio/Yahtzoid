@@ -105,30 +105,6 @@ public class Start
 	 * End begin event handlers.
 	 * Begin debug methods.
 	 */
-	public static void debugDie(int[] Die, int[] Values)
-	{
-		System.out.println("Die array looks like: ");
-		for
-		(
-			int i = 0;
-				i < Die.length;
-				i++
-		)
-		{
-			System.out.print(Die[i] + " ");
-		}
-		System.out.println();
-		System.out.println("The values array now looks like: ");
-		for (int i = 1; i <= com.rushteamc.yahtzee.utils.Configurables.getDieSize(); i++)
-		{
-			System.out.print(i+"\t");
-		}
-		System.out.println();
-		for (int k = 0; k < com.rushteamc.yahtzee.utils.Configurables.getDieSize(); k++)
-		{
-			System.out.print(Values[k] + "\t");
-		}
-		System.out.println();
-	}
+
 
 }

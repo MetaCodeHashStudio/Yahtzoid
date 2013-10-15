@@ -35,27 +35,20 @@ public class DieCounter
 		}
 		return Values;
 	}
-	public static boolean[] truthValues(int[] Values, int howLarge)		// Used for the Straight checks.
+	
+	public static boolean[] truthValues(Dice[] dice, int howLarge, int howMany)		// Used for the Straight checks.
 	{
-//		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize(); // Configures size of the array.
-		boolean[] Numbers = new boolean[howLarge]; // Boolean array. Returns true if the values array contains a number value.
-		for
-		(
-			int i = 0;
-				i < Numbers.length-1;
-				i++
-		)
+		boolean[] Numbers = new boolean[howLarge];
+		for(int i = 0 ; i < howMany ; i++)
 		{
-			if(Values[i] >= 1)		// If there is at least one die with the value i
-			{						//
-				Numbers[i] = true;	// Set the boolean for the value i to true.
-				System.out.println("The values do contain a " + (i+1));
-			}
-			else
+			for(int j = 1 ; j <= dice[i].getSize() ; j++)
 			{
-				Numbers[i] = false; // If not, make sure it's false. (Think it's pre-init to false?)
+				if(dice[i].getValue(j))
+					Numbers[i] = true;
 			}
 		}
-		return Numbers;	// Sends the truth array back!
+		return Numbers;
+		
 	}
+	
 }

@@ -1,5 +1,7 @@
 package com.rushteamc.yahtzee.utils;
 
+import com.rushteamc.yahtzee.dice.Dice;
+
 public class ScoreTestsLower
 {
 	public static int checkForThreeOfAKind(int[] Values)
@@ -66,13 +68,10 @@ public class ScoreTestsLower
 		System.out.println("Returning " + Score + " for full house.");
 		return Score;
 	}
-	public static int checkForSmallStraight(boolean Numbers[])
+	public static int checkForSmallStraight(Dice[] dice, int howLarge)
 	{
-		/*	This method should be deprecated or rewritten. Does not support configurable die sizes.
-		 * 
-		 * 
-		 * 
-		 */
+		/*	This method should be deprecated or rewritten. Does not support configurable die sizes. */
+		boolean[] Numbers = DieCounter.truthValues(dice, howLarge, 5);
 		int Score = 0;
 		if
 		(
@@ -107,13 +106,10 @@ public class ScoreTestsLower
 		System.out.println("Returning " + Score + " for small straight.");
 		return Score;
 	}
-	public static int checkForLargeStraight(boolean[] Numbers)
+	public static int checkForLargeStraight(Dice[] dice, int howLarge)
 	{
-		/*	This method should be deprecated or rewritten. Does not support configurable die sizes.
-		 * 
-		 * 
-		 * 
-		 */
+		/*	This method should be deprecated or rewritten. Does not support configurable die sizes. */
+		boolean[] Numbers = DieCounter.truthValues(dice, howLarge, 5);
 		int Score = 0;
 		if
 		(
@@ -158,17 +154,12 @@ public class ScoreTestsLower
 			System.out.println("Returning " + Score + " for yahtzee.");
 			return Score;
 	}
-	public static int checkForChance(int Values[])
+	public static int checkForChance(Dice[] dice, int howMany)
 	{
 		int Score = 0;
-		for
-		(
-			int i = 0;
-				i < Values.length;
-				i++
-		)
+		for(int i = 0;	i < howMany;	i++)
 		{
-			Score += Values[i]*(i+1);
+			Score += dice[i].getValue();
 		}
 		System.out.println("Returning " + Score + " for chance.");
 		return Score;

@@ -1,7 +1,10 @@
 package com.rushteamc.yahtzee.dice;
 
 import java.util.Random;
-
+/*
+ * This class imports the data type Dice, which is a less abstract representation of a die 
+ * than a simple integer. It has support for some simple logic checking.
+ */
 public class Dice implements IDice
 {
 	private int dieSize;
