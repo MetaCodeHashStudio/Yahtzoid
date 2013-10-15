@@ -54,6 +54,17 @@ public class Dice implements IDice
 		
 		}
 		
+		public boolean getValue(int checkForValue)
+		{
+			
+			if(isActive)
+				if(this.dieValue == checkForValue)
+					return true;
+				else return false;
+			else return false;
+			
+		}
+		
 		public boolean isHeld()
 		{
 			
@@ -111,10 +122,11 @@ public class Dice implements IDice
 					
 					Random R = new Random();
 					this.dieValue = (R.nextInt(this.dieSize)+1);
+					this.isDieHeld = false;
+					return this.dieValue;
 				
 				}
-			this.isDieHeld = false;
-			return this.dieValue;
+			return 0;
 		
 		}
 		public boolean holdDie()
