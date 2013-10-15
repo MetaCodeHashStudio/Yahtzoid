@@ -8,11 +8,16 @@ import java.net.URISyntaxException;
 
 public class FileHandling
 {
+        private static String separator = System.getProperty("file.separator");
+        private static String path = System.getProperty("user.home") + separator + ".yahtzoid" + separator;
+        private static boolean createFolder;
+        
 	public static String getWorkingPaths() throws URISyntaxException
 	{
 		String separator = System.getProperty("file.separator");
 		String filePath = new File(FileHandling.class.getProtectionDomain().getCodeSource().getLocation().toURI().getPath()).toString();
-		if(filePath.endsWith(".jar"))
+		
+                if(filePath.endsWith(".jar"))
 		{
 			filePath = "jar:file:" + filePath + "!" + separator; 
 			return filePath;
@@ -25,10 +30,10 @@ public class FileHandling
 	}
         public static void SaveGameState()
         {
-        	String separator = System.getProperty("file.separator");
+        	
             PrintStream out = null;
             boolean success;
-            String path = System.getProperty("user.home") + separator + ".yahtzoid" + separator;
+            
             success = (new File(path + "save")).mkdirs();
             if (!success) {
                 System.out.println("Shit! couldnt create folders!");
@@ -53,6 +58,10 @@ public class FileHandling
                 if (out != null) out.close();
             }
     }
-            
+        
+    public static void gen_Folders(String newFolderLocation)
+    {
+        createFolder = (new File(path+newFolderLocation)).mkdirs(); 
+    }            
 }
 
