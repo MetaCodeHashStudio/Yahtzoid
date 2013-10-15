@@ -9,10 +9,9 @@ public class Variables {
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
 				public static final int STANDARD_MAX_REROLLS = 2;
 				public static int currentUsedRerolls = -1; //pre-init
-				public static int standardDieSize = 6;
-				public static int standardNumberOfDice = 5;
+				public static final int STANDARD_DIE_SIZE = 6;
+				public static final int STANDARD_NUMBER_OF_DICE = 5;
 				public static int[] diceArray;
-				public static boolean[] dieHeld = new boolean[standardNumberOfDice+1];
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.
 				public static final String scoreTypes[] =
 					{

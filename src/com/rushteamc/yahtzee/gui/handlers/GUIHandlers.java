@@ -11,7 +11,7 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import com.rushteamc.yahtzee.Game;
-import com.rushteamc.yahtzee.utils.RollDice;
+import com.rushteamc.yahtzee.dice.Dice;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.GUI;
 
@@ -20,7 +20,7 @@ public class GUIHandlers
 	
 	private static boolean diceRolled = false;
 	
-	public static void throwDiceHandler() throws IOException
+	public static void throwDiceHandler()
 	{
 		GUI.btnRollDice.addActionListener
 		(
@@ -31,8 +31,6 @@ public class GUIHandlers
 					{	
 						if(Variables.currentUsedRerolls != Variables.STANDARD_MAX_REROLLS)
 						{
-							int[] heldDice = new int[Variables.standardNumberOfDice];
-							int[] dice = Variables.diceArray;
 							if(diceRolled)
 							{
 								for(int i = 0 ; i < dice.length ; i++)

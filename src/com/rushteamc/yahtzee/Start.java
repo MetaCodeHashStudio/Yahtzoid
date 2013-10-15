@@ -13,21 +13,6 @@ public class Start
 
 	public static void main(String[] args) throws URISyntaxException // Start script begins with launching PlayerNumbers check.
 	{
-		Dice[] dice = new Dice[7];
-		
-		for(int i = 0 ; i < 4 ; i++)
-		{
-			dice[i] = new Dice(6);
-		}
-		dice[5] = new Dice(6);
-		dice[5].setActive(false);
-		dice[6] = new Dice(8);
-		dice[6].setActive(false);
-		
-		System.out.println(dice[0].getValue());
-		System.out.println(dice[0].getSize());
-		
-		System.out.println(com.rushteamc.yahtzee.utils.FileHandling.getWorkingPaths());
 		EventQueue.invokeLater
 		(
 			new Runnable() 
