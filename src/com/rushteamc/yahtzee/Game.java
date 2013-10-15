@@ -11,13 +11,12 @@ package com.rushteamc.yahtzee;
 import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
 import com.rushteamc.yahtzee.utils.ScoreTestsUpper;
 import com.rushteamc.yahtzee.utils.Variables;
+import com.rushteamc.yahtzee.dice.Dice;
 public class Game
 {
 	public static void startGame()
 	{
-		/*
-		 * This method should be called to start all game logic -after- every GUI element has been built.
-		 */
+		
 	}
 	public static int checkForScore(int index, int[] dice)
 	{
@@ -26,7 +25,7 @@ public class Game
 		boolean continueChecking = true;
 		int n = 0;
 		int scoreToInsert = 0;
-		while(continueChecking || n < 6)
+		while(continueChecking && n < 6)
 		{
 			if(scoreToCheck == Variables.upperTypes[n])
 			{

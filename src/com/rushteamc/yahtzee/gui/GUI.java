@@ -166,7 +166,6 @@ public class GUI extends JFrame {
 			gbc_btnDieIcon[i].gridx = i+1;
 			gbc_btnDieIcon[i].gridy = 1;
 			dieImages[i] = ImageIO.read(inputStream[i]);
-					//read(imgFile[i]);
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
 			btnDieIcon[i].setActionCommand("holdButton"+i);
 			rightPanel.add(btnDieIcon[i], gbc_btnDieIcon[i]);
@@ -178,8 +177,7 @@ public class GUI extends JFrame {
 			lblHoldDie[i] = new JLabel("Hold");
 			rightPanel.add(lblHoldDie[i],gbc_lblHoldDie[i]);
 		}
-		lblHoldDie[lblHoldDie.length-1].setVisible(false);
-		btnDieIcon[lblHoldDie.length-1].setVisible(false);
+
 
 		GridBagConstraints gbc_btnRollDice = new GridBagConstraints();
 		gbc_btnRollDice.fill = GridBagConstraints.BOTH;
@@ -194,6 +192,7 @@ public class GUI extends JFrame {
 		for(int i = 0 ; i < btnSetScore.length ; i++)
 		{
 			gbc_btnSetScore[i] = new GridBagConstraints();
+			gbc_btnSetScore[i].fill = GridBagConstraints.BOTH;
 			gbc_btnSetScore[i].gridx = 6+labelsXPos;
 			gbc_btnSetScore[i].gridy = labelsYStart+i;
 			gbc_btnSetScore[i].insets = new Insets(5,5,5,5);
@@ -206,7 +205,33 @@ public class GUI extends JFrame {
 		
 		
 		setHandler();
+		cleanup();
 		Game.startGame();
+	}
+	private static void cleanup()
+	{
+		lblHoldDie[lblHoldDie.length-1].setVisible(false);
+		btnDieIcon[btnDieIcon.length-1].setVisible(false);
+		String[] buttonsToRemove = new String[]
+		{
+				Variables.scoreTypes[6],
+				Variables.scoreTypes[7],
+				Variables.scoreTypes[17],
+				Variables.scoreTypes[18]
+				
+		};
+		
+		for(int i = 0 ; i < lblScoreTypes.length ; i++)
+		{
+
+			for(int j = 0 ; j < buttonsToRemove.length ; j++)
+			{
+				if (lblScoreTypes[i].getText() == buttonsToRemove[j])
+				{
+					btnSetScore[i].setVisible(false);
+				}
+			}
+		}
 	}
 	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
 	{

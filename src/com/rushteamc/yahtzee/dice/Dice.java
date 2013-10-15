@@ -9,86 +9,151 @@ public class Dice implements IDice
 	private boolean isActive;
 	private boolean isDieHeld;
 	
+	public Dice(int size)
+	{
+		
+		setActive(true);
+		setSize(size);
+		holdDie(false);
+		roll();
+	
+	}
+	
+	public Dice()
+	{
+		
+		setActive(true);
+		setSize(6);
+		holdDie(false);
+		roll();
+	
+	}
+	
 		public int getSize()
 		{
-			return dieSize;
+			
+			return this.dieSize;
+		
 		}
+		
 		public int getValue()
 		{
+			
 			if(isActive)
-			return dieValue;
-			else return 0;
+			{
+				
+				return this.dieValue;	
+			
+			}
+			else
+			{
+				
+				return 0;
+			
+			}
+		
 		}
+		
 		public boolean isHeld()
-		{	
-			return isDieHeld;
+		{
+			
+			return this.isDieHeld;
+		
 		}
 		public boolean setActive(boolean newState)
 		{
-			isActive = newState;
-			return isActive;
+			
+			this.isActive = newState;
+			return this.isActive;
+		
 		}
+		
 		public boolean toggleActive()
 		{
-			if(isActive)
-			{
-				isActive = false;
-			}
-			if(!isActive)
-			{
-				isActive = true;
-			}
-			return isActive;
+			
+			if(this.isActive)
+				this.isActive = false;
+
+			if(!this.isActive)
+				this.isActive = true;
+
+			return this.isActive;
+			
 		}
 		public boolean getActive()
 		{
-			return isActive;
+			
+			return this.isActive;
+		
 		}
 		
 		public int roll()
 		{
-			isDieHeld = false;
-			if(isActive)
+			
+			this.isDieHeld = false;
+			if(this.isActive)
 			{
+				
 				Random R = new Random();
-				dieValue = (R.nextInt(dieSize)+1);	
+				this.dieValue = (R.nextInt(this.dieSize)+1);	
+			
 			}
-			return dieValue;
+			
+			return this.dieValue;
+			
 		}
 		public int reRoll()
 		{
-			if(isActive)
-				if(!isDieHeld)
+			
+			if(this.isActive)
+				if(!this.isDieHeld)
 				{
+					
 					Random R = new Random();
-					dieValue = (R.nextInt(dieSize)+1);
+					this.dieValue = (R.nextInt(this.dieSize)+1);
+				
 				}
-			isDieHeld = false;
-			return dieValue;
+			this.isDieHeld = false;
+			return this.dieValue;
+		
 		}
 		public boolean holdDie()
 		{
 			
-			if(!isDieHeld)
-				isDieHeld = true;
-			if(isDieHeld)
-				isDieHeld = false;
+			if(!this.isDieHeld)
+				this.isDieHeld = true;
+			if(this.isDieHeld)
+				this.isDieHeld = false;
 			
-			return isDieHeld;
+			return this.isDieHeld;
+		
+		}
+		public void holdDie(boolean newState)
+		{
+			
+			this.isDieHeld = newState;
+		
 		}
 		public boolean setSize(int howLarge)
 		{
-			if(isActive)
+			
+			if(this.isActive)
 			{
-				dieValue = howLarge;
+				
+				this.dieSize = howLarge;
+			
 			}
-			if(dieSize == howLarge)
+			if(this.dieSize == howLarge)
 			{
+				
 				return true;	
+			
 			}
 			else
 			{
+				
 				return false;
+			
 			}
 			
 		}
@@ -96,18 +161,25 @@ public class Dice implements IDice
 		public boolean setTo(int newValue)
 		{
 			
-			if(isActive)
+			if(this.isActive)
 			{
-				dieValue = newValue;
+				
+				this.dieValue = newValue;
+			
 			}
-			if(dieValue == newValue)
+			if(this.dieValue == newValue)
 			{
+				
 				return true;
+			
 			}
 			else
 			{
-			return false;
+				
+				return false;
+			
 			}
 			
 		}
+
 }

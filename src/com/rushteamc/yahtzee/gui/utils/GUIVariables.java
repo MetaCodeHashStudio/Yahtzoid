@@ -39,7 +39,7 @@ public class GUIVariables
 	
 	public static int buildLeftPaneWidth()
 	{
-		contentPaneLeftWidth = ((Variables.selectedNumPlayers+3) * CONTENT_PANE_LEFT_COLUMN_WIDTH) + 80;
+		contentPaneLeftWidth = ((Variables.selectedNumPlayers+4) * CONTENT_PANE_LEFT_COLUMN_WIDTH) + 96;
 		return contentPaneLeftWidth;
 	}
 	
