@@ -2,8 +2,6 @@ package com.rushteamc.yahtzee;
 import java.awt.EventQueue;
 import java.net.URISyntaxException;
 
-import com.rushteamc.yahtzee.dice.Dice;
-import com.rushteamc.yahtzee.utils.Variables;
 
 public class Start
 {
