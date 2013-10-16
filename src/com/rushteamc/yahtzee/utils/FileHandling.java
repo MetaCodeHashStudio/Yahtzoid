@@ -30,7 +30,7 @@ public class FileHandling
 		String path = System.getProperty("user.home") + separator + ".yahtzoid" + separator;
 		return path;
 	}
-	public static void SaveGameState()
+	public static void saveGameState()
 	{
 		String path = buildGamePath();
 		String separator = System.getProperty("file.separator");
