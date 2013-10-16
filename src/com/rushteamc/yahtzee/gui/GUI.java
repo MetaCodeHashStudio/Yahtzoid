@@ -128,8 +128,8 @@ public class GUI extends JFrame {
 			gbc_lblScoreTypes[i].gridy = labelsYStart+i;
 			gbc_lblScoreTypes[i].gridwidth = 2;
 			gbc_lblScoreTypes[i].anchor = GridBagConstraints.WEST;
-			gbc_lblScoreTypes[i].fill = GridBagConstraints.HORIZONTAL;
-			gbc_lblScoreTypes[i].insets = new Insets(0, 15, 0, 0);
+			gbc_lblScoreTypes[i].fill = GridBagConstraints.BOTH;
+			gbc_lblScoreTypes[i].insets = new Insets(5,35,5,5);
 			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]);
 			leftPanel.add(lblScoreTypes[i], gbc_lblScoreTypes[i]);
 			lblScoreTypes[i].setVisible(false);
