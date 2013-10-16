@@ -66,10 +66,11 @@ public class FileHandling
 		}
     }
         
-    public static void generateFolders(String newFolderLocation)
+    public static boolean generateFolders(String newFolderLocation)
     {
     	String path = buildGamePath();
-        boolean createFolder = (new File(path+newFolderLocation)).mkdirs(); 
+        boolean createFolder = (new File(path+newFolderLocation)).mkdirs();
+        return createFolder;
     }            
 }
 
