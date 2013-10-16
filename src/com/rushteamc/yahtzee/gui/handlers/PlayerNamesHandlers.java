@@ -28,9 +28,11 @@ public class PlayerNamesHandlers
 					
 					for(int i = 0 ; i < numPlayers ; i++)
 					{
+						
 						Variables.playerNames.add(playerNames[i]);
+					
 					}	
-					Players.getAllPlayerNames();
+//					Players.getAllPlayerNames();
 					com.rushteamc.yahtzee.Start.PlayerNamesFrame.setVisible(false);
 					Start.startGame();
 
