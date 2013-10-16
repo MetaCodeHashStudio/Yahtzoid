@@ -33,6 +33,15 @@ public class Game
 		System.out.println(dice[0].getSize());
 		Variables.dice = dice;
 		//Save dice
+		
+		//Start building score booleans
+		boolean[][] addedScores = new boolean[Variables.selectedNumPlayers][Variables.scoreTypes.length];
+		for(int i = 0 ; i < Variables.selectedNumPlayers ; i++)
+			for(int j = 0 ; j < Variables.scoreTypes.length ; j++)
+			{
+				addedScores[i][j] = false;
+			}
+		Variables.playerHasAddedScore = addedScores;
 	}
 	public static int checkForScore(int index, Dice[] dice)
 	{

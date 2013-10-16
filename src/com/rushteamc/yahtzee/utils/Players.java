@@ -38,7 +38,12 @@ public class Players {
         System.out.println();
        
     }
-    
+    public static int getLastPlayerIndex()
+    {
+    	int lastPlayer = Variables.selectedNumPlayers - 1;
+    	
+    	return lastPlayer;
+    }
     public static void deleteAllPlayerNames() //Self Explainatory.
     {
         Variables.playerNames.removeAll(Variables.playerNames.subList(0, Variables.playerNames.size()));

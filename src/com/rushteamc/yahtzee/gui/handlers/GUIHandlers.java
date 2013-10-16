@@ -132,8 +132,10 @@ public class GUIHandlers
 							System.out.println(buttonNumber);
 							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.dice);
 							GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
-							GUI.btnSetScore[buttonNumber].setVisible(false);
+//							GUI.btnSetScore[buttonNumber].setVisible(false);
+							Variables.playerHasAddedScore[Variables.turnNumber][buttonNumber] = true;
 							int playerNumber = Game.endTurn();
+							diceRolled = false;
 							GUI.reArm(playerNumber);
 						}
 						else

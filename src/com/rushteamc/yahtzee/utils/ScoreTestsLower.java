@@ -9,11 +9,7 @@ public class ScoreTestsLower
 		int[] Values = DieCounter.countValues(dice);
 		int Score = 0;
 		for
-		(
-			int i = 0;
-				i < Values.length;
-				i++
-		)
+		(int i = 0 ; i < Values.length ; i++ )
 		{
 			if(Values[i] >= X)
 				Score = X*(i+1);

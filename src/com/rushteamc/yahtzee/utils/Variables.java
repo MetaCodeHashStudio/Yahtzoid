@@ -7,13 +7,14 @@ import com.rushteamc.yahtzee.dice.Dice;
 
 public class Variables {
     
-				public static final String APPLICATION_TITLE = "Yahtzoid Version -1"; 
+				public static final String APPLICATION_TITLE = "Yahtzoid Version 0.0.1"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
 				public static final int STANDARD_MAX_REROLLS = 2;
 				public static int currentUsedRerolls = -1; //pre-init
 				public static final int STANDARD_DIE_SIZE = 6;
 				public static final int STANDARD_NUMBER_OF_DICE = 5;
 				public static Dice[] dice;
+				public static boolean[][] playerHasAddedScore;
 				public static final int BONUS_DIE_NUMBER = STANDARD_NUMBER_OF_DICE+1;
 				public static final int DIE_OF_DESTINY_NUMBER = 7;
 				public static int selectedNumPlayers = 0;	// Pre-init to 0 for rudamentary error checking.

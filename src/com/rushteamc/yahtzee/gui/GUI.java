@@ -19,6 +19,7 @@ import javax.swing.border.LineBorder;
 
 import com.rushteamc.yahtzee.Game;
 import com.rushteamc.yahtzee.utils.FileHandling;
+import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
@@ -195,17 +196,17 @@ public class GUI extends JFrame {
 		{
 			gbc_btnSetScore[i] = new GridBagConstraints();
 			gbc_btnSetScore[i].fill = GridBagConstraints.BOTH;
-			gbc_btnSetScore[i].gridx = 6+labelsXPos;
+			gbc_btnSetScore[i].gridx = labelsXPos;
 			gbc_btnSetScore[i].gridy = labelsYStart+i;
 			gbc_btnSetScore[i].insets = new Insets(5,5,5,5);
 			
-			btnSetScore[i] = new JButton("Add score");
+			btnSetScore[i] = new JButton(Variables.scoreTypes[i]);
 			btnSetScore[i].setActionCommand("scoreButton"+i);
 			leftPanel.add(btnSetScore[i], gbc_btnSetScore[i]);
 		}
 		
 		
-		
+		lblPlayerNames[0].setIcon(activePlayerIcon);
 		setHandler();
 		cleanup();
 		Game.startGame();
@@ -222,7 +223,6 @@ public class GUI extends JFrame {
 				Variables.scoreTypes[18]
 				
 		};
-		lblPlayerNames[0].setIcon(activePlayerIcon);
 		
 		for(int i = 0 ; i < lblScoreTypes.length ; i++)
 		{
@@ -232,6 +232,7 @@ public class GUI extends JFrame {
 				if (lblScoreTypes[i].getText() == buttonsToRemove[j])
 				{
 					btnSetScore[i].setVisible(false);
+					lblScoreTypes[i].setVisible(true);
 				}
 			}
 		}
@@ -240,7 +241,8 @@ public class GUI extends JFrame {
 	{
 		if(playerNumber == 0)
 		{
-			lblPlayerNames[3].setIcon(null);
+			int index = Players.getLastPlayerIndex();
+			lblPlayerNames[index].setIcon(null);
 			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
 		}
 		else
@@ -248,7 +250,13 @@ public class GUI extends JFrame {
 			lblPlayerNames[playerNumber-1].setIcon(null);
 			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
 		}
-		
+		for(int i = 0 ; i < lblScoreTypes.length ; i++)
+		{
+			btnSetScore[i].setVisible(!Variables.playerHasAddedScore[playerNumber][i]);
+			lblScoreTypes[i].setVisible(Variables.playerHasAddedScore[playerNumber][i]);
+			Variables.currentUsedRerolls = -1;
+			cleanup();
+		}
 	}
 	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
 	{
