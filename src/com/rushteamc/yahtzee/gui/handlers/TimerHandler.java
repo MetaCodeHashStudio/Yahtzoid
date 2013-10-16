@@ -2,7 +2,7 @@ package com.rushteamc.yahtzee.gui.handlers;
 /*
  * @author Runnetty
  */
-
+/*
 import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
 
 public class TimerHandler {
@@ -37,3 +37,4 @@ public class TimerHandler {
     }
     
 }
+*/

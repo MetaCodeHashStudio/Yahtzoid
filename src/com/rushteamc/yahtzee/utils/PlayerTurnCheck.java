@@ -11,7 +11,7 @@ public class PlayerTurnCheck {
         public static int NrPlyrs = Variables.playerNames.size(); //Set how many Players that will play. cannot be moved!
         public static String[] Playersstring = new String[NrPlyrs]; //cannot be moved!
         
-    public static boolean CheckForRoundEnd()
+    public static boolean checkForRoundEnd()
     {
     	boolean preventRearm = false;
         
@@ -35,7 +35,7 @@ public class PlayerTurnCheck {
     	return preventRearm;
         /////////////////////////////////////////////////////////////
     }
-    
+    /* REDUNDANT
     public static void PrintPlayerTurn()
     {
         if(!Variables.playerNames.isEmpty())
@@ -54,25 +54,7 @@ public class PlayerTurnCheck {
             System.out.println();  
         }
     }
+    */
     
-    public static void TotalPlayingPlayers()        
-    {
-        Variables.totalPlayers = "There are: "+Playersstring.length+ " players";
-        System.out.println(Variables.totalPlayers);   
-        
-    }
-    
-    public static int NextTurn() throws InterruptedException
-    {
-        Variables.turnNumber++; //Adds 1 to Current Turn 
-        boolean reArm = !CheckForRoundEnd();
-        PrintPlayerTurn();
-        if(reArm)
-        	return Variables.turnNumber;
-        else return -1;
-        //TimerHandler.TurnTime90();
-        
-        
-    }
 
 }

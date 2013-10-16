@@ -87,20 +87,38 @@ public class Game
 	}
 	public static int endTurn() throws InterruptedException
 	{
-		/*
-		 * This method should be called to end the current player's turn after inputting his points.
-		 */
-		int playerNumber = 0;
+		boolean reArm = true;
+        Variables.turnNumber++; //Adds 1 to Current Turn 
+        if(Variables.turnNumber > Variables.selectedNumPlayers-1)
+        reArm = !endRound();
+//        for(int MaxTurns = NrPlyrs; Variables.turnNumber > MaxTurns-1;)
+        if(reArm)
+        	return Variables.turnNumber;
+        else return -1;
 
-        playerNumber = PlayerTurnCheck.NextTurn();
-
-		return playerNumber;
 	}
-        
+    public static boolean endRound()
+    {
+    	boolean preventRearm;
+    	Variables.roundNumber++;
+        if(Variables.roundNumber > (Variables.scoreTypes.length - 4))
+        {
+        	Game.endGame();
+        	preventRearm = true;
+        }
+        else
+        {
+        	Variables.turnNumber=0;
+        	preventRearm = false;
+        }
+        return preventRearm;
+    }
         //EndRound Handeled allready by PlayerTurnCheck
         
 	public static void endGame()
 	{
+		
+		System.out.println("ENDGAME FIRED!");
 		/*
 		 * This method should be called when the last turn on the last round ends.
 		 */
