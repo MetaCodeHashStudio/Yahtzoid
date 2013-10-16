@@ -99,8 +99,9 @@ public class ScoreTestsLower
 		
 	}
 	*/
-	public static int checkForFullHouse(int[] Values)
+	public static int checkForFullHouse(Dice[] dice)
 	{
+		int[] Values = DieCounter.countValues(dice);
 		int Score = 0;
 		boolean Three = false;
 		boolean Two = false;
@@ -165,7 +166,7 @@ public class ScoreTestsLower
 		System.out.println("Returning " + Score + " for small straight.");
 		return Score;
 	}
-	public static int checkForLargeStraight(Dice[] dice, int howLarge)
+	public static int checkForLargeStraight(Dice[] dice)
 	{
 		/*	This method should be deprecated or rewritten. Does not support configurable die sizes. */
 		boolean[] Numbers = DieCounter.truthValues(dice);
@@ -195,15 +196,11 @@ public class ScoreTestsLower
 		System.out.println("Returning " + Score + " for large straight.");
 		return Score;
 	}
-	public static int checkForYahtzee(int Values[])
+	public static int checkForYahtzee(Dice[] dice)
 	{
-			int Score = 0;
-			for
-			(
-				int i = 0;
-					i < Values.length;
-					i++
-			)
+		int[] Values = DieCounter.countValues(dice);
+		int Score = 0;
+		for(int i = 0 ; i < Values.length ;	i++)
 			{
 				if(Values[i] == 5)
 				{
@@ -213,8 +210,9 @@ public class ScoreTestsLower
 			System.out.println("Returning " + Score + " for yahtzee.");
 			return Score;
 	}
-	public static int checkForChance(Dice[] dice, int howMany)
+	public static int checkForChance(Dice[] dice)
 	{
+		int howMany = DieCounter.getActives(dice);
 		int Score = 0;
 		for(int i = 0;	i < howMany;	i++)
 		{

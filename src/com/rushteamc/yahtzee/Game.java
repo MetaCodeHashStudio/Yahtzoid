@@ -17,8 +17,9 @@ public class Game
 {
 	public static void startGame()
 	{
-		Dice[] dice = new Dice[7];
 		
+		//Start building dice array
+		Dice[] dice = new Dice[7];
 		for(int i = 0 ; i < 5 ; i++)
 		{
 			dice[i] = new Dice(6);
@@ -31,6 +32,7 @@ public class Game
 		System.out.println(dice[0].getValue());
 		System.out.println(dice[0].getSize());
 		Variables.dice = dice;
+		//Save dice
 	}
 	public static int checkForScore(int index, Dice[] dice)
 	{
@@ -57,6 +59,18 @@ public class Game
 					scoreToInsert = ScoreTestsLower.checkForTwoPairs(dice);
 				if(scoreToCheck == "Three of a Kind")
 					scoreToInsert = ScoreTestsLower.checkForXOfAKind(3, dice);
+				if(scoreToCheck == "Four of a Kind")
+					scoreToInsert = ScoreTestsLower.checkForXOfAKind(4, dice);
+				if(scoreToCheck == "Small Straight")
+					scoreToInsert = ScoreTestsLower.checkForSmallStraight(dice);
+				if(scoreToCheck == "Large Straight")
+					scoreToInsert = ScoreTestsLower.checkForLargeStraight(dice);
+				if(scoreToCheck == "Full House")
+					scoreToInsert = ScoreTestsLower.checkForFullHouse(dice);
+				if(scoreToCheck == "Chance")
+					scoreToInsert = ScoreTestsLower.checkForChance(dice);
+				if(scoreToCheck == "Yahtzee")
+					scoreToInsert = ScoreTestsLower.checkForYahtzee(dice);
 			}
 		/*
 		 * Game logic for score checking. index points to which check, dice are the active dice values.
