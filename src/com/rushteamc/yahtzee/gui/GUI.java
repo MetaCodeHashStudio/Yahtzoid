@@ -123,6 +123,7 @@ public class GUI extends JFrame {
 		
 		for(int i = 0 ; i < Variables.scoreTypes.length; i++)
 		{
+			
 			gbc_lblScoreTypes[i] = new GridBagConstraints(); 				// Pre-init
 			gbc_lblScoreTypes[i].gridx = labelsXPos;
 			gbc_lblScoreTypes[i].gridy = labelsYStart+i;
@@ -133,6 +134,7 @@ public class GUI extends JFrame {
 			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]);
 			leftPanel.add(lblScoreTypes[i], gbc_lblScoreTypes[i]);
 			lblScoreTypes[i].setVisible(false);
+		
 		}
 		
 		lblGraphicalScores = new JLabel[Variables.selectedNumPlayers][Variables.scoreTypes.length];
@@ -151,21 +153,28 @@ public class GUI extends JFrame {
 			
 			for(int j = 0 ; j < Variables.scoreTypes.length ; j++)
 			{
+				
 			gbc_lblGraphicalScores[i][j] = new GridBagConstraints(); 				// Pre-init
 			gbc_lblGraphicalScores[i][j].fill = GridBagConstraints.BOTH;
 			gbc_lblGraphicalScores[i][j].gridx = labelsXPos+2+i;
 			gbc_lblGraphicalScores[i][j].gridy = labelsYStart+j;
 			lblGraphicalScores[i][j] = new JLabel(""); 							// Pre-init
 			leftPanel.add(lblGraphicalScores[i][j], gbc_lblGraphicalScores[i][j]);
+			
 			}
+		
 		}
+		
 		lblHoldDie = new JLabel[6];
 		dieImages = new BufferedImage[6];
 		btnDieIcon = new JButton[6];
 		GridBagConstraints[] gbc_lblHoldDie = new GridBagConstraints[lblHoldDie.length];
 		GridBagConstraints[] gbc_btnDieIcon = new GridBagConstraints[btnDieIcon.length];
-		for(int i = 0 ; i < lblHoldDie.length ; i++) /* PLACEHOLDER VALUE NEEDS CHANGING */
+		
+		for(int i = 0 ; i < lblHoldDie.length ; i++)
+		
 		{
+			
 			gbc_btnDieIcon[i] = new GridBagConstraints();
 			gbc_btnDieIcon[i].gridx = i+1;
 			gbc_btnDieIcon[i].gridy = 1;
@@ -181,6 +190,7 @@ public class GUI extends JFrame {
 			lblHoldDie[i] = new JLabel("Held");
 			lblHoldDie[i].setVisible(false);
 			rightPanel.add(lblHoldDie[i],gbc_lblHoldDie[i]);
+			
 		}
 
 
@@ -194,8 +204,10 @@ public class GUI extends JFrame {
 		
 		btnSetScore = new JButton[Variables.scoreTypes.length];
 		GridBagConstraints[] gbc_btnSetScore = new GridBagConstraints[btnSetScore.length];
+		
 		for(int i = 0 ; i < btnSetScore.length ; i++)
 		{
+			
 			gbc_btnSetScore[i] = new GridBagConstraints();
 			gbc_btnSetScore[i].fill = GridBagConstraints.BOTH;
 			gbc_btnSetScore[i].gridx = labelsXPos;
@@ -204,104 +216,147 @@ public class GUI extends JFrame {
 			
 			btnSetScore[i] = new JButton(Variables.scoreTypes[i]);
 			btnSetScore[i].setActionCommand("scoreButton"+i);
+			
 			leftPanel.add(btnSetScore[i], gbc_btnSetScore[i]);
-		}
 		
+		}
 		
 		lblPlayerNames[0].setIcon(activePlayerIcon);
 		setHandler();
 		cleanup();
 		Game.startGame();
+	
 	}
+	
 	private static void cleanup()
 	{
+		
 		lblHoldDie[lblHoldDie.length-1].setVisible(false);
 		btnDieIcon[btnDieIcon.length-1].setVisible(false);
 		String[] buttonsToRemove = new String[]
+		
 		{
-				Variables.scoreTypes[6],
-				Variables.scoreTypes[7],
-				Variables.scoreTypes[17],
-				Variables.scoreTypes[18]
+					
+			Variables.scoreTypes[6],
+			Variables.scoreTypes[7],
+			Variables.scoreTypes[17],
+			Variables.scoreTypes[18]
 				
 		};
 		
 		for(int i = 0 ; i < lblScoreTypes.length ; i++)
 		{
+			
 			for(int j = 0 ; j < buttonsToRemove.length ; j++)
 			{
+				
 				if (lblScoreTypes[i].getText() == buttonsToRemove[j])
 				{
+					
 					btnSetScore[i].setVisible(false);
 					lblScoreTypes[i].setVisible(true);
+				
 				}
+				
 			}
+			
 		}
+		
 	}
+	
 	public static void reArm(int playerNumber)
 	{
-		System.out.println(playerNumber);
+		
 		if(!(playerNumber == -1))
 		{
+			
 			if(playerNumber == 0)
 			{
+				
 				int index = Players.getLastPlayerIndex();
 				lblPlayerNames[index].setIcon(null);
 				lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+		
 			}
+			
 			else
 			{
+				
 				lblPlayerNames[playerNumber-1].setIcon(null);
 				lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+		
 			}
+			
 			for(int i = 0 ; i < 6 ; i++)
 			{
+				
 				GUI.lblHoldDie[i].setVisible(false);
 				Variables.dice[i].holdDie(false);
+			
 			}
+			
 			for(int i = 0 ; i < lblScoreTypes.length ; i++)
 			{
+				
 				btnSetScore[i].setVisible(!Variables.playerHasAddedScore[playerNumber][i]);
 				lblScoreTypes[i].setVisible(Variables.playerHasAddedScore[playerNumber][i]);
 				Variables.currentUsedRerolls = -1;
+			
 			}
+			
 			cleanup();
 		}
+		
 		else
 		{
+			
 			//Post game GUI elements
+		
 		}
+		
 	}
 	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
 	{
-//		imgFile = new File[6];
-//		imageStream = new ImageInputStream[6];
+		
 		inputStream = new InputStream[6];
 		imageUrl = new URL[6];
+		
 		for(int i = 0 ; i < inputStream.length ; i++)
 		{
+			
 			imageUrl[i] = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			inputStream[i] = new URL(imageUrl[i].toString()).openStream();
-//			imageStream[i] = ImageIO.createImageInputStream(inputStream[i]);
-//			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			System.out.println(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+		
 		}
+		
 		URL activeIconUrl = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/active.png");
 		InputStream activeIcon = new URL(activeIconUrl.toString()).openStream();
 		activePlayerIcon = new ImageIcon(ImageIO.read(activeIcon));
+	
 	}
+	
 	private static void setHandler() throws IOException
 	{
+		
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.addScoreHandler();
+	
 	}
+	
 	public static void beforeRollingError()
 	{
+		
 		JOptionPane.showMessageDialog(null,"You cannot do this before rolling.");
+	
 	}
+	
 	public static void noMoreRerollsError()
 	{
+		
 		JOptionPane.showMessageDialog(null,"You have spent all your rerolls this turn.");	
+	
 	}
+	
 }
