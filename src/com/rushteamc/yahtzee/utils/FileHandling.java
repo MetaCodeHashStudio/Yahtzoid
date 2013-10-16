@@ -28,35 +28,39 @@ public class FileHandling
 			return filePath;
 		}
 	}
-        public static void SaveGameState()
-        {
+	public static void SaveGameState()
+	{
         	
-            PrintStream out = null;
-            boolean success;
+		PrintStream out = null;
+		boolean success;
             
-            success = (new File(path + "save")).mkdirs();
-            if (!success) {
-                System.out.println("Shit! couldnt create folders!");
-            }
+		success = (new File(path + "save")).mkdirs();
+		if (!success)
+		{
+			System.out.println("Shit! couldnt create folders!");
+        }
         
-            try
-            {
-                File newTextFile = new File(path + separator + "save" + separator +"gameSave.sav");
+		try
+		{
+			File newTextFile = new File(path + separator + "save" + separator +"gameSave.sav");
                 
-                FileWriter fw = new FileWriter(newTextFile);
+			FileWriter fw = new FileWriter(newTextFile);
                 
-                //Insert data into file
-                for(int i = Variables.playerNames.size()-1; i >0; i--){
-                    fw.write(Variables.playerNames.get(i) + ":" + ""); //Each Line populated: Playername:aceScore:twoScore ...etc... etc...
-                }
-                fw.close();   
-            }
-            catch (IOException iox) { 
-                iox.printStackTrace();
-            } 
-            finally {
-                if (out != null) out.close();
-            }
+			//Insert data into file
+			for(int i = Variables.playerNames.size()-1; i >0; i--)
+			{
+				fw.write(Variables.playerNames.get(i) + ":" + ""); //Each Line populated: Playername:aceScore:twoScore ...etc... etc...
+			}
+			fw.close();   
+		}
+		catch (IOException iox)
+		{ 
+			iox.printStackTrace();
+		} 
+		finally
+		{
+			if (out != null) out.close();
+		}
     }
         
     public static void generateFolders(String newFolderLocation)
