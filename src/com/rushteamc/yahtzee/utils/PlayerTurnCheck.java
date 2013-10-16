@@ -48,11 +48,12 @@ public class PlayerTurnCheck {
         
     }
     
-     public static void NextTurn() throws InterruptedException
+     public static int NextTurn() throws InterruptedException
     {
         Variables.turnNumber++; //Adds 1 to Current Turn 
         CheckForRoundEnd();
         PrintPlayerTurn();
+        return Variables.turnNumber;
         //TimerHandler.TurnTime90();
         
         

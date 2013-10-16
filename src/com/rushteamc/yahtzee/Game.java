@@ -76,19 +76,21 @@ public class Game
 		 */
 		return scoreToInsert;
 	}
-	public static void endTurn()
+	public static int endTurn()
 	{
 		/*
 		 * This method should be called to end the current player's turn after inputting his points.
 		 */
+		int playerNumber = 0;
 		try
 		{
-            PlayerTurnCheck.NextTurn();
+            playerNumber = PlayerTurnCheck.NextTurn();
 		}
 		catch(InterruptedException e)
 		{
 			e.printStackTrace();
 		}
+		return playerNumber;
 	}
         
         //EndRound Handeled allready by PlayerTurnCheck

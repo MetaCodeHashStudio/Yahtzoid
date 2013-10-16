@@ -10,6 +10,7 @@ import java.awt.Color;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -38,6 +39,7 @@ public class GUI extends JFrame {
 	public static JPanel rightPanel;
 	private JPanel leftPanel;
 	private JLabel lblScoreSheet;
+	private static Icon activePlayerIcon;
 	
 	public static JLabel[][] lblGraphicalScores;
 	public static JLabel[] lblPlayerNames;
@@ -220,6 +222,7 @@ public class GUI extends JFrame {
 				Variables.scoreTypes[18]
 				
 		};
+		lblPlayerNames[0].setIcon(activePlayerIcon);
 		
 		for(int i = 0 ; i < lblScoreTypes.length ; i++)
 		{
@@ -233,10 +236,24 @@ public class GUI extends JFrame {
 			}
 		}
 	}
+	public static void reArm(int playerNumber)
+	{
+		if(playerNumber == 0)
+		{
+			lblPlayerNames[3].setIcon(null);
+			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+		}
+		else
+		{
+			lblPlayerNames[playerNumber-1].setIcon(null);
+			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+		}
+		
+	}
 	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
 	{
 //		imgFile = new File[6];
-		imageStream = new ImageInputStream[6];
+//		imageStream = new ImageInputStream[6];
 		inputStream = new InputStream[6];
 		imageUrl = new URL[6];
 		for(int i = 0 ; i < inputStream.length ; i++)
@@ -247,6 +264,9 @@ public class GUI extends JFrame {
 //			imgFile[i] = new File(Variables.internalFilePath + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 			System.out.println(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
 		}
+		URL activeIconUrl = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/active.png");
+		InputStream activeIcon = new URL(activeIconUrl.toString()).openStream();
+		activePlayerIcon = new ImageIcon(ImageIO.read(activeIcon));
 	}
 	private static void setHandler() throws IOException
 	{
