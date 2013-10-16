@@ -9,21 +9,6 @@ package com.rushteamc.yahtzee.utils;
 
 public class Players {
 
-    // To get a speciffic player name from the list, type:
-    // Variables.PlayerNames.get(<the player nr id>)
-    
-    public static void createPlayers(){ //Adds names to the list.
-        
-        /*Test adds*/
-        Variables.playerNames.add("Runnetty");
-        Variables.playerNames.add("Allistar");
-        Variables.playerNames.add("Eivind");
-        Variables.playerNames.add("Anamorphic");
-        /*Test adds*/
-        
-        /*Needs to get string from GUI input field*/
-    }
-    
     public static void getAllPlayerNames() //Gets all names and puts in string called AllPlayers.
     { 
         int Nrplayrs = Variables.playerNames.size();
