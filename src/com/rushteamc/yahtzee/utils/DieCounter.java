@@ -48,13 +48,14 @@ public class DieCounter
 		int howMany = getActives(dice);
 		int howLarge = dice[0].getSize();
 		boolean[] Numbers = new boolean[howLarge];
+		for(int i = 0 ; i < howLarge ; i++)
+		{
+			Numbers[i] = false; // Pre-init
+		}
 		for(int i = 0 ; i < howMany ; i++)
 		{
-			for(int j = 1 ; j <= dice[i].getSize() ; j++)
-			{
-				if(dice[i].getValue(j))
-					Numbers[i] = true;
-			}
+			int index = dice[i].getValue()-1;
+			Numbers[index] = true;
 		}
 		return Numbers;
 		

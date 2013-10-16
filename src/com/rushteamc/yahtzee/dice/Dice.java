@@ -61,10 +61,20 @@ public class Dice implements IDice
 		{
 			
 			if(isActive)
+			{
 				if(this.dieValue == checkForValue)
+				{
 					return true;
-				else return false;
-			else return false;
+				}
+				else
+				{
+					return false;
+				}
+			}	
+			else
+			{
+				return false;
+			}
 			
 		}
 		
