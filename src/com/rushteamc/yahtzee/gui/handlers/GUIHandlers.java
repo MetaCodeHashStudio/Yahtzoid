@@ -133,7 +133,13 @@ public class GUIHandlers
 							GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
 //							GUI.btnSetScore[buttonNumber].setVisible(false);
 							Variables.playerHasAddedScore[Variables.turnNumber][buttonNumber] = true;
-							int playerNumber = Game.endTurn();
+							int playerNumber = 0;
+							try {
+								playerNumber = Game.endTurn();
+							} catch (InterruptedException e1) {
+								// TODO Auto-generated catch block
+								e1.printStackTrace();
+							}
 							diceRolled = false;
 							GUI.reArm(playerNumber);
 						}

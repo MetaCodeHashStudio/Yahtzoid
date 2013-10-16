@@ -85,20 +85,15 @@ public class Game
 		 */
 		return scoreToInsert;
 	}
-	public static int endTurn()
+	public static int endTurn() throws InterruptedException
 	{
 		/*
 		 * This method should be called to end the current player's turn after inputting his points.
 		 */
 		int playerNumber = 0;
-		try
-		{
-            playerNumber = PlayerTurnCheck.NextTurn();
-		}
-		catch(InterruptedException e)
-		{
-			e.printStackTrace();
-		}
+
+        playerNumber = PlayerTurnCheck.NextTurn();
+
 		return playerNumber;
 	}
         

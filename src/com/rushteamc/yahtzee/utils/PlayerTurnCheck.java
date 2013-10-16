@@ -65,7 +65,7 @@ public class PlayerTurnCheck {
     public static int NextTurn() throws InterruptedException
     {
         Variables.turnNumber++; //Adds 1 to Current Turn 
-        boolean reArm = CheckForRoundEnd();
+        boolean reArm = !CheckForRoundEnd();
         PrintPlayerTurn();
         if(reArm)
         	return Variables.turnNumber;

@@ -7,7 +7,7 @@ import com.rushteamc.yahtzee.dice.Dice;
 
 public class Variables {
     
-				public static final String APPLICATION_TITLE = "Yahtzoid Version 0.0.1"; 
+				public static final String APPLICATION_TITLE = "Yahtzoid Version 0.0.1-R2"; 
 				public static final int MAX_SUPPORTED_PLAYERS = 4;
 				public static final int STANDARD_MAX_REROLLS = 2;
 				public static int currentUsedRerolls = -1; //pre-init

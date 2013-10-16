@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 import com.rushteamc.yahtzee.Game;
+import com.rushteamc.yahtzee.utils.DieCounter;
 import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
@@ -239,7 +240,8 @@ public class GUI extends JFrame {
 	}
 	public static void reArm(int playerNumber)
 	{
-		if(playerNumber != -1)
+		System.out.println(playerNumber);
+		if(!(playerNumber == -1))
 		{
 			if(playerNumber == 0)
 			{
@@ -252,13 +254,18 @@ public class GUI extends JFrame {
 				lblPlayerNames[playerNumber-1].setIcon(null);
 				lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
 			}
+			for(int i = 0 ; i < 6 ; i++)
+			{
+				GUI.lblHoldDie[i].setText("Hold");
+				Variables.dice[i].holdDie(false);
+			}
 			for(int i = 0 ; i < lblScoreTypes.length ; i++)
 			{
 				btnSetScore[i].setVisible(!Variables.playerHasAddedScore[playerNumber][i]);
 				lblScoreTypes[i].setVisible(Variables.playerHasAddedScore[playerNumber][i]);
 				Variables.currentUsedRerolls = -1;
-				cleanup();
 			}
+			cleanup();
 		}
 		else
 		{
