@@ -18,7 +18,6 @@ import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
 import com.rushteamc.yahtzee.Game;
-import com.rushteamc.yahtzee.utils.DieCounter;
 import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
