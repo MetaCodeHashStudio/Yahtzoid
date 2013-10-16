@@ -132,6 +132,7 @@ public class GUI extends JFrame {
 			gbc_lblScoreTypes[i].insets = new Insets(0, 15, 0, 0);
 			lblScoreTypes[i] = new JLabel(Variables.scoreTypes[i]);
 			leftPanel.add(lblScoreTypes[i], gbc_lblScoreTypes[i]);
+			lblScoreTypes[i].setVisible(false);
 		}
 		
 		lblGraphicalScores = new JLabel[Variables.selectedNumPlayers][Variables.scoreTypes.length];
@@ -154,7 +155,7 @@ public class GUI extends JFrame {
 			gbc_lblGraphicalScores[i][j].fill = GridBagConstraints.BOTH;
 			gbc_lblGraphicalScores[i][j].gridx = labelsXPos+2+i;
 			gbc_lblGraphicalScores[i][j].gridy = labelsYStart+j;
-			lblGraphicalScores[i][j] = new JLabel("0"); 							// Pre-init
+			lblGraphicalScores[i][j] = new JLabel(""); 							// Pre-init
 			leftPanel.add(lblGraphicalScores[i][j], gbc_lblGraphicalScores[i][j]);
 			}
 		}
@@ -226,7 +227,6 @@ public class GUI extends JFrame {
 		
 		for(int i = 0 ; i < lblScoreTypes.length ; i++)
 		{
-
 			for(int j = 0 ; j < buttonsToRemove.length ; j++)
 			{
 				if (lblScoreTypes[i].getText() == buttonsToRemove[j])
@@ -239,23 +239,30 @@ public class GUI extends JFrame {
 	}
 	public static void reArm(int playerNumber)
 	{
-		if(playerNumber == 0)
+		if(playerNumber != -1)
 		{
-			int index = Players.getLastPlayerIndex();
-			lblPlayerNames[index].setIcon(null);
-			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+			if(playerNumber == 0)
+			{
+				int index = Players.getLastPlayerIndex();
+				lblPlayerNames[index].setIcon(null);
+				lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+			}
+			else
+			{
+				lblPlayerNames[playerNumber-1].setIcon(null);
+				lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
+			}
+			for(int i = 0 ; i < lblScoreTypes.length ; i++)
+			{
+				btnSetScore[i].setVisible(!Variables.playerHasAddedScore[playerNumber][i]);
+				lblScoreTypes[i].setVisible(Variables.playerHasAddedScore[playerNumber][i]);
+				Variables.currentUsedRerolls = -1;
+				cleanup();
+			}
 		}
 		else
 		{
-			lblPlayerNames[playerNumber-1].setIcon(null);
-			lblPlayerNames[playerNumber].setIcon(activePlayerIcon);
-		}
-		for(int i = 0 ; i < lblScoreTypes.length ; i++)
-		{
-			btnSetScore[i].setVisible(!Variables.playerHasAddedScore[playerNumber][i]);
-			lblScoreTypes[i].setVisible(Variables.playerHasAddedScore[playerNumber][i]);
-			Variables.currentUsedRerolls = -1;
-			cleanup();
+			//Post game GUI elements
 		}
 	}
 	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException

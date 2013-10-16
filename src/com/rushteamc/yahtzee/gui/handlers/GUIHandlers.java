@@ -11,7 +11,6 @@ import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 
 import com.rushteamc.yahtzee.Game;
-import com.rushteamc.yahtzee.dice.Dice;
 import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.GUI;
 

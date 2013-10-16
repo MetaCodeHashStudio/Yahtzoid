@@ -14,10 +14,10 @@ public class GUIVariables
 	public static int contentPaneWidth;
 	public static int[] contentPaneXDimensions = new int[]{buildLeftPaneWidth(), CONTENT_PANE_RIGHT_WIDTH};
 	private static int contentPaneLeftWidth;
-	private static int contentPaneLeftHeight;
+//	private static int contentPaneLeftHeight;
 	private static int contentPaneLeftRows = Variables.scoreTypes.length + 2;
-	private static int contentPaneRightWidth;
-	private static int contentPaneRightHeight;
+//	private static int contentPaneRightWidth;
+//	private static int contentPaneRightHeight;
 	
 	
 	public static int[] buildContentPaneYDimensions()
