@@ -59,7 +59,7 @@ public class FileHandling
             }
     }
         
-    public static void gen_Folders(String newFolderLocation)
+    public static void generateFolders(String newFolderLocation)
     {
         createFolder = (new File(path+newFolderLocation)).mkdirs(); 
     }            
