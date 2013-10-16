@@ -178,7 +178,8 @@ public class GUI extends JFrame {
 			gbc_lblHoldDie[i] = new GridBagConstraints();
 			gbc_lblHoldDie[i].gridx = i+1;
 			gbc_lblHoldDie[i].gridy = 2;
-			lblHoldDie[i] = new JLabel("Hold");
+			lblHoldDie[i] = new JLabel("Held");
+			lblHoldDie[i].setVisible(false);
 			rightPanel.add(lblHoldDie[i],gbc_lblHoldDie[i]);
 		}
 
@@ -255,7 +256,7 @@ public class GUI extends JFrame {
 			}
 			for(int i = 0 ; i < 6 ; i++)
 			{
-				GUI.lblHoldDie[i].setText("Hold");
+				GUI.lblHoldDie[i].setVisible(false);
 				Variables.dice[i].holdDie(false);
 			}
 			for(int i = 0 ; i < lblScoreTypes.length ; i++)

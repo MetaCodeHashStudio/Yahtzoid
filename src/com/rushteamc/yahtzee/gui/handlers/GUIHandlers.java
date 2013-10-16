@@ -46,7 +46,6 @@ public class GUIHandlers
 //										System.out.println("Attempting to read file for die value " + dice[i] + ", from die number " + (i+1));
 										BufferedImage imageToInsert = ImageIO.read(streamToInsert);
 										GUI.btnDieIcon[i].setIcon(new ImageIcon(imageToInsert));
-										GUI.lblHoldDie[i].setText("Hold");
 									}
 									catch(IOException error)
 									{
@@ -91,12 +90,12 @@ public class GUIHandlers
 						}
 						if(!Variables.dice[buttonNumber].isHeld() && diceRolled)
 						{
-							GUI.lblHoldDie[buttonNumber].setText("Release");
+							GUI.lblHoldDie[buttonNumber].setVisible(true);
 							Variables.dice[buttonNumber].holdDie(true);
 						}
 						else
 						{
-							GUI.lblHoldDie[buttonNumber].setText("Hold");
+							GUI.lblHoldDie[buttonNumber].setVisible(false);
 							Variables.dice[buttonNumber].holdDie(false);
 						}
 					}

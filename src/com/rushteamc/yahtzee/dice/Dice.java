@@ -135,10 +135,8 @@ public class Dice implements IDice
 					
 					Random R = new Random();
 					this.dieValue = (R.nextInt(this.dieSize)+1);
-					this.isDieHeld = false;
 					return this.dieValue;
 				}
-			this.isDieHeld = false;
 			return 0;
 		
 		}
