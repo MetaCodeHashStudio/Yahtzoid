@@ -15,7 +15,7 @@ public class FileHandling
 		
                 if(filePath.endsWith(".jar"))
 		{
-			filePath = "jar:file:" + filePath + "!" + separator; 
+			filePath = "jar:file:" + filePath + "!/"; 
 			return filePath;
 		}
 		else
