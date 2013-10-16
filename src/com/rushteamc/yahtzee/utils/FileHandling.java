@@ -37,11 +37,7 @@ public class FileHandling
 		PrintStream out = null;
 		boolean success;
             
-		success = (new File(path + "save")).mkdirs();
-		if (!success)
-		{
-			System.out.println("Shit! couldnt create folders!");
-        }
+		generateFolders("save");
         
 		try
 		{
