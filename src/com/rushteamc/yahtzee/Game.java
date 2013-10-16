@@ -8,7 +8,6 @@ package com.rushteamc.yahtzee;
  		/*          */
   		/*GUIMETHOD */
         /*          */
-import com.rushteamc.yahtzee.utils.PlayerTurnCheck;
 import com.rushteamc.yahtzee.utils.ScoreTestsLower;
 import com.rushteamc.yahtzee.utils.ScoreTestsUpper;
 import com.rushteamc.yahtzee.utils.Variables;
