@@ -8,7 +8,6 @@ public class DieCounter
 	public static int[] countValues(Dice[] dice)
 	{
 		
-//		int DieSize = com.rushteamc.yahtzee.utils.Configurables.getDieSize();
 		int howMany;
 		if(dice[5].getActive())
 			howMany = 6;
