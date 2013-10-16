@@ -51,8 +51,7 @@ public class Game
 			n++;
 		}
 		if(continueChecking)
-			for(int i = 6; i < Variables.scoreTypes.length ; i++)
-			{
+		{
 				if(scoreToCheck == "Pair")
 					scoreToInsert = ScoreTestsLower.checkForPair(dice);
 				if(scoreToCheck == "Two Pairs")
@@ -71,7 +70,7 @@ public class Game
 					scoreToInsert = ScoreTestsLower.checkForChance(dice);
 				if(scoreToCheck == "Yahtzee")
 					scoreToInsert = ScoreTestsLower.checkForYahtzee(dice);
-			}
+		}
 		/*
 		 * Game logic for score checking. index points to which check, dice are the active dice values.
 		 */

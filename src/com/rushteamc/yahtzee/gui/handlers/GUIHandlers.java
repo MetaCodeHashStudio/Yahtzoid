@@ -119,11 +119,21 @@ public class GUIHandlers
 					{
 						if(diceRolled)
 						{
-							int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
+							int buttonNumber;
+							if(e.getActionCommand().toString().length() == 12)
+								buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
+							else
+							{
+								String preProcessed = e.getActionCommand().toString();
+								String postProcessed = preProcessed.substring(11);
+								buttonNumber = Integer.parseInt(postProcessed);
+							}
+							
 							System.out.println(buttonNumber);
 							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.dice);
 							GUI.lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
 							GUI.btnSetScore[buttonNumber].setVisible(false);
+							Game.endTurn();
 						}
 						else
 						{
