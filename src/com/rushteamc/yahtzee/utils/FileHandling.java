@@ -35,7 +35,6 @@ public class FileHandling
 		String path = buildGamePath();
 		String separator = System.getProperty("file.separator");
 		PrintStream out = null;
-		boolean success;
             
 		generateFolders("save");
         
