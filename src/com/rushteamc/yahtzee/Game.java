@@ -28,6 +28,7 @@ public class Game
 		dice[6] = new Dice(8);
 		dice[6].setActive(false);
 		
+		
 		System.out.println(dice[0].getValue());
 		System.out.println(dice[0].getSize());
 		Variables.dice = dice;

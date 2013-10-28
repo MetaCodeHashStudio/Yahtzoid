@@ -39,22 +39,11 @@ public class Dice implements IDice
 		
 		}
 		
-		public int getValue()
-		{
-			
+		public int getValue() {
 			if(isActive)
-			{
-				
 				return this.dieValue;	
-			
-			}
-			else
-			{
-				
+			else			
 				return 0;
-			
-			}
-		
 		}
 		
 		public boolean getValue(int checkForValue)
