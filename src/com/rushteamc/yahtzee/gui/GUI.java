@@ -37,23 +37,23 @@ public class GUI extends JFrame {
 
 	private static final long serialVersionUID = 435423427892374L;
 	private JPanel contentPane;
-	public static JPanel rightPanel;
+	private JPanel rightPanel;
 	private JPanel leftPanel;
 	private JLabel lblScoreSheet;
-	private static Icon activePlayerIcon;
+	private Icon activePlayerIcon;
 	
-	public static JLabel[][] lblGraphicalScores;
-	public static JLabel[] lblPlayerNames;
-	public static JLabel[] lblScoreTypes;
-	public static JLabel[] lblHoldDie;
-	public static JButton[] btnDieIcon;
-	public static JButton[] btnSetScore;
-	public static Image[] dieImages;
+	private JLabel[][] lblGraphicalScores;
+	private JLabel[] lblPlayerNames;
+	private JLabel[] lblScoreTypes;
+	private JLabel[] lblHoldDie;
+	private JButton[] btnDieIcon;
+	private JButton[] btnSetScore;
+	private Image[] dieImages;
 //	public static File[] imgFile;
-	public static JButton btnRollDice;
-	public static ImageInputStream[] imageStream;
-	public static InputStream[] inputStream;
-	public static URL[] imageUrl;
+	private JButton btnRollDice;
+	private ImageInputStream[] imageStream;
+	private InputStream[] inputStream;
+	private URL[] imageUrl;
 
 	/**
 	 * Create the frame.
