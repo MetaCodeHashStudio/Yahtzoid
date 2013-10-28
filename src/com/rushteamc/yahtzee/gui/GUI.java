@@ -4,6 +4,8 @@ import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.awt.Color;
 
@@ -17,6 +19,7 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
+import com.rushteamc.yahtzee.Game;
 import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
@@ -52,6 +55,7 @@ public class GUI extends JFrame {
 //	private ImageInputStream[] imageStream;
 	private InputStream[] inputStream;
 	private URL[] imageUrl;
+	private boolean diceRolled = false;
 
 	/**
 	 * Create the frame.
@@ -179,7 +183,7 @@ public class GUI extends JFrame {
 			try {
 				dieImages[i] = ImageIO.read(inputStream[i]);	
 			} catch(IOException e){
-			// Stubby error handling
+				e.printStackTrace();
 			}
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
 			btnDieIcon[i].setActionCommand("holdButton"+i);
@@ -347,13 +351,191 @@ public class GUI extends JFrame {
 	
 	private void setHandler()
 	{
-		
+		throwDiceHandler();
+		holdDiceHandler();
+		addScoreHandler();
+		/*
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.holdDiceHandler();
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.addScoreHandler();
+		*/
 	
 	}
-	
+	private void throwDiceHandler()
+	{
+		this.btnRollDice.addActionListener
+		(
+				new ActionListener()
+				{
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{	
+						if(Variables.currentUsedRerolls != Variables.STANDARD_MAX_REROLLS)
+						{
+
+							for(int i = 0 ; i < Variables.dice.length ; i++)
+							{
+								
+								/*
+								if(Variables.dice[i].isHeld())
+								{
+									System.out.println("Die number " + (i+1) + " is held and has value " + Variables.dice[i].getValue());
+								}
+								*/
+								Variables.dice[i].reRoll();
+								if(Variables.dice[i].getActive())
+								{
+									try
+									{
+										btnDieIcon[i].setIcon(new ImageIcon(ImageIO.read(inputStream[Variables.dice[i].getValue()-1])));
+									}
+								
+									catch(IOException error)
+									{
+										
+										error.printStackTrace();
+									
+									}
+								}
+								
+							}
+							/*
+							for(int j = 0 ; j < Variables.dice.length ; j++)
+							{
+								System.out.println("Die " + (j+1) + " has the value " + Variables.dice[j].getValue()) ;
+							}
+							*/
+							diceRolled = true;
+							Variables.currentUsedRerolls++;
+							
+						}
+						else
+						{
+							GUI.noMoreRerollsError();
+						}
+					}
+				}
+		);
+	}
+	private void holdDiceHandler()
+	{
+		for(int i = 0 ; i < btnDieIcon.length ; i++)
+		{
+			btnDieIcon[i].addActionListener
+			(
+				new ActionListener()
+				{
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						int buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(10));
+//						System.out.println(buttonNumber);
+						if(!diceRolled)
+						{
+							
+							GUI.beforeRollingError();
+					
+						}
+						
+						if(Variables.currentUsedRerolls == Variables.STANDARD_MAX_REROLLS) // MUST BE MADE DYNAMIC BEFORE CARD IMPLEMENT'
+						{
+							
+							GUI.noMoreRerollsError();
+						
+						}
+						
+						if(!Variables.dice[buttonNumber].isHeld() && diceRolled)
+						{
+							
+							lblHoldDie[buttonNumber].setVisible(true);
+							Variables.dice[buttonNumber].holdDie(true);
+						
+						}
+						
+						else
+						{
+							
+							lblHoldDie[buttonNumber].setVisible(false);
+							Variables.dice[buttonNumber].holdDie(false);
+						
+						}
+						
+					}
+					
+				}
+				
+			);
+			
+		}
+		
+	}
+	private void addScoreHandler()
+	{
+		
+		for(int i = 0 ; i < btnSetScore.length; i++)
+		{
+			
+			btnSetScore[i].addActionListener
+			(
+					
+				new ActionListener()
+				{
+					
+					@Override
+					public void actionPerformed(ActionEvent e)
+					{
+						
+						if(diceRolled)
+						{
+							
+							int buttonNumber;
+							if(e.getActionCommand().toString().length() == 12)
+								buttonNumber = Character.getNumericValue((e.getActionCommand().toString()).charAt(11));
+							else
+							{
+								
+								String preProcessed = e.getActionCommand().toString();
+								String postProcessed = preProcessed.substring(11);
+								buttonNumber = Integer.parseInt(postProcessed);
+							
+							}
+							
+							int scoreToAdd = Game.checkForScore(buttonNumber, Variables.dice);
+							lblGraphicalScores[Variables.turnNumber][buttonNumber].setText(Integer.toString(scoreToAdd));
+							Variables.playerHasAddedScore[Variables.turnNumber][buttonNumber] = true;
+							int playerNumber = 0;
+							try
+							{
+								playerNumber = Game.endTurn();
+						
+							}
+							catch (InterruptedException e1)
+							{
+								
+								e1.printStackTrace();
+							
+							}
+							
+							diceRolled = false;
+							reArm(playerNumber);
+						
+						}
+						else
+						{
+							
+							GUI.beforeRollingError();
+						
+						}
+					
+					}
+				
+				}
+				
+			);
+			
+		}
+		
+	}
 	public static void beforeRollingError()
 	{
 		
@@ -367,5 +549,4 @@ public class GUI extends JFrame {
 		JOptionPane.showMessageDialog(null,"You have spent all your rerolls this turn.");	
 	
 	}
-	
 }
