@@ -182,7 +182,7 @@ public class GUI extends JFrame {
 			gbc_btnDieIcon[i].gridy = 1;
 			try {
 				dieImages[i] = ImageIO.read(inputStream[i]);	
-			} catch(IOException e){
+			} catch(IOException e) {
 				e.printStackTrace();
 			}
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
@@ -232,7 +232,7 @@ public class GUI extends JFrame {
 		this.setHandler();			
 
 		this.cleanup();
-//		Game.startGame();
+		Game.startGame();
 	
 	}
 	
@@ -326,8 +326,8 @@ public class GUI extends JFrame {
 	private void populateImages()
 	{
 		
-		inputStream = new InputStream[6];
-		imageUrl = new URL[6];
+		this.inputStream = new InputStream[6];
+		this.imageUrl = new URL[6];
 		
 		for(int i = 0 ; i < inputStream.length ; i++)
 		{
@@ -375,36 +375,13 @@ public class GUI extends JFrame {
 
 							for(int i = 0 ; i < Variables.dice.length ; i++)
 							{
-								
-								/*
-								if(Variables.dice[i].isHeld())
-								{
-									System.out.println("Die number " + (i+1) + " is held and has value " + Variables.dice[i].getValue());
-								}
-								*/
 								Variables.dice[i].reRoll();
 								if(Variables.dice[i].getActive())
 								{
-									try
-									{
-										btnDieIcon[i].setIcon(new ImageIcon(ImageIO.read(inputStream[Variables.dice[i].getValue()-1])));
-									}
-								
-									catch(IOException error)
-									{
-										
-										error.printStackTrace();
-									
-									}
+									btnDieIcon[i].setIcon(new ImageIcon(dieImages[Variables.dice[i].getValue()-1]));
 								}
 								
 							}
-							/*
-							for(int j = 0 ; j < Variables.dice.length ; j++)
-							{
-								System.out.println("Die " + (j+1) + " has the value " + Variables.dice[j].getValue()) ;
-							}
-							*/
 							diceRolled = true;
 							Variables.currentUsedRerolls++;
 							
