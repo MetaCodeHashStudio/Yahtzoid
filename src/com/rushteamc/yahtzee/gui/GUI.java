@@ -17,7 +17,6 @@ import javax.swing.JButton;
 import javax.swing.JOptionPane;
 import javax.swing.border.LineBorder;
 
-import com.rushteamc.yahtzee.Game;
 import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
@@ -27,7 +26,6 @@ import java.io.IOException;
 import java.io.InputStream;
 
 import javax.imageio.ImageIO;
-import javax.imageio.stream.ImageInputStream;
 
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
@@ -51,7 +49,7 @@ public class GUI extends JFrame {
 	private Image[] dieImages;
 //	public static File[] imgFile;
 	private JButton btnRollDice;
-	private ImageInputStream[] imageStream;
+//	private ImageInputStream[] imageStream;
 	private InputStream[] inputStream;
 	private URL[] imageUrl;
 
@@ -59,7 +57,7 @@ public class GUI extends JFrame {
 	 * Create the frame.
 	 * @throws URISyntaxException 
 	 */
-	public GUI() throws IOException, URISyntaxException
+	public GUI()
 	{
 //		buildPanels();
 //		setPanels();
@@ -178,7 +176,11 @@ public class GUI extends JFrame {
 			gbc_btnDieIcon[i] = new GridBagConstraints();
 			gbc_btnDieIcon[i].gridx = i+1;
 			gbc_btnDieIcon[i].gridy = 1;
-			dieImages[i] = ImageIO.read(inputStream[i]);
+			try {
+				dieImages[i] = ImageIO.read(inputStream[i]);	
+			} catch(IOException e){
+			// Stubby error handling
+			}
 			btnDieIcon[i] = new JButton(new ImageIcon(dieImages[i]));
 			btnDieIcon[i].setActionCommand("holdButton"+i);
 			rightPanel.add(btnDieIcon[i], gbc_btnDieIcon[i]);
@@ -222,13 +224,15 @@ public class GUI extends JFrame {
 		}
 		
 		lblPlayerNames[0].setIcon(activePlayerIcon);
-		setHandler();
-		cleanup();
-		Game.startGame();
+		
+		this.setHandler();			
+
+		this.cleanup();
+//		Game.startGame();
 	
 	}
 	
-	private static void cleanup()
+	private void cleanup()
 	{
 		
 		lblHoldDie[lblHoldDie.length-1].setVisible(false);
@@ -264,7 +268,7 @@ public class GUI extends JFrame {
 		
 	}
 	
-	public static void reArm(int playerNumber)
+	public void reArm(int playerNumber)
 	{
 		
 		if(!(playerNumber == -1))
@@ -290,7 +294,7 @@ public class GUI extends JFrame {
 			for(int i = 0 ; i < 6 ; i++)
 			{
 				
-				GUI.lblHoldDie[i].setVisible(false);
+				this.lblHoldDie[i].setVisible(false);
 				Variables.dice[i].holdDie(false);
 			
 			}
@@ -315,7 +319,7 @@ public class GUI extends JFrame {
 		}
 		
 	}
-	private static void populateImages() throws MalformedURLException, IOException, URISyntaxException
+	private void populateImages()
 	{
 		
 		inputStream = new InputStream[6];
@@ -324,19 +328,24 @@ public class GUI extends JFrame {
 		for(int i = 0 ; i < inputStream.length ; i++)
 		{
 			
-			imageUrl[i] = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-			inputStream[i] = new URL(imageUrl[i].toString()).openStream();
-			System.out.println(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
-		
+			try {
+				this.imageUrl[i] = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+				this.inputStream[i] = new URL(imageUrl[i].toString()).openStream();
+//				System.out.println(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/Die_" + (i+1) + ".png");
+				URL activeIconUrl = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/active.png");
+				InputStream activeIcon = new URL(activeIconUrl.toString()).openStream();
+				this.activePlayerIcon = new ImageIcon(ImageIO.read(activeIcon));
+			} catch (MalformedURLException e) {
+				e.printStackTrace();
+			} catch (URISyntaxException e) {
+				e.printStackTrace();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
-		
-		URL activeIconUrl = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/active.png");
-		InputStream activeIcon = new URL(activeIconUrl.toString()).openStream();
-		activePlayerIcon = new ImageIcon(ImageIO.read(activeIcon));
-	
 	}
 	
-	private static void setHandler() throws IOException
+	private void setHandler()
 	{
 		
 		com.rushteamc.yahtzee.gui.handlers.GUIHandlers.throwDiceHandler();
