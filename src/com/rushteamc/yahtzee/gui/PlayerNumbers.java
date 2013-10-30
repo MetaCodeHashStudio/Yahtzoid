@@ -4,6 +4,8 @@ import com.rushteamc.yahtzee.utils.Variables;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JRadioButton;
 import javax.swing.ButtonGroup;
@@ -16,14 +18,14 @@ import javax.swing.JOptionPane;
 public class PlayerNumbers extends JFrame {
 
 	private static final long serialVersionUID = 15465431564646L;
-	private static JPanel contentPane;
+	private JPanel contentPane;
 //	public static JPanel mainPane;
 //	public static PlayerNumbers dialog;
-	private static JPanel buttonPane;
-	public static JButton nextButton;
-	public static JButton quitButton;
-	public static JRadioButton[] rdNumPlayers;
-	private static ButtonGroup numPlayersGroup;
+	private JPanel buttonPane;
+	private JButton nextButton;
+	private JButton quitButton;
+	private JRadioButton[] rdNumPlayers;
+	private ButtonGroup numPlayersGroup;
 
 
 	/**
@@ -45,7 +47,8 @@ public class PlayerNumbers extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{60,60,60,60};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
-		com.rushteamc.yahtzee.Start.setPlayerNumHandler();
+		setHandler();
+//		com.rushteamc.yahtzee.Start.setPlayerNumHandler();
 	}
 	private void setComponent()
 	{
@@ -54,7 +57,7 @@ public class PlayerNumbers extends JFrame {
 		createNextButton();
 		createQuitButton();
 	}
-	static void createButtonPane()
+	private void createButtonPane()
 	{
 		buttonPane = new JPanel();
 		GridBagLayout gbl_buttonPane = new GridBagLayout();
@@ -69,7 +72,7 @@ public class PlayerNumbers extends JFrame {
 		contentPane.add(buttonPane, gbc_buttonPane);
 		
 	}
-	static void createNextButton()
+	private void createNextButton()
 	{
 		nextButton = new JButton("Next");
 		GridBagConstraints gbc_nextButton = new GridBagConstraints();
@@ -77,12 +80,12 @@ public class PlayerNumbers extends JFrame {
 		gbc_nextButton.gridy = 0;
 		buttonPane.add(nextButton, gbc_nextButton);
 	}
-	static void createQuitButton()
+	private void createQuitButton()
 	{
 		quitButton = new JButton("Quit");
 		buttonPane.add(quitButton);
 	}
-	static void createRadios()
+	private void createRadios()
 	{
 		rdNumPlayers = new JRadioButton[Variables.MAX_SUPPORTED_PLAYERS];
 		GridBagConstraints[] gbc_rdNumPlayers = new GridBagConstraints[Variables.MAX_SUPPORTED_PLAYERS];
@@ -98,8 +101,49 @@ public class PlayerNumbers extends JFrame {
 		}
 		rdNumPlayers[0].setSelected(true);
 	}
-	public static void notifyNoSelection()
+	private static void notifyNoSelection()
 	{
 		JOptionPane.showMessageDialog(null, "No players selected.");
+	}
+	private void setHandler()
+	{
+		this.nextButton.addActionListener
+		(
+				
+			new ActionListener()
+			{
+				
+				@Override
+				public void actionPerformed(ActionEvent e)
+				{
+					
+					Variables.selectedNumPlayers = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedNumbersOfPlayers();
+					com.rushteamc.yahtzee.Start.PlayerNumberFrame.setVisible(false);
+					com.rushteamc.yahtzee.Start.continueToNames();
+				
+				}
+				
+			}
+			
+		);
+		
+        this.quitButton.addActionListener
+        (
+        		
+        	new ActionListener()
+        	{
+        		
+        		@Override
+       			public void actionPerformed(ActionEvent e)
+        		{ 
+        			
+        			System.exit(0);
+        		
+        		} 
+        	
+        	} 
+       
+        );
+	
 	}
 }
