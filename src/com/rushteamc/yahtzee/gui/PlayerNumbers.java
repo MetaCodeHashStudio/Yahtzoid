@@ -1,6 +1,6 @@
 package com.rushteamc.yahtzee.gui;
 
-import com.rushteamc.yahtzee.utils.Variables;
+//import com.rushteamc.yahtzee.utils.Variables;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
@@ -15,16 +15,19 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JOptionPane;
 
+import com.rushteamc.yahtzee.GameShell;
+import com.rushteamc.yahtzee.Start;
+
 public class PlayerNumbers extends JFrame {
 
 	private static final long serialVersionUID = 15465431564646L;
+	private static final int MAX_SUPPORTED_PLAYERS = 4;
 	private JPanel contentPane;
 	private JPanel buttonPane;
 	private JButton nextButton;
 	private JButton quitButton;
 	private JRadioButton[] rdNumPlayers;
 	private ButtonGroup numPlayersGroup;
-	private int playerNumbersReturnable;
 
 	/**
 	 * Create the dialog.
@@ -86,10 +89,10 @@ public class PlayerNumbers extends JFrame {
 	}
 	private void createRadios()
 	{
-		rdNumPlayers = new JRadioButton[Variables.MAX_SUPPORTED_PLAYERS];
-		GridBagConstraints[] gbc_rdNumPlayers = new GridBagConstraints[Variables.MAX_SUPPORTED_PLAYERS];
+		rdNumPlayers = new JRadioButton[MAX_SUPPORTED_PLAYERS];
+		GridBagConstraints[] gbc_rdNumPlayers = new GridBagConstraints[MAX_SUPPORTED_PLAYERS];
 		numPlayersGroup = new ButtonGroup();
-		for (int i = 0 ; i < Variables.MAX_SUPPORTED_PLAYERS ; i++)
+		for (int i = 0 ; i < MAX_SUPPORTED_PLAYERS ; i++)
 		{
 			gbc_rdNumPlayers[i] = new GridBagConstraints(); // Pre-init
 			gbc_rdNumPlayers[i].gridx = 1 + i;
@@ -99,10 +102,6 @@ public class PlayerNumbers extends JFrame {
 			contentPane.add(rdNumPlayers[i], gbc_rdNumPlayers[i]);
 		}
 		rdNumPlayers[0].setSelected(true);
-	}
-	private static void notifyNoSelection()
-	{
-		JOptionPane.showMessageDialog(null, "No players selected.");
 	}
 	private void setHandler()
 	{
@@ -119,7 +118,8 @@ public class PlayerNumbers extends JFrame {
 					{
 						if(rdNumPlayers[i].isSelected())
 						{
-							playerNumbersReturnable = (i+1);
+							Start.gameShell.setPlayerNumbers(i+1);
+							Start.gameShell.newGame(2);	
 						}
 					}
 				}

@@ -22,7 +22,7 @@ public class PlayerNames extends JFrame {
 	public static JTextField[] txtPlayerNames = new JTextField[Variables.selectedNumPlayers];
 	
 	
-	public PlayerNames()
+	public PlayerNames(String gameVersion, int numPlayers)
 	{
 		setTitle(Variables.APPLICATION_TITLE);
 		setResizable(false);
@@ -38,7 +38,8 @@ public class PlayerNames extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40,40,40,40,40,40};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
-		com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
+		
+		//com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
 	}
 	public void setComponent()
 	{

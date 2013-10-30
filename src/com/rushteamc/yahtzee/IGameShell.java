@@ -2,7 +2,7 @@ package com.rushteamc.yahtzee;
 
 public interface IGameShell {
 
-	public void newGame();
+	public void newGame(int Stage);
 	
 	public void saveGame();
 
@@ -10,4 +10,5 @@ public interface IGameShell {
 	
 	public void quitGame();
 	
+	public void setPlayerNumbers(int players);
 }

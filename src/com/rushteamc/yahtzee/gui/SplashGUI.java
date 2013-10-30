@@ -24,12 +24,13 @@ public class SplashGUI extends JFrame {
 	private JPanel contentPane;
 	private ImagePanel imagePanel;
 	private JButton btnNewGame;
+	public String commandToRun = "";
 	GameShell gameShell;
 
 	/**
 	 * Create the frame.
 	 */
-	public SplashGUI(GameShell gameShell) {
+	public SplashGUI() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 500);
 		setComponent();
@@ -87,9 +88,11 @@ public class SplashGUI extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String commandToRun = e.getActionCommand().toString();
+				commandToRun = e.getActionCommand().toString();
+				
 				SplashGUI.this.setVisible(false);
 				switch (commandToRun) {
-				case "newGame"	:	Start.gameShell.newGame();
+				case "newGame"	:	Start.gameShell.newGame(1);
 				break;
 				case "saveGame"	:	gameShell.saveGame();
 				break;
@@ -101,7 +104,6 @@ public class SplashGUI extends JFrame {
 			}
 		};
 		return actionListener;
-
 	}
 
 //	public String getCommand() {
