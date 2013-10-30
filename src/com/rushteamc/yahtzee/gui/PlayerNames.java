@@ -3,6 +3,8 @@ package com.rushteamc.yahtzee.gui;
 
 import java.awt.GridBagLayout;
 import java.awt.GridBagConstraints;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -10,16 +12,20 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.rushteamc.yahtzee.Start;
+import com.rushteamc.yahtzee.utils.Players;
 import com.rushteamc.yahtzee.utils.Variables;
 
 public class PlayerNames extends JFrame {
 
-	private static final long serialVersionUID = 15465431564647L;
-	private static JPanel contentPane;
-	public static JPanel buttonPane;
-	public static JButton nextButton;
-	public static JButton quitButton;
-	public static JTextField[] txtPlayerNames = new JTextField[Variables.selectedNumPlayers];
+	private final long serialVersionUID = 15465431564647L;
+	private JPanel contentPane;
+	public JPanel buttonPane;
+	public JButton nextButton;
+	public JButton quitButton;
+	public JTextField[] txtPlayerNames = new JTextField[Variables.selectedNumPlayers];
+	int numPlayers;
 	
 	
 	public PlayerNames(String gameVersion, int numPlayers)
@@ -38,10 +44,11 @@ public class PlayerNames extends JFrame {
 		gbl_contentPane.rowHeights = new int[]{40,40,40,40,40,40};
 		contentPane.setLayout(gbl_contentPane);
 		setComponent();
+		setHandler();
 		
 		//com.rushteamc.yahtzee.Start.setPlayerNameHandler(); // Build components before handling.
 	}
-	public void setComponent()
+	private void setComponent()
 	{
 		createButtonPane();
 		createLabels();
@@ -49,7 +56,7 @@ public class PlayerNames extends JFrame {
 		createNextButton();
 		createQuitButton();
 	}
-	static void createButtonPane()
+	private void createButtonPane()
 	{
 		buttonPane = new JPanel();
 		GridBagLayout gbl_buttonPane = new GridBagLayout();
@@ -63,7 +70,7 @@ public class PlayerNames extends JFrame {
 		buttonPane.setLayout(gbl_buttonPane);
 		contentPane.add(buttonPane, gbc_buttonPane);
 	}
-	static void createNextButton()
+	private void createNextButton()
 	{
 		nextButton = new JButton("Next");
 		GridBagConstraints gbc_nextButton = new GridBagConstraints();
@@ -71,12 +78,12 @@ public class PlayerNames extends JFrame {
 		gbc_nextButton.gridy = 0;
 		buttonPane.add(nextButton, gbc_nextButton);
 	}
-	static void createQuitButton()
+	private void createQuitButton()
 	{
 		quitButton = new JButton("Quit");
 		buttonPane.add(quitButton);
 	}
-	static void createLabels()
+	private void createLabels()
 	{
 		int arraySize = Variables.selectedNumPlayers;
 		JLabel[] lblPlayerNames = new JLabel[arraySize];
@@ -91,7 +98,7 @@ public class PlayerNames extends JFrame {
 		}
 		
 	}
-	static void createInputs()
+	private void createInputs()
 	{
 		int arraySize = Variables.selectedNumPlayers;
 //		JTextField[] txtPlayerNames = new JTextField[arraySize];
@@ -107,4 +114,33 @@ public class PlayerNames extends JFrame {
 		}
 	}
 
+	private void setHandler() {
+		this.nextButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+
+				String[] playerNames = new String[numPlayers];
+				
+				for(int i = 0 ; i < numPlayers ; i++)
+				{
+					if(!(txtPlayerNames[i].getText() == "")) {
+						playerNames[i] = txtPlayerNames[i].getText();
+					}
+					
+					Start.gameShell.setPlayerNames(playerNames);
+					Start.gameShell.newGame(3);
+					
+					
+				}
+
+			}
+		});
+
+		this.quitButton.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(0);
+			}
+		});
+	}
 }

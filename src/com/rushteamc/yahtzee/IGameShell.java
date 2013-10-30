@@ -11,4 +11,6 @@ public interface IGameShell {
 	public void quitGame();
 	
 	public void setPlayerNumbers(int players);
+	
+	public void 
 }

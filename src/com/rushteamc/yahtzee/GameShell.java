@@ -10,6 +10,7 @@ public class GameShell implements IGameShell {
 
 	private String gameVersion = "0.0.1";
 	private int numPlayers;
+	public Game yahtzoidGame;
 	
 	
 	public GameShell() {
