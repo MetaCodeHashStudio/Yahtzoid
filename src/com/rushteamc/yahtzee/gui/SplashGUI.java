@@ -6,12 +6,24 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
+
 import java.awt.GridBagConstraints;
+import java.io.File;
+import java.io.InputStream;
+import java.net.URL;
+
+import javax.imageio.ImageIO;
+
+import com.rushteamc.yahtzee.utils.FileHandling;
+
+import java.awt.Image;
 
 public class SplashGUI extends JFrame {
 
 	private static final long serialVersionUID = 87865423484543L;
 	private JPanel contentPane;
+	private JPanel imagePanel;
+	private Image yahtzoidImage;
 	
 	/**
 	 * Create the frame.
@@ -26,6 +38,12 @@ public class SplashGUI extends JFrame {
 	}
 	private void setUpperPanel() {
 		imagePanel = new JPanel();
+		
+		URL inputURL = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/LogoCTrans.png");
+		InputStream input = new URL(inputURL.toString()).openStream();
+		yahtzoidImage = ImageIO.read(new InputStream(new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/LogoCTrans.png"))) ;
+		imagePanel.drawImage(yahtzoidImage, 0, 0, null);
+		
 		
 	}
 	private void setMainPanel() {
