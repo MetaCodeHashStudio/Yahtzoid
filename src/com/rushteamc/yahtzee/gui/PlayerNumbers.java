@@ -19,14 +19,12 @@ public class PlayerNumbers extends JFrame {
 
 	private static final long serialVersionUID = 15465431564646L;
 	private JPanel contentPane;
-//	public static JPanel mainPane;
-//	public static PlayerNumbers dialog;
 	private JPanel buttonPane;
 	private JButton nextButton;
 	private JButton quitButton;
 	private JRadioButton[] rdNumPlayers;
 	private ButtonGroup numPlayersGroup;
-
+	private int playerNumbersReturnable;
 
 	/**
 	 * Create the dialog.
@@ -116,15 +114,15 @@ public class PlayerNumbers extends JFrame {
 				@Override
 				public void actionPerformed(ActionEvent e)
 				{
-					
-					Variables.selectedNumPlayers = com.rushteamc.yahtzee.gui.utils.GameSetupStates.getSelectedNumbersOfPlayers();
-					com.rushteamc.yahtzee.Start.PlayerNumberFrame.setVisible(false);
-					com.rushteamc.yahtzee.Start.continueToNames();
-				
+					for (int i = 0 ; i < rdNumPlayers.length ; i++)
+					{
+						if(rdNumPlayers[i].isSelected())
+						{
+							playerNumbersReturnable = (i+1);
+						}
+					}
 				}
-				
 			}
-			
 		);
 		
         this.quitButton.addActionListener
@@ -145,5 +143,10 @@ public class PlayerNumbers extends JFrame {
        
         );
 	
+	}
+
+	public boolean getSelectedNumbersOfPlayers()
+	{
+		return getSelectedNumbersOfPlayers();
 	}
 }
