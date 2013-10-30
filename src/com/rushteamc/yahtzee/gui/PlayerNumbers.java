@@ -29,9 +29,10 @@ public class PlayerNumbers extends JFrame {
 	/**
 	 * Create the dialog.
 	 */
-	public PlayerNumbers()
+	public PlayerNumbers(String gameVersion)
 	{
-		setTitle(Variables.APPLICATION_TITLE);
+		
+		setTitle("Yahtzoid " + gameVersion);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 540, 300);
