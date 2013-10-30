@@ -9,35 +9,32 @@ import com.rushteamc.yahtzee.gui.SplashGUI;
 public class GameShell implements IGameShell {
 
 	private String gameVersion = "0.0.1";
-	private int numPlayers;
+	private String commandToRun = "";
+	
 	
 	public GameShell() {
 		
 		EventQueue.invokeLater(
 				new Runnable() {
-					
+
 					@Override
-					public void run(){
-						try {
-							
-							SplashGUI splashGUI = new SplashGUI();
-							splashGUI.setVisible(true);
-							
-						} catch (Exception e) {
-							e.printStackTrace();
-						}
+					public void run() {
+					try {
+	
+						SplashGUI splashGUI = new SplashGUI(GameShell.this);
+						splashGUI.setVisible(true);
+						
+					} catch (Exception e) {
+						e.printStackTrace();
 					}
 				}
-			);
-		
-		
+			}
+		);
+
 	}
 	
 	public void newGame() {
-		
-		
-		try {
-		EventQueue.invokeAndWait(
+		EventQueue.invokeLater(
 				new Runnable() {
 		
 					@Override
@@ -54,11 +51,6 @@ public class GameShell implements IGameShell {
 					}
 				}
 			);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		}
 	}
 	
 	public void saveGame() {

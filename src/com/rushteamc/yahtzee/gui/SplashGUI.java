@@ -8,61 +8,104 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JButton;
 
 import java.awt.GridBagConstraints;
-import java.io.File;
-import java.io.InputStream;
-import java.net.URL;
 
-import javax.imageio.ImageIO;
+import javax.swing.border.LineBorder;
 
-import com.rushteamc.yahtzee.utils.FileHandling;
+import com.rushteamc.yahtzee.GameShell;
+import com.rushteamc.yahtzee.Start;
 
-import java.awt.Image;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class SplashGUI extends JFrame {
 
 	private static final long serialVersionUID = 87865423484543L;
 	private JPanel contentPane;
-	private JPanel imagePanel;
-	private Image yahtzoidImage;
-	
+	private ImagePanel imagePanel;
+	private JButton btnNewGame;
+	GameShell gameShell;
+
 	/**
 	 * Create the frame.
 	 */
-	public SplashGUI() {
+	public SplashGUI(GameShell gameShell) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 400, 500);
 		setComponent();
+		setHandler();
 	}
+
 	private void setComponent() {
 		setMainPanel();
+		setImagePanel();
 	}
-	private void setUpperPanel() {
-		imagePanel = new JPanel();
-		
-		URL inputURL = new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/LogoCTrans.png");
-		InputStream input = new URL(inputURL.toString()).openStream();
-		yahtzoidImage = ImageIO.read(new InputStream(new URL(FileHandling.getWorkingPaths() + "com/rushteamc/yahtzee/gui/img/LogoCTrans.png"))) ;
-		imagePanel.drawImage(yahtzoidImage, 0, 0, null);
-		
-		
+
+	private void setImagePanel() {
+		imagePanel = new ImagePanel(
+				"com/rushteamc/yahtzee/gui/img/LogoCTrans.png");
+		imagePanel.setBorder(new LineBorder(new Color(0, 0, 0)));
+		GridBagConstraints gbc_imagePanel = new GridBagConstraints();
+		gbc_imagePanel.gridx = 0;
+		gbc_imagePanel.gridy = 0;
+		gbc_imagePanel.gridwidth = 13;
+		gbc_imagePanel.gridheight = 10;
+		contentPane.add(imagePanel, gbc_imagePanel);
 	}
+
 	private void setMainPanel() {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		GridBagLayout gbl_contentPane = new GridBagLayout();
-		
-		gbl_contentPane.columnWidths = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
-		gbl_contentPane.rowHeights = new int[] {30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30, 30};
-		gbl_contentPane.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
-		gbl_contentPane.rowWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+
+		gbl_contentPane.columnWidths = new int[] { 30, 30, 30, 30, 30, 30, 30,
+				30, 30, 30, 30, 30, 30 };
+		gbl_contentPane.rowHeights = new int[] { 30, 30, 30, 30, 30, 30, 30,
+				30, 30, 30, 30, 30, 30, 30, 30, 30 };
+
 		contentPane.setLayout(gbl_contentPane);
 		setContentPane(contentPane);
-		
-		JButton btnNewButton = new JButton("New button");
-		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
-		gbc_btnNewButton.gridx = 6;
-		gbc_btnNewButton.gridy = 4;
-		contentPane.add(btnNewButton, gbc_btnNewButton);
+
+		btnNewGame = new JButton("New Game");
+		GridBagConstraints gbc_btnNewGame = new GridBagConstraints();
+		gbc_btnNewGame.gridx = 6;
+		gbc_btnNewGame.gridy = 4;
+		gbc_btnNewGame.gridwidth = 1;
+		gbc_btnNewGame.gridheight = 1;
+		contentPane.add(btnNewGame, gbc_btnNewGame);
+		btnNewGame.setActionCommand("newGame");
+
 	}
+
+	private void setHandler() {
+		btnNewGame.addActionListener(getActionListener());
+	}
+
+	private ActionListener getActionListener() {
+
+		ActionListener actionListener = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String commandToRun = e.getActionCommand().toString();
+				SplashGUI.this.setVisible(false);
+				switch (commandToRun) {
+				case "newGame"	:	Start.gameShell.newGame();
+				break;
+				case "saveGame"	:	gameShell.saveGame();
+				break;
+				case "loadGame"	:	gameShell.loadGame();
+				break;
+				case "quitGame"	:	gameShell.quitGame();
+				break;
+				}
+			}
+		};
+		return actionListener;
+
+	}
+
+//	public String getCommand() {
+//		return commandToRun;
+//	}
 
 }
