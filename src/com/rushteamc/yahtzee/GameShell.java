@@ -4,6 +4,7 @@ import java.awt.EventQueue;
 import java.lang.reflect.InvocationTargetException;
 
 import com.rushteamc.yahtzee.gui.PlayerNumbers;
+import com.rushteamc.yahtzee.gui.SplashGUI;
 
 public class GameShell implements IGameShell {
 
@@ -11,7 +12,25 @@ public class GameShell implements IGameShell {
 	private int numPlayers;
 	
 	public GameShell() {
-		newGame();
+		
+		EventQueue.invokeLater(
+				new Runnable() {
+					
+					@Override
+					public void run(){
+						try {
+							
+							SplashGUI splashGUI = new SplashGUI();
+							splashGUI.setVisible(true);
+							
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				}
+			);
+		
+		
 	}
 	
 	public void newGame() {
