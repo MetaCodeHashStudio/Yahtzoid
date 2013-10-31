@@ -11,8 +11,6 @@ import java.awt.GridBagConstraints;
 
 import javax.swing.border.LineBorder;
 
-import com.rushteamc.yahtzee.GameShell;
-import com.rushteamc.yahtzee.Start;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -24,8 +22,9 @@ public class SplashGUI extends JFrame {
 	private JPanel contentPane;
 	private ImagePanel imagePanel;
 	private JButton btnNewGame;
-	public String commandToRun = "";
-	GameShell gameShell;
+	private String commandToRun;
+	private boolean waitState = true;
+	public ActionListener actionListener;
 
 	/**
 	 * Create the frame.
@@ -79,35 +78,32 @@ public class SplashGUI extends JFrame {
 	}
 
 	private void setHandler() {
-		btnNewGame.addActionListener(getActionListener());
+		this.actionListener = getActionListener();
+		btnNewGame.addActionListener(actionListener);
 	}
 
 	private ActionListener getActionListener() {
 
-		ActionListener actionListener = new ActionListener() {
+		ActionListener tempActionListener = new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String commandToRun = e.getActionCommand().toString();
-				commandToRun = e.getActionCommand().toString();
-				
-				SplashGUI.this.setVisible(false);
-				switch (commandToRun) {
-				case "newGame"	:	Start.gameShell.newGame(1);
-				break;
-				case "saveGame"	:	gameShell.saveGame();
-				break;
-				case "loadGame"	:	gameShell.loadGame();
-				break;
-				case "quitGame"	:	gameShell.quitGame();
-				break;
+				SplashGUI.this.commandToRun = e.getActionCommand().toString();
+				System.out.println("ActionListener fired!");
+				waitState = false;
+				synchronized (this) {
+					notifyAll();
 				}
 			}
 		};
-		return actionListener;
+		return tempActionListener;
+	}
+	public boolean getWaitState()
+	{
+		return waitState;
 	}
 
-//	public String getCommand() {
-//		return commandToRun;
-//	}
+	public String getCommand() {
+		return commandToRun;
+	}
 
 }

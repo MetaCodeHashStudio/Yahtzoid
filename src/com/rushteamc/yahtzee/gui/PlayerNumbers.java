@@ -13,10 +13,6 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JOptionPane;
-
-import com.rushteamc.yahtzee.GameShell;
-import com.rushteamc.yahtzee.Start;
 
 public class PlayerNumbers extends JFrame {
 
@@ -28,6 +24,9 @@ public class PlayerNumbers extends JFrame {
 	private JButton quitButton;
 	private JRadioButton[] rdNumPlayers;
 	private ButtonGroup numPlayersGroup;
+	
+	private boolean waitState = true;
+	private int numberSelection;
 
 	/**
 	 * Create the dialog.
@@ -118,8 +117,12 @@ public class PlayerNumbers extends JFrame {
 					{
 						if(rdNumPlayers[i].isSelected())
 						{
-							Start.gameShell.setPlayerNumbers(i+1);
-							Start.gameShell.newGame(2);	
+							System.out.println("ActionListener fired!");
+							waitState = false;
+							synchronized (this) {
+								notifyAll();
+							}
+							PlayerNumbers.this.numberSelection = (i+1);
 						}
 					}
 				}
@@ -145,9 +148,11 @@ public class PlayerNumbers extends JFrame {
         );
 	
 	}
-
-	public boolean getSelectedNumbersOfPlayers()
-	{
-		return getSelectedNumbersOfPlayers();
+	
+	public boolean getWaitState() {
+		return waitState;
+	}
+	public int getSelection() {
+		return this.numberSelection;
 	}
 }

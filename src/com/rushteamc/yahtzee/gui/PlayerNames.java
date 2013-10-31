@@ -13,24 +13,25 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 
-import com.rushteamc.yahtzee.Start;
-import com.rushteamc.yahtzee.utils.Players;
-import com.rushteamc.yahtzee.utils.Variables;
+// import com.rushteamc.yahtzee.utils.Variables;
 
 public class PlayerNames extends JFrame {
 
-	private final long serialVersionUID = 15465431564647L;
+	private static final long serialVersionUID = 15465431564647L;
 	private JPanel contentPane;
-	public JPanel buttonPane;
-	public JButton nextButton;
-	public JButton quitButton;
-	public JTextField[] txtPlayerNames = new JTextField[Variables.selectedNumPlayers];
+	private JPanel buttonPane;
+	private JButton nextButton;
+	private JButton quitButton;
+	private JTextField[] txtPlayerNames;
 	int numPlayers;
+	private boolean waitState = true;
+	private String[] playerNames;
 	
 	
 	public PlayerNames(String gameVersion, int numPlayers)
 	{
-		setTitle(Variables.APPLICATION_TITLE);
+		this.numPlayers = numPlayers;
+		setTitle("Yahtzoid " + gameVersion);
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 540, 300);
@@ -85,10 +86,9 @@ public class PlayerNames extends JFrame {
 	}
 	private void createLabels()
 	{
-		int arraySize = Variables.selectedNumPlayers;
-		JLabel[] lblPlayerNames = new JLabel[arraySize];
-		GridBagConstraints[] gbc_lblPlayerNames = new GridBagConstraints[arraySize];
-		for (int i = 0 ; i < arraySize ; i++)
+		JLabel[] lblPlayerNames = new JLabel[numPlayers];
+		GridBagConstraints[] gbc_lblPlayerNames = new GridBagConstraints[numPlayers];
+		for (int i = 0 ; i < numPlayers ; i++)
 		{
 			gbc_lblPlayerNames[i] = new GridBagConstraints();
 			gbc_lblPlayerNames[i].gridx = 1;
@@ -100,10 +100,8 @@ public class PlayerNames extends JFrame {
 	}
 	private void createInputs()
 	{
-		int arraySize = Variables.selectedNumPlayers;
-//		JTextField[] txtPlayerNames = new JTextField[arraySize];
-		GridBagConstraints[] gbc_txtPlayerNames = new GridBagConstraints[arraySize];
-		for (int i = 0 ; i < arraySize ; i++)
+		GridBagConstraints[] gbc_txtPlayerNames = new GridBagConstraints[numPlayers];
+		for (int i = 0 ; i < numPlayers ; i++)
 		{
 			gbc_txtPlayerNames[i] = new GridBagConstraints();
 			gbc_txtPlayerNames[i].gridx = 2;
@@ -118,17 +116,18 @@ public class PlayerNames extends JFrame {
 		this.nextButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
-				String[] playerNames = new String[numPlayers];
+				playerNames = new String[numPlayers];
 				
+				System.out.println("ActionListener fired!");
+				waitState = false;
+				synchronized (this) {
+					notifyAll();
+				}
 				for(int i = 0 ; i < numPlayers ; i++)
 				{
 					if(!(txtPlayerNames[i].getText() == "")) {
 						playerNames[i] = txtPlayerNames[i].getText();
 					}
-					
-					Start.gameShell.setPlayerNames(playerNames);
-					Start.gameShell.newGame(3);
 					
 					
 				}
@@ -142,5 +141,11 @@ public class PlayerNames extends JFrame {
 				System.exit(0);
 			}
 		});
+	}
+	public boolean getWaitState() {
+		return waitState;
+	}
+	public String[] getPlayerNames() {
+		return playerNames;
 	}
 }
