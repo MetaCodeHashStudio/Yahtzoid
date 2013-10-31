@@ -100,6 +100,7 @@ public class PlayerNames extends JFrame {
 	}
 	private void createInputs()
 	{
+		txtPlayerNames = new JTextField[numPlayers];
 		GridBagConstraints[] gbc_txtPlayerNames = new GridBagConstraints[numPlayers];
 		for (int i = 0 ; i < numPlayers ; i++)
 		{

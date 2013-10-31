@@ -22,7 +22,7 @@ import javax.swing.border.LineBorder;
 import com.rushteamc.yahtzee.Game;
 import com.rushteamc.yahtzee.utils.FileHandling;
 import com.rushteamc.yahtzee.utils.Players;
-import com.rushteamc.yahtzee.utils.Variables;
+//import com.rushteamc.yahtzee.utils.Variables;
 import com.rushteamc.yahtzee.gui.utils.GUIVariables;
 
 import java.io.IOException;
@@ -232,7 +232,7 @@ public class GUI extends JFrame {
 		this.setHandler();			
 
 		this.cleanup();
-		Game.startGame();
+//		Game.startGame();
 	
 	}
 	
