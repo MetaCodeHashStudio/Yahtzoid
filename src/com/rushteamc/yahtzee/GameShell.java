@@ -20,56 +20,7 @@ public class GameShell implements IGameShell {
 	private int numberOfPlayers;
 
 	public GameShell() {
-
-		try {
-			SwingUtilities.invokeAndWait(new Runnable() {
-
-				@Override
-				public void run() {
-					
-					try {
-						splashGUI = new SplashGUI();
-						splashGUI.setVisible(true);
-					} catch (IllegalMonitorStateException e) {
-						e.printStackTrace();
-					}
-				}
-			});
-			
-			synchronized (splashGUI) {
-				try {
-					while (splashGUI.getWaitState()) {
-						splashGUI.wait(50);
-					}
-				} catch (InterruptedException e) {
-					e.printStackTrace();
-				}
-			}
-		} catch (InvocationTargetException e) {
-			e.printStackTrace();
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-		
-		String command = splashGUI.getCommand();
-		System.out.println(command);
-		splashGUI.dispose();
-		
-		switch (command) {
-		case "newGame":
-			this.newGame();
-			break;
-		case "saveGame":
-			this.saveGame();
-			break;
-		case "loadGame":
-			this.loadGame();
-			break;
-		case "quitGame":
-			this.quitGame();
-			break;
-		}
-		
+		mainMenu();
 	}
 
 	public void newGame() {
@@ -152,5 +103,60 @@ public class GameShell implements IGameShell {
 
 	public void quitGame() {
 
+	}
+	/*
+	 * 
+	 * Methods not part of interface:
+	 * 
+	 */
+	public void mainMenu() {
+		try {
+			SwingUtilities.invokeAndWait(new Runnable() {
+
+				@Override
+				public void run() {
+					
+					try {
+						splashGUI = new SplashGUI();
+						splashGUI.setVisible(true);
+					} catch (IllegalMonitorStateException e) {
+						e.printStackTrace();
+					}
+				}
+			});
+			
+			synchronized (splashGUI) {
+				try {
+					while (splashGUI.getWaitState()) {
+						splashGUI.wait(50);
+					}
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+		
+		String command = splashGUI.getCommand();
+		System.out.println(command);
+		splashGUI.dispose();
+		
+		switch (command) {
+		case "newGame":
+			this.newGame();
+			break;
+		case "saveGame":
+			this.saveGame();
+			break;
+		case "loadGame":
+			this.loadGame();
+			break;
+		case "quitGame":
+			this.quitGame();
+			break;
+		}
 	}
 }
