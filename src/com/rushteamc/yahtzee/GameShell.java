@@ -1,6 +1,12 @@
 package com.rushteamc.yahtzee;
 
 import java.awt.EventQueue;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.lang.reflect.InvocationTargetException;
 
 import javax.swing.SwingUtilities;
@@ -12,10 +18,14 @@ import com.rushteamc.yahtzee.gui.SplashGUI;
 public class GameShell implements IGameShell {
 
 	private String gameVersion = "0.0.1";
-	public Game yahtzoidGame;
+	public Game game;
+	
+	
+	// TODO Merge GUIs
 	private SplashGUI splashGUI;
 	private PlayerNumbers playerNumbers;
 	private PlayerNames playerNames;
+	private static final String SAVE_FILE_NAME = "save.dat";
 	
 	private int numberOfPlayers;
 
@@ -94,11 +104,27 @@ public class GameShell implements IGameShell {
 	}
 
 	public void saveGame() {
-
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(new File(SAVE_FILE_NAME))))
+        {
+            out.writeObject(this.game);
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+        }
 	}
 
 	public void loadGame() {
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(new File(SAVE_FILE_NAME))))
+        {
+            this.game = (Game) in.readObject();
 
+//            System.out.println(this.game.getPlayers());
+        }
+        catch (IOException | ClassNotFoundException e)
+        {
+            e.printStackTrace();
+        }
 	}
 
 	public void quitGame() {
